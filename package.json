@@ -1,0 +1,32 @@
+{
+  "name": "skyward-rest",
+  "version": "1.0.0",
+  "description": "Unofficial Rest API for Skyward",
+  "main": "index.js",
+  "dependencies": {
+    "selenium-webdriver": "^3.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FruitsNVeggies/skyward-rest.git"
+  },
+  "keywords": [
+    "Skyward",
+    "rest",
+    "api",
+    "get",
+    "grab",
+    "scrape",
+    "grades"
+  ],
+  "author": "Kael Kirk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FruitsNVeggies/skyward-rest/issues"
+  },
+  "homepage": "https://github.com/FruitsNVeggies/skyward-rest#readme"
+}
