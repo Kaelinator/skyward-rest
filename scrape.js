@@ -36,6 +36,7 @@ const scrape = module.exports = (url, sId, pass) => {
           const bkt = await g.getAttribute('data-bkt')
 
           await driver.executeScript('arguments[0].scrollIntoView()', g)
+            .then(() => { console.log('scrolling') })
           /* sometimes this doesn't actually scroll... */
 
           await g.click()
@@ -43,6 +44,7 @@ const scrape = module.exports = (url, sId, pass) => {
               driver.wait(until.elementLocated(By.className('gb_heading'))) })
             .then(() => { console.log('grabbing heading')
               driver.findElement(By.className('gb_heading')).then((x) => x.getAttribute('innerHTML').then(console.log)) })
+            .then(() => { driver.findElement(By.css('.sf_gridTableWrap tbody td')) })
             .then(() => { console.log('awaiting exit button')
               driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))) })
             .then(() => { console.log('clicking exit button')
