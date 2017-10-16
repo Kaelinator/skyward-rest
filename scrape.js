@@ -2,7 +2,6 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const Promise = require('bluebird')
 
 const scrape = module.exports = (url, sId, pass) => {
-  const echo             = lbl  => console.log(lbl) || lbl
   const waitForId        = id   => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000)
   const inputCredentials = ()   => driver.findElement(By.id('login')).sendKeys(sId, Key.TAB, pass, Key.RETURN)
   const getHandles       = ()   => driver.getAllWindowHandles()
@@ -21,16 +20,12 @@ const scrape = module.exports = (url, sId, pass) => {
     .then(swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))
-
     .then(grades => {
-
-
       return Promise
         .resolve(grades)
         .reduce((data, grade) => grade.getAttribute('data-bkt')
             .then(bkt => {
-              if (!data.hasOwnProperty(bkt))
-                data[bkt] = []
+              data[bkt] = data[bkt] || []
 
               data[bkt].push(grade)
 
@@ -38,8 +33,8 @@ const scrape = module.exports = (url, sId, pass) => {
             }), {})
         .then((data) => Object.keys(data)
             .reduce((obj, bkt) => {
-              obj[bkt].map((grade) => {
-                
+              obj[bkt] = obj[bkt].reduce((overview, grade) => {
+
                 return driver.executeScript('arguments[0].scrollIntoView()', grade)
                   .then(() => grade.click())
                   .then(() => driver.wait(until.elementLocated(By.className('gb_heading'))))
@@ -47,7 +42,9 @@ const scrape = module.exports = (url, sId, pass) => {
                   .then(() => driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
                   .then(() => driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
                   .then(() => driver.wait(until.elementIsNotVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
-                })
+                  .then(() => 5)
+
+                }, {})
               return obj
             }, data))
     })
