@@ -21,8 +21,7 @@ const scrape = module.exports = (url, sId, pass) => {
     .then(swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))
-    .then(grades => {
-      return Promise
+    .then(grades => Promise
         .resolve(grades)
         .reduce((data, grade) => grade.getAttribute('data-bkt')
             .then(bkt => {
@@ -34,25 +33,26 @@ const scrape = module.exports = (url, sId, pass) => {
             }), {})
         .then((data) => Object.keys(data)
             .reduce((obj, bkt) => {
-              obj[bkt] = obj[bkt].map(grade => {
+              obj[bkt] = obj[bkt].map(grade => { return grade })
+            }, data)
+          )
 
-                return Promise
-                  .resolve(grade.getAttribute('innerHTML'))
-                  .then(score => { 
-                    driver.executeScript('arguments[0].scrollIntoView()', grade) 
-                    return { score: score }
-                  })
-                  .tap(driver.wait(until.elementIsVisible(grade)))
-                  .tap(grade.click())
-                  .tap(driver.wait(until.elementLocated(By.className('gb_heading'))))
-                  .tap(driver.findElement(By.className('gb_heading')))
-                  .tap(driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
-                  .tap(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
-                  .tap(driver.wait(until.elementIsNotVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
+        //         return Promise
+        //           .resolve(grade.getAttribute('innerHTML'))
+        //           .then(score => { 
+        //             driver.executeScript('arguments[0].scrollIntoView()', grade) 
+        //             return { score: score }
+        //           })
+        //           .tap(driver.wait(until.elementIsVisible(grade)))
+        //           .tap(grade.click())
+        //           .tap(driver.wait(until.elementLocated(By.className('gb_heading'))))
+        //           .tap(driver.findElement(By.className('gb_heading')))
+        //           .tap(driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
+        //           .tap(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
+        //           .tap(driver.wait(until.elementIsNotVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
 
-                }, {})
-              return obj
-            }, data))
-    })
+        //         }, {})
+        //       return obj
+        //     }, data))
+    )
 }
-
