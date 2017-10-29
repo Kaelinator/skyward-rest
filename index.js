@@ -5,7 +5,7 @@ const skyward = module.exports =
     (url) =>
         (sId, pass, target) => scrape(url, sId, pass, target)
 
-skyward('https://skyward.kleinisd.net/')('s531758', 'ASDF;lkj', 'S1')
+skyward('https://skyward.kleinisd.net/')('s531758', 'ASDF;lkj', 'Q2')
     // .then(Promise.props)
     .then(Promise.all)
     .then(console.log)
