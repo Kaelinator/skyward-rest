@@ -38,7 +38,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
               driver.wait(until.elementLocated(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))
                 .then(driver.wait(until.elementLocated(By.className('sf_DialogHtml'))))
                 .then(driver.findElements(By.className('sf_DialogHtml')))
-                .then(pane => driver.executeScript('return arguments[0][3].innerHTML', pane))
+                .then(pane => driver.executeScript('return arguments[0].innerHTML', pane))
                 .then(html => Object.assign(data, { pane: html })))
             .then(data =>
                 driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]'))))
