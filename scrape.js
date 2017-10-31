@@ -36,9 +36,10 @@ const scrape = module.exports = (url, sId, pass, target) => {
                 .then(() => data))
             .then(data =>
               driver.wait(until.elementLocated(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))
-                .then(driver.wait(until.elementLocated(By.className('sf_DialogHtml'))))
-                .then(driver.findElements(By.className('sf_DialogHtml')))
-                .then(pane => driver.executeScript('return arguments[0].innerHTML', pane))
+                .then(driver.wait(until.elementLocated(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml'))))
+                .then(driver.wait(until.elementIsVisible(driver.findElement(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))))
+                .then(driver.findElements(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))
+                .then(pane => driver.executeScript('return document.body.innerText'))
                 .then(html => Object.assign(data, { pane: html })))
             .then(data =>
                 driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]'))))
