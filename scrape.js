@@ -1,6 +1,12 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const Promise = require('bluebird')
 
+const parse = (body) => {
+
+
+  return { grades: body.split('WgIAssignment Category SummaryWgI') }
+}
+
 const scrape = module.exports = (url, sId, pass, target) => {
   const waitForId        = id   => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000)
   const inputCredentials = ()   => driver.findElement(By.id('login')).sendKeys(sId, Key.TAB, pass, Key.RETURN)
@@ -40,7 +46,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
                 .then(driver.wait(until.elementIsVisible(driver.findElement(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))))
                 .then(driver.findElements(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))
                 .then(pane => driver.executeScript('return document.body.innerText'))
-                .then(html => Object.assign(data, { pane: html })))
+                .then(html => parse(html)))
             .then(data =>
                 driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]'))))
                 .then(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
