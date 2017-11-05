@@ -1,12 +1,6 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const Promise = require('bluebird')
-
-const parse = (body) => {
-
-  return body
-    .split('\n')
-    .map(t => t.trim())
-}
+const parse = require('./parser.js')
 
 const scrape = module.exports = (url, sId, pass, target) => {
   const waitForId        = id   => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000)
@@ -24,7 +18,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
     .then(waitForId('login'))
     .then(waitForId('password'))
     .then(inputCredentials)
-    .then(wait(1000))
+    .then(wait(1000)) // TODO: wait until element is found
     .then(swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))
@@ -32,7 +26,8 @@ const scrape = module.exports = (url, sId, pass, target) => {
         .resolve(grades)
         .filter(link => link.getAttribute('data-lit')
             .then(lit => lit == target))
-        .mapSeries((link) => 
+        .mapSeries((link) =>
+          /* TODO: clean */
           Promise
             .resolve(link.getAttribute('innerHTML'))
             .then(score => Object.assign({}, { score: score }))
