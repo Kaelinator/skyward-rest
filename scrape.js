@@ -14,11 +14,11 @@ const scrape = module.exports = (url, sId, pass, target) => {
     .forBrowser('chrome')
     .build()
     
-  return driver.get(url)
+  return driver.get(url) // ERR: no connection
     .then(waitForId('login'))
     .then(waitForId('password'))
-    .then(inputCredentials)
-    .then(wait(1000)) // TODO: wait until element is found
+    .then(inputCredentials) // ERR: incorrect credentials
+    .then(wait(1000)) // TODO: wait until window is found
     .then(swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))
@@ -27,7 +27,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
         .filter(link => link.getAttribute('data-lit')
             .then(lit => lit == target))
         .mapSeries((link) =>
-          /* TODO: clean */
+          /* TODO: clean up */
           Promise
             .resolve(link.getAttribute('innerHTML'))
             .then(score => Object.assign({}, { score: score }))
