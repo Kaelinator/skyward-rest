@@ -4,11 +4,14 @@ const parse = require('./parser.js')
 
 const scrape = module.exports = (url, sId, pass, target) => {
   const waitForId        = id   => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000)
-  const inputCredentials = ()   => driver.findElement(By.id('login')).sendKeys(sId, Key.TAB, pass, Key.RETURN)
-  const getHandles       = ()   => driver.getAllWindowHandles()
+  const inputCredentials = _    => driver.findElement(By.id('login')).sendKeys(sId, Key.TAB, pass, Key.RETURN)
+  const getHandles       = _    => driver.getAllWindowHandles()
   const swap             = w    => driver.getAllWindowHandles().then((w) => driver.switchTo().window(w[w.length - 1]))
   const wait             = x    => driver.sleep(x)
   const maintain         = d    => d
+
+  if (target.includes('S'))
+    throw 'Semester scraper unimplemented'
 
   const driver = new Builder()
     .forBrowser('chrome')
@@ -18,7 +21,12 @@ const scrape = module.exports = (url, sId, pass, target) => {
     .then(waitForId('login'))
     .then(waitForId('password'))
     .then(inputCredentials) // ERR: incorrect credentials
-    .then(wait(1000)) // TODO: wait until window is found
+    .then(wait(1000))
+    .then(_ => driver.executeScript('return document.body.innerText')) // Invalid login or password.
+    .then(res => {
+      if (res.includes('Invalid login or password.'))
+        throw 'Invalid login or password.'
+    })
     .then(swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))

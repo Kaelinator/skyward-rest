@@ -7,8 +7,8 @@ const skyward = module.exports =
 
 const pretty = (d) => JSON.stringify(d, null, 2)
 
-skyward('https://skyward.kleinisd.net/')('s531758', 'ASDF;lkj', 'Q2')
+skyward('https://skyward.kleinisd.net/')('s592100', 'pis.12345', 'Q2')
     .then(Promise.all)
     .then(pretty)
     .then(console.log)
-    .catch(_ => console.log('There was an error!'))
+    .catch(err => console.log(err))
