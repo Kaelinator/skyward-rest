@@ -56,5 +56,8 @@ const scrape = module.exports = (url, sId, pass, target) => {
                 .then(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
                 .then(driver.wait(until.elementIsNotVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')))))
                 .then(() => data))
-        ))
+        ).then(x => {
+          driver.quit()
+          return x
+        }))
 }
