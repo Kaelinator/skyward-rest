@@ -2,7 +2,7 @@ const match = s =>
   r =>
     r.exec(s) ? r.exec(s)[1] : '0'
 
-const parse = module.exports = (innerText) => {
+const parse = module.exports = (innerText, target) => {
 
   const data = innerText
     .split('\n')

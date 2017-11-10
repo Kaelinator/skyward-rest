@@ -8,10 +8,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
   const getHandles       = _    => driver.getAllWindowHandles()
   const swap             = w    => driver.getAllWindowHandles().then((w) => driver.switchTo().window(w[w.length - 1]))
   const wait             = x    => driver.sleep(x)
-  const maintain         = d    => d
-
-  if (target.includes('S'))
-    throw 'Semester scraper unimplemented'
+  const innerText        = _    => driver.executeScript('return document.body.innerText')
 
   const driver = new Builder()
     .forBrowser('chrome')
@@ -20,9 +17,9 @@ const scrape = module.exports = (url, sId, pass, target) => {
   return driver.get(url) // ERR: no connection
     .then(waitForId('login'))
     .then(waitForId('password'))
-    .then(inputCredentials) // ERR: incorrect credentials
+    .then(inputCredentials)
     .then(wait(1000))
-    .then(_ => driver.executeScript('return document.body.innerText')) // Invalid login or password.
+    .then(innerText)
     .then(res => {
       if (res.includes('Invalid login or password.'))
         throw 'Invalid login or password.'
@@ -50,7 +47,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
                 .then(driver.wait(until.elementIsVisible(driver.findElement(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))))
                 .then(driver.findElements(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))
                 .then(pane => driver.executeScript('return document.body.innerText'))
-                .then(html => parse(html)))
+                .then(html => parse(html, target)))
             .then(data =>
                 driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]'))))
                 .then(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]')).click())
