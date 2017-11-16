@@ -1,6 +1,9 @@
 const match = s =>
-  r =>
-    r.exec(s) ? r.exec(s)[1] : '0'
+  r => {
+    const test = r.exec(s)
+    console.log(test)
+    return (test && test.length > 1) ? r.exec(s)[1] : '0'
+  }
 
 const parse = module.exports = (innerText, target) => {
 
