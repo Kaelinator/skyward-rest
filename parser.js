@@ -2,7 +2,7 @@ const match = s =>
   r => {
     const test = r.exec(s)
     console.log(test)
-    return (test && test.length > 1) ? r.exec(s)[1] : '0'
+    return (test && test.length > 1 && test[1] != 'undefined') ? test[1] : '0'
   }
 
 const parse = module.exports = (innerText, target) => {
@@ -30,8 +30,8 @@ const parse = module.exports = (innerText, target) => {
       grades.current = data[i - 2]
 
       grades[grades.current] = {
-        score      : getInfo(/(\d+|\*)\sout\sof\s\d+/),
-        total      : getInfo(/\d+|\*\sout\sof\s(\d+)/),
+        score      : getInfo(/([\d\*]+)\sout\sof\s\d+/),
+        total      : getInfo(/[\d\*]+\sout\sof\s(\d+)/),
         weight     : getInfo(/(\d+.\d+)%/),
         assignments: []
       }
