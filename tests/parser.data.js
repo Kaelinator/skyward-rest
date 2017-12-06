@@ -3,136 +3,161 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\n   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nCOMPUTER SCI AP (Period 1) Joseph Cusack\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n100\t100.00\nMajor, 60.00%\nMinor , 40.00%\nAssignment Category Summary\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 60.00%\t100\t99.92\t1199 out of 1200\t \n11/17/17\tTallyGroup\t  \t \t* out of 100\t \t \t \n11/17/17\tTally\t  \t \t* out of 100\t \t \t \n11/15/17\tQzChap2Objects\t100  \t100.00\t100 out of 100\t \t \t \n11/07/17\tPrestmissingChar\t100  \t100.00\t100 out of 100\t \t \t \n11/06/17\tChap07Outline\t100  \t100.00\t100 out of 100\t \t \t \n10/31/17\tChap06Outline\t100  \t100.00\t100 out of 100\t \t \t \n10/30/17\tPresntMake10\t100  \t100.00\t100 out of 100\t \t \t \n10/27/17\tChap05Outline\t100  \t100.00\t100 out of 100\t \t \t \n10/25/17\tChap04Outline\t100  \t100.00\t100 out of 100\t \t \t \n10/20/17\tChap03Outline\t100  \t100.00\t100 out of 100\t \t \t \n10/19/17\tQzChap1Intro\t99  \t99.00\t99 out of 100\t \t \t \n10/17/17\tHelloExam\t100  \t100.00\t100 out of 100\t \t \t \n10/17/17\tChap02outline\t100  \t100.00\t100 out of 100\t \t\t \n10/17/17\tChap01Outline\t100  \t100.00\t100 out of 100\t \t \t \n \tMinor \nweighted at 40.00%\t100\t100.00\t600 out of 600\t \n11/10/17\tKhanNov10\t  \t \t* out of 100\t \t \t \n11/10/17\tBitsSunshine\t100  \t100.00\t100 out of 100\t \t \t \n11/09/17\tBitsGoodandIll\t  \t \t* out of 100\t \t \t \n11/08/17\tBitsKoans\t100  \t100.00\t100 out of 100\t \t \t \n11/03/17\tKhanNov3\t100  \t100.00\t100 out of 100\t \t \t \n10/27/17\tKhanAcademyOct27\t100  \t100.00\t100 out of 100\t \t \t \n10/24/17\tCompMathGroup\t  \t \t* out of 100\t \t \t \n10/20/17\tKhanAcademyOct20\t100  \t100.00\t100 out of 100\t \t \t \n10/17/17\tKhanAcademyOct13\t100  \t100.00\t100 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'COMPUTER SCI AP',
-        'period': '1',
-        'instructor': 'Joseph Cusack'
+      "course": {
+        "name": "COMPUTER SCI AP",
+        "period": "1",
+        "instructor": "Joseph Cusack"
       },
-      'report': {
-        'Major': {
-          'score': '1199',
-          'weight': '60.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "1199",
+          "total": "1200",
+          "weight": "60.00",
+          "assignments": [
             {
-              'name': 'TallyGroup',
-              'date': '11/17/17',
-              'score': '*'
+              "name": "TallyGroup",
+              "date": "11/17/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'Tally',
-              'date': '11/17/17',
-              'score': '*'
+              "name": "Tally",
+              "date": "11/17/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'QzChap2Objects',
-              'date': '11/15/17',
-              'score': '100'
+              "name": "QzChap2Objects",
+              "date": "11/15/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'PrestmissingChar',
-              'date': '11/07/17',
-              'score': '100'
+              "name": "PrestmissingChar",
+              "date": "11/07/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap07Outline',
-              'date': '11/06/17',
-              'score': '100'
+              "name": "Chap07Outline",
+              "date": "11/06/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap06Outline',
-              'date': '10/31/17',
-              'score': '100'
+              "name": "Chap06Outline",
+              "date": "10/31/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'PresntMake10',
-              'date': '10/30/17',
-              'score': '100'
+              "name": "PresntMake10",
+              "date": "10/30/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap05Outline',
-              'date': '10/27/17',
-              'score': '100'
+              "name": "Chap05Outline",
+              "date": "10/27/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap04Outline',
-              'date': '10/25/17',
-              'score': '100'
+              "name": "Chap04Outline",
+              "date": "10/25/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap03Outline',
-              'date': '10/20/17',
-              'score': '100'
+              "name": "Chap03Outline",
+              "date": "10/20/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'QzChap1Intro',
-              'date': '10/19/17',
-              'score': '99'
+              "name": "QzChap1Intro",
+              "date": "10/19/17",
+              "score": "99",
+              "total": "100"
             },
             {
-              'name': 'HelloExam',
-              'date': '10/17/17',
-              'score': '100'
+              "name": "HelloExam",
+              "date": "10/17/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap02outline',
-              'date': '10/17/17',
-              'score': '100'
+              "name": "Chap02outline",
+              "date": "10/17/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Chap01Outline',
-              'date': '10/17/17',
-              'score': '100'
+              "name": "Chap01Outline",
+              "date": "10/17/17",
+              "score": "100",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '600',
-          'weight': '40.00',
-          'assignments': [
+        "Minor": {
+          "score": "600",
+          "total": "600",
+          "weight": "40.00",
+          "assignments": [
             {
-              'name': 'KhanNov10',
-              'date': '11/10/17',
-              'score': '*'
+              "name": "KhanNov10",
+              "date": "11/10/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'BitsSunshine',
-              'date': '11/10/17',
-              'score': '100'
+              "name": "BitsSunshine",
+              "date": "11/10/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'BitsGoodandIll',
-              'date': '11/09/17',
-              'score': '*'
+              "name": "BitsGoodandIll",
+              "date": "11/09/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'BitsKoans',
-              'date': '11/08/17',
-              'score': '100'
+              "name": "BitsKoans",
+              "date": "11/08/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'KhanNov3',
-              'date': '11/03/17',
-              'score': '100'
+              "name": "KhanNov3",
+              "date": "11/03/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'KhanAcademyOct27',
-              'date': '10/27/17',
-              'score': '100'
+              "name": "KhanAcademyOct27",
+              "date": "10/27/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'CompMathGroup',
-              'date': '10/24/17',
-              'score': '*'
+              "name": "CompMathGroup",
+              "date": "10/24/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'KhanAcademyOct20',
-              'date': '10/20/17',
-              'score': '100'
+              "name": "KhanAcademyOct20",
+              "date": "10/20/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'KhanAcademyOct13',
-              'date': '10/17/17',
-              'score': '100'
+              "name": "KhanAcademyOct13",
+              "date": "10/17/17",
+              "score": "100",
+              "total": "100"
             }
           ]
         }
@@ -142,61 +167,71 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\n \nPlease Wait...\n \nWgIAssignm...Major, 70.00%\nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nENGLISH 3 AP (Period 2) Kim Abshire\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n80\t80.00\nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 70.00%\t80\t79.50\t159 out of 200\t \n11/13/17\tAPMC w/ Retest\t80 \t80.00\t80 out of 100\t \t \t \n11/08/17\tRhetorical Analysis Reteach\t  \t \t4 out of 0\t \t \t \n11/02/17\tRhetorical Analysis TW\t75  \t75.00\t75 out of 100\t \t \t \n \tMinor \nweighted at 30.00%\t83\t82.80\t414 outof 500\t \n11/14/17\tSL Ch 1-4 Quiz\t67  \t67.00\t67 out of 100\t \t \t \n10/27/17\tAPMC Practice\t89  \t89.00\t89 out of 100\t \t \t \n10/26/17\tRhetoric Quiz\t63  \t63.00\t63 out of 100\t \t \t \n10/25/17\tRhetorical Analysis Prep\t100  \t100.00\t100 out of 100\t \t \t \n10/18/17\tCSI Writing\t95  \t95.00\t95 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'ENGLISH 3 AP',
-        'period': '2',
-        'instructor': 'Kim Abshire'
+      "course": {
+        "name": "ENGLISH 3 AP",
+        "period": "2",
+        "instructor": "Kim Abshire"
       },
-      'report': {
-        'Major': {
-          'score': '159',
-          'weight': '70.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "159",
+          "total": "200",
+          "weight": "70.00",
+          "assignments": [
             {
-              'name': 'APMC w/ Retest',
-              'date': '11/13/17',
-              'score': '80'
+              "name": "APMC w/ Retest",
+              "date": "11/13/17",
+              "score": "80",
+              "total": "100"
             },
             {
-              'name': 'Rhetorical Analysis Reteach',
-              'date': '11/08/17',
-              'score': '4'
+              "name": "Rhetorical Analysis Reteach",
+              "date": "11/08/17",
+              "score": "4",
+              "total": "0"
             },
             {
-              'name': 'Rhetorical Analysis TW',
-              'date': '11/02/17',
-              'score': '75'
+              "name": "Rhetorical Analysis TW",
+              "date": "11/02/17",
+              "score": "75",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '414',
-          'weight': '30.00',
-          'assignments': [
+        "Minor": {
+          "score": ".",
+          "total": ".",
+          "weight": "30.00",
+          "assignments": [
             {
-              'name': 'SL Ch 1-4 Quiz',
-              'date': '11/14/17',
-              'score': '67'
+              "name": "SL Ch 1-4 Quiz",
+              "date": "11/14/17",
+              "score": "67",
+              "total": "100"
             },
             {
-              'name': 'APMC Practice',
-              'date': '10/27/17',
-              'score': '89'
+              "name": "APMC Practice",
+              "date": "10/27/17",
+              "score": "89",
+              "total": "100"
             },
             {
-              'name': 'Rhetoric Quiz',
-              'date': '10/26/17',
-              'score': '63'
+              "name": "Rhetoric Quiz",
+              "date": "10/26/17",
+              "score": "63",
+              "total": "100"
             },
             {
-              'name': 'Rhetorical Analysis Prep',
-              'date': '10/25/17',
-              'score': '100'
+              "name": "Rhetorical Analysis Prep",
+              "date": "10/25/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'CSI Writing',
-              'date': '10/18/17',
-              'score': '95'
+              "name": "CSI Writing",
+              "date": "10/18/17",
+              "score": "95",
+              "total": "100"
             }
           ]
         }
@@ -206,81 +241,95 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\nWgIAssignment Category SummaryMajor, 70.00%WgI \nPlease Wait...\n \nWgIAssignm...Major, 60.00%   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nPSYCHOLOGY (Period 3) Mike Lum\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore(%)\n \n89\t89.00\nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 60.00%\t92\t92.00\t276 out of 300\t \n11/09/17\tCh. 13 Test\t88  \t88.00\t88 out of 100\t \t \t \n11/09/17\tBonus\t  \t \t5 out of 0\t \t \t \n10/31/17\tCh. 7 Test\t88  \t88.00\t88 out of 100\t \t \t \n10/31/17\tBonus Ch. 7\t  \t \t5 out of 0\t \t \t \n10/24/17\tCh 6 Test\t85  \t85.00\t85 out of 100\t \t \t \n10/24/17\tBonus\t  \t \t5 out of 0\t \t \t \n \tMinor \nweighted at 40.00%\t83\t83.33\t500 out of 600\t \n11/10/17\tVideo Personality\t0 \t0.00\t0 out of 100\t \t \t \n11/08/17\tChapter 13 RG\t100  \t100.00\t100 out of 100\t \t \t \n10/31/17\tCh 7 RG\t100  \t100.00\t100 out of 100\t \t \t \n10/27/17\tMemory Video\t100  \t100.00\t100 out of 100\t \t \t \n10/23/17\tCh 6 RG\t100  \t100.00\t100 out of 100\t \t \t \n10/20/17\tClassical vs. Operant\t100  \t100.00\t100 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'PSYCHOLOGY',
-        'period': '3',
-        'instructor': 'Mike Lum'
+      "course": {
+        "name": "PSYCHOLOGY",
+        "period": "3",
+        "instructor": "Mike Lum"
       },
-      'report': {
-        'Major': {
-          'score': '276',
-          'weight': '60.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "276",
+          "total": "300",
+          "weight": "60.00",
+          "assignments": [
             {
-              'name': 'Ch. 13 Test',
-              'date': '11/09/17',
-              'score': '88'
+              "name": "Ch. 13 Test",
+              "date": "11/09/17",
+              "score": "88",
+              "total": "100"
             },
             {
-              'name': 'Bonus',
-              'date': '11/09/17',
-              'score': '5'
+              "name": "Bonus",
+              "date": "11/09/17",
+              "score": "5",
+              "total": "0"
             },
             {
-              'name': 'Ch. 7 Test',
-              'date': '10/31/17',
-              'score': '88'
+              "name": "Ch. 7 Test",
+              "date": "10/31/17",
+              "score": "88",
+              "total": "100"
             },
             {
-              'name': 'Bonus Ch. 7',
-              'date': '10/31/17',
-              'score': '5'
+              "name": "Bonus Ch. 7",
+              "date": "10/31/17",
+              "score": "5",
+              "total": "0"
             },
             {
-              'name': 'Ch 6 Test',
-              'date': '10/24/17',
-              'score': '85'
+              "name": "Ch 6 Test",
+              "date": "10/24/17",
+              "score": "85",
+              "total": "100"
             },
             {
-              'name': 'Bonus',
-              'date': '10/24/17',
-              'score': '5'
+              "name": "Bonus",
+              "date": "10/24/17",
+              "score": "5",
+              "total": "0"
             }
           ]
         },
-        'Minor': {
-          'score': '500',
-          'weight': '40.00',
-          'assignments': [
+        "Minor": {
+          "score": "500",
+          "total": "600",
+          "weight": "40.00",
+          "assignments": [
             {
-              'name': 'Video Personality',
-              'date': '11/10/17',
-              'score': '0'
+              "name": "Video Personality",
+              "date": "11/10/17",
+              "score": "0",
+              "total": "100"
             },
             {
-              'name': 'Chapter 13 RG',
-              'date': '11/08/17',
-              'score': '100'
+              "name": "Chapter 13 RG",
+              "date": "11/08/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Ch 7 RG',
-              'date': '10/31/17',
-              'score': '100'
+              "name": "Ch 7 RG",
+              "date": "10/31/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Memory Video',
-              'date': '10/27/17',
-              'score': '100'
+              "name": "Memory Video",
+              "date": "10/27/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Ch 6 RG',
-              'date': '10/23/17',
-              'score': '100'
+              "name": "Ch 6 RG",
+              "date": "10/23/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Classical vs. Operant',
-              'date': '10/20/17',
-              'score': '100'
+              "name": "Classical vs. Operant",
+              "date": "10/20/17",
+              "score": "100",
+              "total": "100"
             }
           ]
         }
@@ -290,56 +339,65 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\nWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 60.00%WgI \nPlease Wait...\n \nWgIAssignm...Major, 70.00%   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nPHYSICS 1 AP (Period 4) Juergen Schulz\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n94\t94.00\nIncludes a grade adjustment of\t2.00\t \nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 70.00%\t90\t90.00\t90 out of 100\t \n11/08/17\tPoints Added from Class\t  \t \t* out of 0\t \t \t \n11/01/17\tTEST 171101 Motion III\t90  \t90.00\t90 out of 100\t \t \t \n \tMinor \nweighted at 30.00%\t97\t96.80\t484 out of 500\t \n11/10/17\tLearning Strategy Forces Verti\t100  \t100.00\t100 out of 100\t \t \t \n11/06/17\tForces VerticalPlane 1\t98  \t98.00\t98 out of 100\t \t \t \n10/23/17\tHolt Projectiles #1-5\t89  \t89.00\t89 out of 100\t \t \t \n10/20/17\tKovalcin 08 #7\t100  \t100.00\t100 out of 100\t \t \t \n10/17/17\tAcceleration due to Gravity\t97  \t97.00\t97 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'PHYSICS 1 AP',
-        'period': '4',
-        'instructor': 'Juergen Schulz'
+      "course": {
+        "name": "PHYSICS 1 AP",
+        "period": "4",
+        "instructor": "Juergen Schulz"
       },
-      'report': {
-        'Major': {
-          'score': '90',
-          'weight': '70.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "90",
+          "total": "100",
+          "weight": "70.00",
+          "assignments": [
             {
-              'name': 'Points Added from Class',
-              'date': '11/08/17',
-              'score': '*'
+              "name": "Points Added from Class",
+              "date": "11/08/17",
+              "score": "*",
+              "total": "0"
             },
             {
-              'name': 'TEST 171101 Motion III',
-              'date': '11/01/17',
-              'score': '90'
+              "name": "TEST 171101 Motion III",
+              "date": "11/01/17",
+              "score": "90",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '484',
-          'weight': '30.00',
-          'assignments': [
+        "Minor": {
+          "score": "484",
+          "total": "500",
+          "weight": "30.00",
+          "assignments": [
             {
-              'name': 'Learning Strategy Forces Verti',
-              'date': '11/10/17',
-              'score': '100'
+              "name": "Learning Strategy Forces Verti",
+              "date": "11/10/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Forces Vertical Plane 1',
-              'date': '11/06/17',
-              'score': '98'
+              "name": "Forces VerticalPlane 1",
+              "date": "11/06/17",
+              "score": "98",
+              "total": "100"
             },
             {
-              'name': 'Holt Projectiles #1-5',
-              'date': '10/23/17',
-              'score': '89'
+              "name": "Holt Projectiles #1-5",
+              "date": "10/23/17",
+              "score": "89",
+              "total": "100"
             },
             {
-              'name': 'Kovalcin 08 #7',
-              'date': '10/20/17',
-              'score': '100'
+              "name": "Kovalcin 08 #7",
+              "date": "10/20/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Acceleration due to Gravity',
-              'date': '10/17/17',
-              'score': '97'
+              "name": "Acceleration due to Gravity",
+              "date": "10/17/17",
+              "score": "97",
+              "total": "100"
             }
           ]
         }
@@ -349,72 +407,84 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\nWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 60.00%WgIWgIAssignment Category SummaryMajor, 70.00%WgI \nPlease Wait...\n \nWgIAssignm...Major, 66.67%   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nALGEBRA 2 PreAP (Period 5) Thomas Wallace\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n94\t94.00\nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tHomework \nweighted at 10.00%, adjusted to 0.00%\t \t \t \t \n12/20/17\tRunning average\t  \t \t* out of 100\t \t \t \n \tMajor\nweighted at 60.00%, adjusted to 66.67%\t92\t92.00\t184 out of 200\t \n11/07/17\tTest 5.5 5.7\t100  \t100.00\t100 out of 100\t \t \t \n10/27/17\tTest\t84  \t84.00\t84 out of 100\t \t \t \n \tMinor \nweighted at 30.00%, adjusted to 33.33%\t97\t96.67\t580 out of 600\t \n11/13/17\tCorrections\t100  \t100.00\t100 out of 100\t \t \t \n11/07/17\t#34 Review\t100  \t100.00\t100 out of 100\t \t \t \n11/06/17\tCorrections\t100  \t100.00\t100 out of 100\t \t \t \n11/03/17\tQuiz 5.5 5.7\t100  \t100.00\t100 out of 100\t \t \t \n10/25/17\tReview for test\t90  \t90.00\t90 out of 100\t \t \t \n10/25/17\tQuiz\t90  \t90.00\t90 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'ALGEBRA 2 PreAP',
-        'period': '5',
-        'instructor': 'Thomas Wallace'
+      "course": {
+        "name": "ALGEBRA 2 PreAP",
+        "period": "5",
+        "instructor": "Thomas Wallace"
       },
-      'report': {
-        'Homework': {
-          'score': '0',
-          'weight': '10.00',
-          'assignments': [
+      "report": {
+        "Homework": {
+          "score": ".",
+          "total": ".",
+          "weight": "10.00",
+          "assignments": [
             {
-              'name': 'Running average',
-              'date': '12/20/17',
-              'score': '*'
+              "name": "Running average",
+              "date": "12/20/17",
+              "score": "*",
+              "total": "100"
             }
           ]
         },
-        'Major': {
-          'score': '184',
-          'weight': '60.00',
-          'assignments': [
+        "Major": {
+          "score": "184",
+          "total": "200",
+          "weight": "60.00",
+          "assignments": [
             {
-              'name': 'Test 5.5 5.7',
-              'date': '11/07/17',
-              'score': '100'
+              "name": "Test 5.5 5.7",
+              "date": "11/07/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Test',
-              'date': '10/27/17',
-              'score': '84'
+              "name": "Test",
+              "date": "10/27/17",
+              "score": "84",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '580',
-          'weight': '30.00',
-          'assignments': [
+        "Minor": {
+          "score": "580",
+          "total": "600",
+          "weight": "30.00",
+          "assignments": [
             {
-              'name': 'Corrections',
-              'date': '11/13/17',
-              'score': '100'
+              "name": "Corrections",
+              "date": "11/13/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': '#34 Review',
-              'date': '11/07/17',
-              'score': '100'
+              "name": "#34 Review",
+              "date": "11/07/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Corrections',
-              'date': '11/06/17',
-              'score': '100'
+              "name": "Corrections",
+              "date": "11/06/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Quiz 5.5 5.7',
-              'date': '11/03/17',
-              'score': '100'
+              "name": "Quiz 5.5 5.7",
+              "date": "11/03/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'Review for test',
-              'date': '10/25/17',
-              'score': '90'
+              "name": "Review for test",
+              "date": "10/25/17",
+              "score": "90",
+              "total": "100"
             },
             {
-              'name': 'Quiz',
-              'date': '10/25/17',
-              'score': '90'
+              "name": "Quiz",
+              "date": "10/25/17",
+              "score": "90",
+              "total": "100"
             }
           ]
         }
@@ -424,56 +494,65 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\nWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 60.00%WgIWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 66.67%WgI \nPlease Wait...\n \nWgIAssignm...Major, 70.00%   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nU.S. HIST (DC) (Period 6) Kathryn Colvin\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n94\t94.00\nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 70.00%\t93\t93.00\t186 out of 200\t \n11/08/17\tUnit 5 exam\t96  \t96.00\t96 out of 100\t \t \t \n10/31/17\tUnit 4 exam\t90  \t90.00\t90 out of 100\t \t \t \n \tMinor \nweighted at 30.00%\t95\t94.75\t379 out of 400\t \n11/17/17\tCivil War timeline activity\t  \t \t* out of 100\t \t \t \n11/09/17\tPractice Socratic Seminar\t95  \t95.00\t95 out of 100\t \t \t \n11/01/17\tPre Civil War activity\t96  \t96.00\t96 out of 100\t \t \t \n10/26/17\tEaton Affair essay\t95  \t95.00\t95 out of 100\t \t \t \n10/25/17\tJackson Hero or Villian\t93  \t93.00\t93 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'U.S. HIST (DC)',
-        'period': '6',
-        'instructor': 'Kathryn Colvin'
+      "course": {
+        "name": "U.S. HIST (DC)",
+        "period": "6",
+        "instructor": "Kathryn Colvin"
       },
-      'report': {
-        'Major': {
-          'score': '186',
-          'weight': '70.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "186",
+          "total": "200",
+          "weight": "70.00",
+          "assignments": [
             {
-              'name': 'Unit 5 exam',
-              'date': '11/08/17',
-              'score': '96'
+              "name": "Unit 5 exam",
+              "date": "11/08/17",
+              "score": "96",
+              "total": "100"
             },
             {
-              'name': 'Unit 4 exam',
-              'date': '10/31/17',
-              'score': '90'
+              "name": "Unit 4 exam",
+              "date": "10/31/17",
+              "score": "90",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '379',
-          'weight': '30.00',
-          'assignments': [
+        "Minor": {
+          "score": "379",
+          "total": "400",
+          "weight": "30.00",
+          "assignments": [
             {
-              'name': 'Civil War timeline activity',
-              'date': '11/17/17',
-              'score': '*'
+              "name": "Civil War timeline activity",
+              "date": "11/17/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'Practice Socratic Seminar',
-              'date': '11/09/17',
-              'score': '95'
+              "name": "Practice Socratic Seminar",
+              "date": "11/09/17",
+              "score": "95",
+              "total": "100"
             },
             {
-              'name': 'Pre Civil War activity',
-              'date': '11/01/17',
-              'score': '96'
+              "name": "Pre Civil War activity",
+              "date": "11/01/17",
+              "score": "96",
+              "total": "100"
             },
             {
-              'name': 'Eaton Affair essay',
-              'date': '10/26/17',
-              'score': '95'
+              "name": "Eaton Affair essay",
+              "date": "10/26/17",
+              "score": "95",
+              "total": "100"
             },
             {
-              'name': 'Jackson Hero or Villian',
-              'date': '10/25/17',
-              'score': '93'
+              "name": "Jackson Hero or Villian",
+              "date": "10/25/17",
+              "score": "93",
+              "total": "100"
             }
           ]
         }
@@ -483,51 +562,59 @@ module.exports.Q2 = [
   {
     'inner': '\n \nHassan A. Khan  \nHassan Khan  My Account Email History Exit\nDistrict Links\nHome\nCalendar\nGradebook\nAttendance\nStudent Info\nSchedule\nActivities\nAcademic History\nPortfolio\nLogin History\nGradebook\n\nThere are no Missing Assignments.\nClass Grades\n\n\nGrades posted to the report card are in bold.\nCurrent grades are highlighted.\nHassan (KLEINCOLLINS HIGH SCHOOL)    Display Options  |  GPA\nPC1\tPR1\tPC2\tPR2\tQC1\tQ1\tPC3\tPR3\tPC4\tPR4\tQC2\tQ2\tSE1\tS1\tPC5\tPR5\tPC6\tPR6\tQC3\tQ3\tPC7\tPR7\tPC8\tPR8\tQC4\tQ4\tSE2\tS2\nE\t100\tS\t100\tS\t100\t\t100\t\t100\t\t100\t\t100\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\t\t89\tS\t88\t\t79\t\t80\t\t80\t\t84\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n86\t\t94\t\t95\t\t89\t\t89\t\t92\t \t \t \t \t \t \t \t \t \t \t \t \t \t \n \t \t \t \t \t \t \t \t \t \t \t \t \t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n100\tE\t98\tE\t97\t\t92\t\t92\tE\t94\t\t96\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t\t\t94\tE\t95\tE\t87\t\t94\t\t94\t\t95\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n88\tE\t93\t\t95\t\t94\t\t94\t\t94\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nE\t100\tE\t100\tE\t100\t\t100\t\t100\t\t100\t \t100\t\t\t\t\t\t\t\t\t\t\t\t\t \t\n Class\nCOMPUTER SCI AP\nPeriod1(7:25 AM - 8:19 AM)\nJoseph Cusack\nENGLISH 3 AP\nPeriod2(8:25 AM - 9:18 AM)\nKim Abshire\n \tHUMAN GEOGRAPHY AP ELECT\nPeriod2(8:25 AM - 9:18 AM)\nStacy Flower\nPSYCHOLOGY\nPeriod3(9:24 AM - 10:20 AM)\nMike Lum\n \tENGLISH 3 AP\nPeriod3(9:24 AM- 10:20 AM)\nKim Abshire\nPHYSICS 1 AP\nPeriod4(10:26 AM - 11:19 AM)\nJuergen Schulz\nALGEBRA 2 PreAP\nPeriod5(11:25 AM - 12:46 PM)\nThomas Wallace\nU.S. HIST (DC)\nPeriod6(12:52 PM - 1:45 PM)\nKathryn Colvin\nIND STUDY TECH APP 1\nPeriod7(1:51 PM - 2:45 PM)\nJoseph Cusack\n\nWgIAssignment Category SummaryMajor, 60.00%WgI\nWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 60.00%WgIWgIAssignment Category SummaryMajor, 70.00%WgIWgIAssignment Category SummaryMajor, 66.67%WgIWgIAssignment Category SummaryMajor, 70.00%WgI \nPlease Wait...\n \nWgIAssignm...Major, 60.00%   \nQ2 Progress Report\nHassan (KLEIN COLLINS HIGH SCHOOL)\nIND STUDY TECH APP 1 (Period 7) Joseph Cusack\nSummary\nQ2 Grade\n(10/17/2017 - 12/21/2017)\tScore (%)\n \n100\t100.00\nAssignm...\nDue\tAssignment\tGrade\tScore(%)\tPoints Earned\tMissing\tNo Count\tAbsent\n \tMajor\nweighted at 60.00%\t100\t100.00\t200 out of 200\t \n11/16/17\tQzChap2Objects\t  \t \t* out of 100\t \t \t \n11/08/17\tChap1Exam\t  \t \t* out of 100\t \t \t \n10/27/17\tReportStatus\t100  \t100.00\t100 out of 100\t \t \t \n10/20/17\tWeeklyStatusReport\t100  \t100.00\t100 out of 100\t \t \t \n10/17/17\tHelloExam\t  \t \t* out of 100\t \t \t \n \tMinor \nweighted at 40.00%\t100\t100.00\t100 out of 100\t \n10/25/17\tCommunityService\t100  \t100.00\t100 out of 100\t \t \t \n \n   ',
     'parsed': {
-      'course': {
-        'name': 'IND STUDY TECH APP 1',
-        'period': '7',
-        'instructor': 'Joseph Cusack'
+      "course": {
+        "name": "IND STUDY TECH APP 1",
+        "period": "7",
+        "instructor": "Joseph Cusack"
       },
-      'report': {
-        'Major': {
-          'score': '200',
-          'weight': '60.00',
-          'assignments': [
+      "report": {
+        "Major": {
+          "score": "200",
+          "total": "200",
+          "weight": "60.00",
+          "assignments": [
             {
-              'name': 'QzChap2Objects',
-              'date': '11/16/17',
-              'score': '*'
+              "name": "QzChap2Objects",
+              "date": "11/16/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'Chap1Exam',
-              'date': '11/08/17',
-              'score': '*'
+              "name": "Chap1Exam",
+              "date": "11/08/17",
+              "score": "*",
+              "total": "100"
             },
             {
-              'name': 'ReportStatus',
-              'date': '10/27/17',
-              'score': '100'
+              "name": "ReportStatus",
+              "date": "10/27/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'WeeklyStatusReport',
-              'date': '10/20/17',
-              'score': '100'
+              "name": "WeeklyStatusReport",
+              "date": "10/20/17",
+              "score": "100",
+              "total": "100"
             },
             {
-              'name': 'HelloExam',
-              'date': '10/17/17',
-              'score': '*'
+              "name": "HelloExam",
+              "date": "10/17/17",
+              "score": "*",
+              "total": "100"
             }
           ]
         },
-        'Minor': {
-          'score': '100',
-          'weight': '40.00',
-          'assignments': [
+        "Minor": {
+          "score": "100",
+          "total": "100",
+          "weight": "40.00",
+          "assignments": [
             {
-              'name': 'CommunityService',
-              'date': '10/25/17',
-              'score': '100'
+              "name": "CommunityService",
+              "date": "10/25/17",
+              "score": "100",
+              "total": "100"
             }
           ]
         }

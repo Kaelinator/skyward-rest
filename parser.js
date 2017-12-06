@@ -1,5 +1,5 @@
 const match = s =>
-  r => r.exec(s)[1]
+  r => r.exec(s)
 
 const parse = module.exports = (innerText, target) => {
 
@@ -25,21 +25,24 @@ const parse = module.exports = (innerText, target) => {
       const getInfo = match(info)
       grades.current = data[i - 2]
 
+      const infoData = getInfo(/(\d+|\*)\sout\sof\s(\d+)/) || '...'
+      
       grades[grades.current] = {
-        score      : getInfo(/([\d\*]+)\sout\sof\s\d+/),
-        total      : getInfo(/[\d\*]+\sout\sof\s(\d+)/),
-        weight     : getInfo(/(\d+.\d+)%/),
+        score      : infoData[1],
+        total      : infoData[2],
+        weight     : getInfo(/(\d+.\d+)%/)[1],
         assignments: []
       }
     }
 
     const getGrade = match(l)
+    const scoreData = getGrade(/(\d+|\*)\sout\sof\s(\d+)/) || '...'
 
     grades[grades.current].assignments.push({
       name : l.split('\t')[1],
-      date : getGrade(/^(\d{1,2}\/\d{1,2}\/\d{1,2})/),
-      score: getGrade(/(\d+|\*)\sout\sof\s\d+/),
-      total: getGrade(/\d+|\*\sout\sof\s(\d+)/)
+      date : getGrade(/^(\d{1,2}\/\d{1,2}\/\d{1,2})/)[1],
+      score: scoreData[1],
+      total: scoreData[2]
     })
 
     return grades
