@@ -11,22 +11,23 @@ const chrome = driver => ({
 
 const scrape = module.exports = (url, sId, pass) => {
   
-    const driver = new Builder()
-      .forBrowser('chrome')
-      .build()
-    
-    const bot = chrome(driver)
-    
-    return driver.get(url) // ERR: no connection
-      .then(bot.waitForId('login'))
-      .then(bot.waitForId('password'))
-      .then(bot.inputCredentials(sId, pass))
-      .then(bot.wait(1000))
-      .then(bot.textify)
-      .then(res => {
-        if (res.includes('Invalid login or password.'))
-          throw new Error('Invalid login or password.')
-      })
-      .then(bot.swap)
-      .then(() => driver.findElements(By.name('encses')))
+  const driver = new Builder()
+  .forBrowser('chrome')
+  .build()
+  
+  const bot = chrome(driver)
+  
+  return driver.get(url) // ERR: no connection
+  .then(bot.waitForId('login'))
+  .then(bot.waitForId('password'))
+  .then(bot.inputCredentials(sId, pass))
+  .then(bot.wait(1000))
+  .then(bot.textify)
+  .then(res => {
+    if (res.includes('Invalid login or password.'))
+    throw new Error('Invalid login or password.')
+  })
+  .then(bot.swap)
+  .then(() => driver.findElements(By.name('encses')))
+  .then(x => x.getAttribute('encses'))
 }
