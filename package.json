@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "bluebird": "^3.5.1",
-    "selenium-webdriver": "^3.6.0"
+    "selenium-webdriver": "^3.6.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "tape": "^4.8.0"

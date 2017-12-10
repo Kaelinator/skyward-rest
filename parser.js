@@ -14,9 +14,9 @@ const parse = module.exports = (innerText, target) => {
     instructor: head[3]
   }
 
-  const report = data.reduce((grades, l, i) => {
+  const report = data.reduce((grades, line, i) => {
 
-    if (!/^\d{1,2}\/\d{1,2}\/\d{1,2}/.test(l))
+    if (!/^\d{1,2}\/\d{1,2}\/\d{1,2}/.test(line))
       return grades
 
     if (/^weighted/.test(data[i - 1])) {
@@ -35,11 +35,11 @@ const parse = module.exports = (innerText, target) => {
       }
     }
 
-    const getGrade = match(l)
+    const getGrade = match(line)
     const scoreData = getGrade(/(\d+|\*)\sout\sof\s(\d+)/) || '...'
 
     grades[grades.current].assignments.push({
-      name : l.split('\t')[1],
+      name : line.split('\t')[1],
       date : getGrade(/^(\d{1,2}\/\d{1,2}\/\d{1,2})/)[1],
       score: scoreData[1],
       total: scoreData[2]

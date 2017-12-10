@@ -2,29 +2,33 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const Promise = require('bluebird')
 const parse = require('./parser.js')
 
+const chrome = driver => ({
+  waitForId       : id => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000),
+  inputCredentials: (u, p) => driver.findElement(By.id('login')).sendKeys(u, Key.TAB, p, Key.RETURN),
+  swap            : w => driver.getAllWindowHandles().then((w) => driver.switchTo().window(w[w.length - 1])),
+  wait            : t => driver.sleep(t),
+  textify         : _ => driver.executeScript('return document.body.innerText')
+})
+
 const scrape = module.exports = (url, sId, pass, target) => {
-  const waitForId        = id   => driver.wait(until.elementIsVisible(driver.findElement(By.id(id))), 1000)
-  const inputCredentials = _    => driver.findElement(By.id('login')).sendKeys(sId, Key.TAB, pass, Key.RETURN)
-  const getHandles       = _    => driver.getAllWindowHandles()
-  const swap             = w    => driver.getAllWindowHandles().then((w) => driver.switchTo().window(w[w.length - 1]))
-  const wait             = x    => driver.sleep(x)
-  const innerText        = _    => driver.executeScript('return document.body.innerText')
 
   const driver = new Builder()
     .forBrowser('chrome')
     .build()
-    
+  
+  const bot = chrome(driver)
+  
   return driver.get(url) // ERR: no connection
-    .then(waitForId('login'))
-    .then(waitForId('password'))
-    .then(inputCredentials)
-    .then(wait(1000))
-    .then(innerText)
+    .then(bot.waitForId('login'))
+    .then(bot.waitForId('password'))
+    .then(bot.inputCredentials(sId, pass))
+    .then(bot.wait(1000))
+    .then(bot.textify)
     .then(res => {
       if (res.includes('Invalid login or password.'))
-        throw 'Invalid login or password.'
+        throw new Error('Invalid login or password.')
     })
-    .then(swap)
+    .then(bot.swap)
     .then(() => driver.findElement(By.xpath('//a[@data-nav="sfgradebook001.w"]')).click())
     .then(() => driver.findElements(By.name('showGradeInfo')))
     .then(grades => Promise
@@ -46,7 +50,7 @@ const scrape = module.exports = (url, sId, pass, target) => {
                 .then(driver.wait(until.elementLocated(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml'))))
                 .then(driver.wait(until.elementIsVisible(driver.findElement(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))))
                 .then(driver.findElements(By.css('#gradeInfoDialog div.sf_DialogDataWrap div.sf_DialogData div.sf_DialogHtml')))
-                .then(pane => driver.executeScript('return document.body.innerText'))
+                .then(bot.textify)
             .then(html => {return {inner: html, parsed: parse(html, target)}}))
             .then(data =>
                 driver.wait(until.elementIsVisible(driver.findElement(By.xpath('//a[@class="sf_DialogClose"][@style="display: block;"]'))))
