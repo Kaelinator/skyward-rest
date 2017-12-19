@@ -1,26 +1,64 @@
-const Promise   = require('bluebird'),
-      puppeteer = require('puppeteer')
+const Promise   = require('bluebird')
+const puppeteer = require('puppeteer')
 
-const handlePopup = async (target) => {
-
-  const popup = await target.page()
-  await popup.waitFor('#encses', { timeout: 10000 })
-  const encses = await popup.$('#encses')
-  encses.getProperty('value').then(v => v.jsonValue())
-}
-
-const handleResponse = async (response) => {
-  const body = await response.buffer()
-  const text = await response.text()
-  console.log({
-    body: body,
-    text: text,
-    headers: response.headers,
-    request: response.request
-  })
+const request = (lR, origin, encses) => {
+  const req = new XMLHttpRequest()
+	let info = lR
+    .slice(4, -5)
+    .split('^')
+	
+	req.open('POST', origin, false)
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+	req.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+	
+  req.send([
+    `action=viewGradeInfoDialog`,
+    `&gridCount=1`,
+    `&fromHttp=yes`,
+    `&stuId=${info[4]}`,
+    `&entityId=004`,
+    `&corNumId=72270`,
+    `&track=0`,
+    `&section=01`,
+    `&gbId=1633625`,
+    `&bucket=TERM+6`,
+    `&subjectId=`,
+    `&dialogLevel=1`,
+    `&isEoc=no`,
+    `&ishttp=true`,
+    `&sessionid=${info[1]}%15${info[2]}`,
+    `&encses=${encses}`,
+    `&dwd=${info[0]}`,
+    `&wfaacl=${info[2]}`
+  ].join(''))
+  
+  return req.response
 }
 
 const scrape = module.exports = async (url, id, pass) => {
+
+  let loginResponse, referer, encses
+
+  const handlePopup = async (target) => {
+
+    const popup = await target.page()
+    await popup.waitFor('#encses', { timeout: 10000 })
+    encsesDOM = await popup.$('#encses')
+    encses = await encsesDOM.getProperty('value').then(v => v.jsonValue())
+    console.log(loginResponse, referer, encses)
+    console.log(await popup.evaluate(request, loginResponse, referer, encses))
+  }
+  
+  const handleResponse = async (response) => {
+
+    const text = await response.text()
+    const req = await response.request()
+    if (text.substring(0, 4) === '<li>') {
+
+      loginResponse = text
+      referer = [...req.headers.referer.split('/').slice(0, -1), 'httploader.p?file=sfgradebook001.w'].join('/')
+    }
+  }
 
   const browser = await puppeteer.launch({ headless: false })
   const page = await browser.newPage()
@@ -33,11 +71,6 @@ const scrape = module.exports = async (url, id, pass) => {
   await page.type('#login', id)
   await page.type('#password', pass)
   await page.click('#bLogin')
-  
-  
-  // const [_0, _1, popup] = await browser.pages()
-  // const encses = await popup.$('#encses')
-  // encses.getProperty('value').then(v => v.jsonValue().then(console.log))
 
   // await popup.setViewport({ width: 1000, height: 700 })
   // await popup.waitFor('a[data-nav="sfgradebook001.w"]', { timeout: 10000 })
