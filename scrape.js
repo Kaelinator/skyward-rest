@@ -1,5 +1,52 @@
 const Promise   = require('bluebird')
 const puppeteer = require('puppeteer')
+const uuid      = require('uuid/v1')
+
+const Scraper = (url) => {
+
+  const activeScraping = {}
+  return {
+
+    open: (sId, pass) => {
+
+      const id = uuid()
+      const data = {}
+
+      Promise.resolve(puppeteer.launch())
+        .then(browser => browser.on('targetcreated', handlePopup(id)))
+        .then(browser => browser.newPage())
+        .then(page => page.on('response', handleResponse(id)))
+        .then(page =>
+          Promise.resolve(page.goto(url))
+            .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
+            .then(() => page.waitFor(150))
+            .then(() => page.type('#login', id))
+            .then(() => page.type('#password', pass))
+            .then(() => page.click('#bLogin')))
+    },
+
+    on: (event, callback) => {
+
+    },
+
+    handlePopup: (id) =>
+      (target) => {
+
+      },
+
+    handleResponse: (id) =>
+      (response) => {
+
+      },
+
+    query: (id) =>
+      (response, origin, encses, data) => {
+
+    }
+  }
+}
+
+module.exports = Scraper
 
 const query = (response, origin, encses, data) => {
 
@@ -33,7 +80,7 @@ const query = (response, origin, encses, data) => {
   return req.response 
 }
 
-const scrape = module.exports = (url, id, pass) => {
+const scrape = (url, id, pass) => {
 
   let loginResponse, referer, encses
 
@@ -47,9 +94,6 @@ const scrape = module.exports = (url, id, pass) => {
           .then(v => v.jsonValue())
           .then(encses => {
             if (encses) {
-
-              // const fetch = popup.evaluate(query, loginResponse, referer, encses)
-              // const fetch = query(loginResponse, referer, encses)
 
               return Promise.resolve(popup.waitForSelector('a[data-nav="sfgradebook001.w"]', { timeout: 10000 }))
                 .then(() => popup.click('a[data-nav="sfgradebook001.w"]'))
@@ -94,13 +138,13 @@ const scrape = module.exports = (url, id, pass) => {
     .then(page => page.on('response', handleResponse))
     .then(page => 
       Promise.resolve(page.goto(url))
-      .then(() => page.waitForSelector('#bLogin', { timeout: 10000, visibility: true }))
-      .then(() => page.waitForSelector('#login', { timeout: 10000, visibility: true }))
-      .then(() => page.waitForSelector('#password', { timeout: 10000, visibility: true }))
-      .then(() => page.waitFor(150))
-      .then(() => page.type('#login', id))
-      .then(() => page.type('#password', pass))
-      .then(() => page.click('#bLogin')))
+        .then(() => page.waitForSelector('#bLogin', { timeout: 10000, visibility: true }))
+        .then(() => page.waitForSelector('#login', { timeout: 10000, visibility: true }))
+        .then(() => page.waitForSelector('#password', { timeout: 10000, visibility: true }))
+        .then(() => page.waitFor(150))
+        .then(() => page.type('#login', id))
+        .then(() => page.type('#password', pass))
+        .then(() => page.click('#bLogin')))
 
   // await popup.setViewport({ width: 1000, height: 700 })
   // await popup.waitFor('a[data-nav="sfgradebook001.w"]', { timeout: 10000 })
