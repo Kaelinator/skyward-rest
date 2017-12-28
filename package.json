@@ -7,7 +7,6 @@
     "bluebird": "^3.5.1",
     "puppeteer": "^0.13.0",
     "selenium-webdriver": "^3.6.0",
-    "uuid": "^3.1.0",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
