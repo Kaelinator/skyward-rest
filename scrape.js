@@ -1,10 +1,19 @@
 const Promise   = require('bluebird')
 const puppeteer = require('puppeteer')
 
+/**
+ * https://repl.it/@justsml/UnpackedPromise
+ */
+function uPromised() {
+  let resolve, reject, promise;
+  promise = new Promise((yah, nah) => { resolve = yah; reject = nah })
+  return { promise, resolve, reject }
+}
+
 const Scraper = (url) =>
   (sId, pass) => {
 
-    let loginInfo, encses, popup
+    let loginInfo, encses, popup, browser
     let retriever
 
     const queue = []
@@ -14,21 +23,9 @@ const Scraper = (url) =>
       .concat('httploader.p?file=sfgradebook001.w')
       .join('/')
 
-    const browser = puppeteer.launch()
-      .then(browser => browser.on('targetcreated', handlePopup))
-      .then(browser =>
-        browser.newPage()
-          .then(page =>
-            page.goto(url)
-              .then(() => page.on('response', handleResponse))
-              .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
-              .then(() => page.waitFor(150))
-              .then(() => page.type('#login', sId))
-              .then(() => page.type('#password', pass))
-              .then(() => page.click('#bLogin'))
-              .then(() => browser)))
+    const { promise, resolve } = uPromised()
 
-    return {
+    const obj = {
 
       retrieve: (callback) => {
         retriever = callback
@@ -39,18 +36,52 @@ const Scraper = (url) =>
       },
 
       close: () => {
-        browser.close()
+        if (browser) browser.close()
       }
     }
 
+    puppeteer.launch()
+      .then(chrome => {
+        browser = chrome.on('targetcreated', e => {
+          handlePopup(e).then(([ pop, enc ]) => {
+              if (pop !== 0 && promise.isPending()) {
+
+                popup = pop
+                encses = enc
+                resolve(obj)
+              }
+            })
+          return chrome
+        })
+        return chrome
+      })
+      .then(chrome => 
+        chrome.newPage()
+          .then(page =>
+            page.goto(url)
+              .then(() => page.on('response', e => {
+                handleResponse(e).then(text => {
+                  loginInfo = text
+                })
+              }))
+              .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
+              .then(() => page.waitFor(150))
+              .then(() => page.type('#login', sId))
+              .then(() => page.type('#password', pass))
+              .then(() => page.click('#bLogin'))
+              .then(() => browser)))
+
+    return promise
+
     function handlePopup(target) {
-      [ popup, encses ] = Promise.resolve(target.page())
+
+      return Promise.resolve(target.page())
         .then(popup => popup.setViewport({ width: 1000, height: 700 })
           .then(() => popup.waitForSelector('#encses', { timeout: 10000 }))
           .then(() => popup.$('#encses'))
           .then(dom => dom.getProperty('value'))
           .then(v => v.jsonValue())
-          .then(encses => (encses) 
+          .then(encses => (encses)
             ? popup.waitForSelector('a[data-nav="sfgradebook001.w"]', { timeout: 10000 })
               .then(() => popup.click('a[data-nav="sfgradebook001.w"]'))
               .then(() => popup.waitForSelector('a[name="showGradeInfo"]'))
@@ -59,7 +90,8 @@ const Scraper = (url) =>
     }
 
     function handleResponse(response) {
-      loginInfo = response.text()
+
+      return response.text()
         .then((text) =>
           (text.substring(0, 4) === '<li>') ? text.slice(4, -5).split('^') : 0)
     }
