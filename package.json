@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "cheerio": "^1.0.0-rc.2",
     "puppeteer": "^0.13.0",
     "selenium-webdriver": "^3.6.0",
     "xmlhttprequest": "^1.8.0"

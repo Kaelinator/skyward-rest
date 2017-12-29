@@ -1,5 +1,6 @@
 const Promise   = require('bluebird')
 const puppeteer = require('puppeteer')
+const cheerio   = require('cheerio')
 
 /**
  * https://repl.it/@justsml/UnpackedPromise
@@ -102,7 +103,7 @@ const Scraper = (url) =>
             page.goto(url)
               .then(() => page.on('response', e => {
                 handleResponse(e).then(text => {
-                  loginInfo = text
+                  loginInfo = (text === 0) ? loginInfo : text
                 })
               }))
               .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
