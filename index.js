@@ -7,14 +7,12 @@ const Promise = require('bluebird')
 
 // const pretty = (d) => JSON.stringify(d, null, 2)
 
-// skyward('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w', 's592100', 'pis.12345')
-// scrape.init('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w', 's531758', 'ASDF;lkj')
-// (async () => {
+// skyward('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')('s592100', 'pis.12345')
 
 Promise.resolve(scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')('s531758', 'ASDF;lkj'))
-	.then(x => x.close())
-// })()
-	// .then(Promise.all)
-	// .then(pretty)
-	// .then(console.log)
-	// .catch(err => console.log(err))
+	.then(x => {
+		x.scrape('PR4')
+			.then(data => data.forEach(d => console.log(`${d}`)))
+			// .then(x.scrape('PR5'))
+			// .then(console.log)
+	})

@@ -4,19 +4,61 @@ const puppeteer = require('puppeteer')
 /**
  * https://repl.it/@justsml/UnpackedPromise
  */
-function uPromised() {
+const uPromised = () => {
   let resolve, reject, promise;
   promise = new Promise((yah, nah) => { resolve = yah; reject = nah })
   return { promise, resolve, reject }
+}
+
+const grabAttributes = (links) => links.map(a => ({
+        
+    eid: a.getAttribute('data-eid'),
+    cni: a.getAttribute('data-cni'),
+    trk: a.getAttribute('data-trk'),
+    sec: a.getAttribute('data-sec'),
+    gid: a.getAttribute('data-gid'),
+    bkt: a.getAttribute('data-bkt'),
+    eoc: a.getAttribute('data-eoc')
+  }))
+
+const query = (info, origin, encses, data) => {
+
+  const req = new XMLHttpRequest()
+
+  req.open('POST', origin, false)
+  req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+  req.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+  
+  req.send([
+    `action=viewGradeInfoDialog`,
+    `fromHttp=yes`,
+    `stuId=${info[4]}`,
+    `entityId=${data.eid}`,
+    `corNumId=${data.cni}`,
+    `track=${data.trk}`,
+    `section=${data.sec}`,
+    `gbId=${data.gid}`,
+    `bucket=${data.bkt}`,
+    `dialogLevel=1`,
+    `isEoc=${data.eoc}`,
+    `ishttp=true`,
+    `sessionid=${info[1]}%15${info[2]}`,
+    `encses=${encses}`,
+    `dwd=${info[0]}`,
+    `wfaacl=${info[2]}`
+  ].join('&'))
+
+  return req.response
+}
+
+const parse = (xml) => {
+  return xml
 }
 
 const Scraper = (url) =>
   (sId, pass) => {
 
     let loginInfo, encses, popup, browser
-    let retriever
-
-    const queue = []
 
     const referer = url.split('/')
       .slice(0, -1)
@@ -27,12 +69,11 @@ const Scraper = (url) =>
 
     const obj = {
 
-      retrieve: (callback) => {
-        retriever = callback
-      },
-
       scrape: (lit) => {
-        queue.push(lit)
+
+        return Promise.resolve(popup.$$eval(`a[data-lit="${lit}"]`, grabAttributes))
+          .mapSeries(data => popup.evaluate(query, loginInfo, referer, encses, data))
+        // .reduce(parse)
       },
 
       close: () => {
@@ -96,48 +137,6 @@ const Scraper = (url) =>
           (text.substring(0, 4) === '<li>') ? text.slice(4, -5).split('^') : 0)
     }
 
-    function query(info, origin, encses, data) {
-
-      const req = new XMLHttpRequest()
-    
-      req.open('POST', origin, false)
-      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
-      req.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
-      
-      req.send([
-        `action=viewGradeInfoDialog`,
-        `fromHttp=yes`,
-        `stuId=${info[4]}`,
-        `entityId=${data.eid}`,
-        `corNumId=${data.cni}`,
-        `track=${data.trk}`,
-        `section=${data.sec}`,
-        `gbId=${data.gid}`,
-        `bucket=${data.bkt}`,
-        `dialogLevel=1`,
-        `isEoc=${data.eoc}`,
-        `ishttp=true`,
-        `sessionid=${info[1]}%15${info[2]}`,
-        `encses=${encses}`,
-        `dwd=${info[0]}`,
-        `wfaacl=${info[2]}`
-      ].join('&'))
-    
-      return req.response
-    }
   }
 
 module.exports = Scraper
-    
-// .then(() => popup.$$eval('a[name="showGradeInfo"]', links => 
-//   links.map(a => ({
-
-//   eid: a.getAttribute('data-eid'),
-//   cni: a.getAttribute('data-cni'),
-//   trk: a.getAttribute('data-trk'),
-//   sec: a.getAttribute('data-sec'),
-//   gid: a.getAttribute('data-gid'),
-//   bkt: a.getAttribute('data-bkt'),
-//   eoc: a.getAttribute('data-eoc')
-// })))
-// .mapSeries(data => popup.evaluate(query, loginInfo, referer, encses, data))
