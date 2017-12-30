@@ -6,13 +6,17 @@ const cheerio   = require('cheerio')
  * https://repl.it/@justsml/UnpackedPromise
  */
 const uPromised = () => {
+
   let resolve, reject, promise;
+
   promise = new Promise((yah, nah) => { resolve = yah; reject = nah })
+
   return { promise, resolve, reject }
 }
 
-const grabAttributes = (links) => links.map(a => ({
-        
+const grabAttributes = (links) => 
+  links.map(a => ({
+
     eid: a.getAttribute('data-eid'),
     cni: a.getAttribute('data-cni'),
     trk: a.getAttribute('data-trk'),
@@ -52,14 +56,15 @@ const query = (info, origin, encses, data) => {
   return req.response
 }
 
-const parse = (xml) => {
+const parse = (obj, xml) => {
+
   return xml
 }
 
 const Scraper = (url) =>
   (sId, pass) => {
 
-    let loginInfo, encses, popup, browser
+    let loginInfo, secretCode, gradebook, browser
 
     const referer = url.split('/')
       .slice(0, -1)
@@ -72,52 +77,49 @@ const Scraper = (url) =>
 
       scrape: (lit) => {
 
-        return Promise.resolve(popup.$$eval(`a[data-lit="${lit}"]`, grabAttributes))
-          .mapSeries(data => popup.evaluate(query, loginInfo, referer, encses, data))
-        // .reduce(parse)
+        return Promise.resolve(gradebook.$$eval(`a[data-lit="${lit}"]`, grabAttributes))
+          .mapSeries(data => gradebook.evaluate(query, loginInfo, referer, secretCode, data))
+          .reduce(parse, {})
       },
 
       close: () => {
+
         if (browser) browser.close()
       }
     }
 
-    puppeteer.launch()
-      .then(chrome => {
-        browser = chrome.on('targetcreated', e => {
-          handlePopup(e).then(([ pop, enc ]) => {
-              if (pop !== 0 && promise.isPending()) {
-
-                popup = pop
-                encses = enc
-                resolve(obj)
-              }
-            })
-          return chrome
-        })
-        return chrome
-      })
-      .then(chrome => 
-        chrome.newPage()
-          .then(page =>
-            page.goto(url)
-              .then(() => page.on('response', e => {
-                handleResponse(e).then(text => {
-                  loginInfo = (text === 0) ? loginInfo : text
-                })
-              }))
-              .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
-              .then(() => page.waitFor(150))
-              .then(() => page.type('#login', sId))
-              .then(() => page.type('#password', pass))
-              .then(() => page.click('#bLogin'))
-              .then(() => browser)))
+    puppeteer.launch({ headless: false })
+      .then(chrome => browser = chrome.on('targetcreated', handlePopup))
+      .then(chrome => chrome.newPage())
+      .then(page => page.goto(url)
+        .then(() => page.on('response', handleResponse))
+        .then(() => page.waitForSelector('#bLogin', { timeout: 5000, visibility: true }))
+        .then(() => page.waitFor(150))
+        .then(() => page.type('#login', sId))
+        .then(() => page.type('#password', pass))
+        .then(() => page.click('#bLogin'))
+        .then(() => page.waitFor(250))
+        .then(() => page.waitForSelector('#dMessage', { hidden: true, timeout: 100 })
+          .catch(() => { throw new Error('Invalid login or password!') }))
+      )
 
     return promise
 
-    function handlePopup(target) {
+    function handlePopup(e) {
 
-      return Promise.resolve(target.page())
+      return awaitPopup(e).then(([ popup, encses ]) => {
+          if (popup !== 0 && promise.isPending()) {
+
+            gradebook = popup
+            secretCode = encses
+            resolve(obj)
+          }
+        })
+    }
+
+    function awaitPopup(target) {
+
+      return target.page()
         .then(popup => popup.setViewport({ width: 1000, height: 700 })
           .then(() => popup.waitForSelector('#encses', { timeout: 10000 }))
           .then(() => popup.$('#encses'))
@@ -128,14 +130,20 @@ const Scraper = (url) =>
               .then(() => popup.click('a[data-nav="sfgradebook001.w"]'))
               .then(() => popup.waitForSelector('a[name="showGradeInfo"]'))
               .then(() => [ popup, encses ])
-            : [ 0, 0 ]))
+            : [ 0, 0 ]
+          )
+        )
     }
 
-    function handleResponse(response) {
+    function handleResponse(e) {
+
+      return awaitResponse(e).then(text => loginInfo = (text === 0) ? loginInfo : text)
+    }
+
+    function awaitResponse(response) {
 
       return response.text()
-        .then((text) =>
-          (text.substring(0, 4) === '<li>') ? text.slice(4, -5).split('^') : 0)
+        .then(text => (text.substring(0, 4) === '<li>') ? text.slice(4, -5).split('^') : 0)
     }
 
   }
