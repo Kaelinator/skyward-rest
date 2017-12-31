@@ -1,4 +1,4 @@
-const scrape  = require('./scrape.js')
+const scrape  = require('./lib/scrape.js')
 const Promise = require('bluebird')
 const fs      = require('fs')
 

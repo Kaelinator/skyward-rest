@@ -1,13 +1,10 @@
 
-const test = require('tape')
-const data = require('./parser.data.js')
-const parse = require('../parser.js')
+const test  = require('tape')
+const data  = require('./parser.data.js')
+const parse = require('../lib/parse.js')
 
-test('parsing test Q2', (t) => {
-  const parsed = data.Q2.forEach(p => { 
-    const obj = parse(p.inner, 'Q2')
-    console.log(JSON.stringify(obj, null, 2))
-    console.log(JSON.stringify(p.parsed, null, 2))
-    t.deepLooseEqual(obj, p.parsed)
-  })
+Object.keys(data).forEach(lit => {
+  console.log(lit)
+  const parsed = data[lit].reduce(parse, [])
+  console.log(parsed)
 })
