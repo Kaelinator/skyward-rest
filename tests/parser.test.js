@@ -1,7 +1,9 @@
 
-const test  = require('tape')
 const data  = require('./parser.data.js')
 const parse = require('../lib/parse.js')
+const Promise = require('bluebird')
+const test  = require('tape')
+const util = require('util')
 
 Object.keys(data)
   // .filter(lit => lit === 'PR1')
@@ -12,8 +14,10 @@ Object.keys(data)
   // .filter(lit => lit === 'Q2')
   // .filter(lit => lit === 'S1')
   .forEach(lit => {
-    console.log(lit)
     const parsed = data[lit].reduce(parse, [])
-    console.log(parsed)
-    // console.log(JSON.stringify(parsed, null, 2))
+    console.log(util.inspect(parsed, {
+      depth: 6,
+      colors: true,
+      breakLength: 30
+    }))
   })
