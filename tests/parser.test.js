@@ -16,7 +16,7 @@ Object.keys(data)
   .forEach(lit => {
     const parsed = data[lit].reduce(parse, [])
     console.log(util.inspect(parsed, {
-      depth: 6,
+      depth: 7,
       colors: true,
       breakLength: 30
     }))
