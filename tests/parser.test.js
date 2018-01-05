@@ -12,7 +12,7 @@ Object.keys(data)
   // .filter(lit => lit === 'PR3')
   // .filter(lit => lit === 'PR4')
   // .filter(lit => lit === 'Q2')
-  // .filter(lit => lit === 'S1')
+  .filter(lit => lit === 'S1')
   .forEach(lit => {
     const parsed = data[lit].reduce(parse, [])
     console.log(util.inspect(parsed, {
