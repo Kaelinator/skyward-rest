@@ -1,23 +1,30 @@
 
-const data  = require('./parser.data.js')
-const parse = require('../lib/parser.js')
-const Promise = require('bluebird')
-const test  = require('tape')
-const util = require('util')
+const parse       = require('../lib/parser')
+const test        = require('tape')
+// const { compose } = require('../lib/helpers')
 
-Object.keys(data)
-  // .filter(lit => lit === 'PR1')
-  // .filter(lit => lit === 'PR2')
-  // .filter(lit => lit === 'Q1')
-  // .filter(lit => lit === 'PR3')
-  // .filter(lit => lit === 'PR4')
-  // .filter(lit => lit === 'Q2')
-  // .filter(lit => lit === 'S1')
-  .forEach(lit => {
-    const parsed = data[lit].reduce(parse, [])
-    console.log(util.inspect(parsed, {
-      depth: 7,
-      colors: true,
-      breakLength: 30
-    }))
-  })
+const parsed = require('./parsed.data.js')
+const raw    = require('./raw.data.js')
+const util   = require('util')
+
+Object.keys(raw).forEach(lit => {
+  const data = raw[lit].reduce(parse, [])
+  console.log(util.inspect(data, { depth: 7 }))
+})
+
+// const format = compose(
+//   str => `${str}` + 'Hello',
+//   data => JSON.stringify(data)
+// )
+
+// test('Parser', t => {
+
+//   t.plan(Object.keys(raw).length)
+
+//   Object.keys(raw).forEach(lit => {
+
+//     const data = format(raw[lit].reduce(parse, []))
+
+//     t.equal(data, parsed[lit])
+//   })
+// })
