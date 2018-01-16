@@ -54,7 +54,7 @@ skyward(url)(userId, password)
 * [Scraper factory](#scraper-factory)
 * [Scraper functions](#scraper-functions)
   * [`.scrape( lit )`](#scrape-lit-)
-  * [`.close()`](#close-)
+  * [`.close()`](#close)
 
 ### Scraper factory
 
