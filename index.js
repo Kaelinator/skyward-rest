@@ -17,5 +17,6 @@ scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog0
 			.then(save)
 			.then(() => skyward.close())
 	})
+	.catch(console.log.bind(console, 'INDEX:'))
 
 module.exports = scrape
