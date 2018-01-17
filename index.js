@@ -15,6 +15,10 @@ scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog0
 		
 		skyward.scrape('S1')
 			.then(save)
+			.then(() => skyward.scrapeLegacy())
+			.then(save)
+			.then(() => skyward.scrape('Q2'))
+			.then(save)
 			.then(() => skyward.close())
 	})
 	.catch(console.log.bind(console, 'INDEX:'))
