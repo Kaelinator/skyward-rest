@@ -13,11 +13,7 @@ const save = data => {
 scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(process.env.SKYUSER, process.env.SKYPASS)
 	.then(skyward => {
 		
-		skyward.scrape('S1')
-			.then(save)
-			.then(() => skyward.scrapeLegacy())
-			.then(save)
-			.then(() => skyward.scrape('Q2'))
+		skyward.scrapeLegacy()
 			.then(save)
 			.then(() => skyward.close())
 	})
