@@ -1,14 +1,20 @@
-const scrape  = require('./lib/scrape.js')
+const scrape  = require('./lib/scrape')
 const Promise = require('bluebird')
 const fs      = require('fs')
 
-// scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(process.env.SKYUSER, process.env.SKYPASS)
-// 	.then(skyward => {
+const save = data => {
+  const contents = (data) => `module.exports = ${JSON.stringify(data)}`
+	const path = (f) => `tmp/scrape_${f}.data.js`
+
+	fs.writeFile(path(Date.now()), contents(data), err => { if (err) throw err })
+}
+
+scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(process.env.SKYUSER, process.env.SKYPASS)
+	.then(skyward => {
 		
-// 		skyward.scrape()
-// 			.then(save)
-// 			.then(() => skyward.close())
-// 	})
-// 	.catch(console.log.bind(console, 'INDEX:'))
+		skyward.scrape()
+			.then(save)
+			.then(() => skyward.close())
+	})
 
 module.exports = scrape
