@@ -1,7 +1,7 @@
 
-const { ensure }             = require('../lib/helpers').traversers
-const { compose }            = require('../lib/helpers').structures
-const { mapObj, trimValues } = require('../lib/helpers').modifiers
+const { ensure }             = require('./traversers')
+const { compose }            = require('./structures')
+const { mapObj, trimValues } = require('./modifiers')
 
 const nums = obj => mapObj(obj, n => Number(n) || n)
 

@@ -1,6 +1,6 @@
 
 const cheerio  = require('cheerio')
-const { grab } = require('../lib/helpers').traversers
+const { grab } = require('./traversers')
 
 const cleanupLines  = xml => xml.split('\n').join('')
 const cleanupQuotes = xml => xml.split('\'').join('"')

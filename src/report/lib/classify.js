@@ -3,10 +3,12 @@ const { objectify } = require('../../lib/helpers').modifiers
 const { ensure }    = require('../../lib/helpers').traversers
 
 const assignment = require('../../tr-types/assignment')
-const lit = require('../../tr-types/lit')
-const cat = require('../../tr-types/cat')
+const lit        = require('../../tr-types/lit')
+const cat        = require('../../tr-types/cat')
+const course     = require('../../tr-types/course')
+const year       = require('../../tr-types/year')
 
-const assignmentOrEmpty = tr => ensure(tr)(4)() 
+const assignmentOrEmpty = tr => ensure(tr)(4)()
   ? assignment(tr) 
   : objectify('empty')({})
 
@@ -19,9 +21,9 @@ const courseContext = tr => (tr.attribs.class === 'sf_Section cat')
   : assignmentOrEmpty(tr)
 
 const historyContext = tr => (tr.attribs.class === 'even')
-  ? objectify('course')(tr)
+  ? course(tr)
   : ensure(tr)(0)(0)(0)()
-  ? objectify('year')(tr)
+  ? year(tr)
   : objectify('empty')({})
 
 module.exports.course = trs => trs.map(courseContext)

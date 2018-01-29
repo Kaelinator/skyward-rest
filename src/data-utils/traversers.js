@@ -12,10 +12,8 @@ const ensure = (parent) => {
     : ensure(parent.children[n])
 }
 
-
 const executeIfFunction = (f, ...params) =>
   (typeof f === 'function') ? f(...params) : f
-
 
 const grab = (parent) =>
   (n) => (typeof n === 'number') 
