@@ -8,9 +8,9 @@ const cat        = require('../../tr-types/cat')
 const course     = require('../../tr-types/course')
 const year       = require('../../tr-types/year')
 
-const assignmentOrEmpty = tr => ensure(tr)(4)()
+const assignmentOrOther = tr => ensure(tr)(4)()
   ? assignment(tr) 
-  : objectify('empty')({})
+  : objectify('other')({})
 
 const litOrCat = tr => ensure(tr)(1)(0)(0)() 
   ? lit(tr) 
@@ -18,13 +18,13 @@ const litOrCat = tr => ensure(tr)(1)(0)(0)()
 
 const courseContext = tr => (tr.attribs.class === 'sf_Section cat')
   ? litOrCat(tr)
-  : assignmentOrEmpty(tr)
+  : assignmentOrOther(tr)
 
 const historyContext = tr => (tr.attribs.class === 'even')
   ? course(tr)
   : ensure(tr)(0)(0)(0)()
   ? year(tr)
-  : objectify('empty')({})
+  : objectify('other')({})
 
 module.exports = {
   course: courseContext,

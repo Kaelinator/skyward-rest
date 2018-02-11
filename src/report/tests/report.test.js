@@ -55,12 +55,12 @@ describe('classify', () => {
 
   it('identifies trs that match nothing', () => {
     
-    raw.empty
+    raw.other
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.history(tr)).toHaveProperty('type', 'empty')
-        expect(classify.course(tr)).toHaveProperty('type', 'empty')
+        expect(classify.history(tr)).toHaveProperty('type', 'other')
+        expect(classify.course(tr)).toHaveProperty('type', 'other')
       })
   })
 })

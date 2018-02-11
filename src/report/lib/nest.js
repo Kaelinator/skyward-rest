@@ -25,7 +25,7 @@ const merge = (arr, obj) => switchcase({
   'cat': insertCat(arr),
   'lit': nestData(arr),
   'assignment': nestData(arr),
-  'empty': arr
+  'other': arr
 })(arr)(obj.type)(obj)
 
 module.exports = data => data.reduce(merge, [])

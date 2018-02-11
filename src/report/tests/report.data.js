@@ -28,7 +28,7 @@ module.exports.raw = {
     '<tr style="background-color:#EAEEF4" class="even"><td scope="row">ENGLISH 1 PreAP</td><td style="white-space:nowrap">1 - 3</td></tr>',
     '<tr style="background-color:#FFFFFF" class="even"><td scope="row">WORLD GEOG PreA</td><td style="white-space:nowrap">1 - 6</td></tr>'
   ],
-  empty: [
+  other: [
     '<tr class="odd"><td scope="row" class="fIl nWp" colspan="9">There are no Major assignments</td></tr>',
     '<tr class="odd"><td scope="row" class="fIl nWp" colspan="9">There are no Homework  assignments</td></tr>',
     '<tr class="odd"><td scope="row" class="fIl nWp" colspan="9">There are no Major assignments</td></tr>',
