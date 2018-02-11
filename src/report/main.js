@@ -9,11 +9,11 @@ const grabTable = $ => $('.fixedRows>table[id^="grid_gradeGrid"]>tbody>tr').get(
 
 module.exports.course = compose(
   nest,
-  classify.course,
+  tr => tr.map(classify.course),
   grabGrid
 )
 
 module.exports.history = compose(
-  classify.history,
+  tr => tr.map(classify.history),
   grabGrid
 )

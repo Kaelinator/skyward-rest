@@ -26,5 +26,7 @@ const historyContext = tr => (tr.attribs.class === 'even')
   ? year(tr)
   : objectify('empty')({})
 
-module.exports.course = trs => trs.map(courseContext)
-module.exports.history = trs => trs.map(historyContext)
+module.exports = {
+  course: courseContext,
+  history: historyContext
+}
