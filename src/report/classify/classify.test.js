@@ -3,7 +3,7 @@ const { compose }   = require('../../lib/helpers').structures
 const { jQueryify } = require('../../lib/helpers').preppers
 
 const classify = require('./classify')
-const raw      = require('./classify.data.js')
+const { raw }  = require('../../tr-types/tr.data.js')
 
 const prepare = compose(
   $ => $('tr')[0],

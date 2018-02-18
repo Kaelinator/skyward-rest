@@ -1,8 +1,6 @@
 
 const nest = require('./nest')
 
-const { raw, data } = require('./nest.data.js')
-
 describe('nest', () => {
 
   it('keeps cats independent', () => {
