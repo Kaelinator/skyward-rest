@@ -18,7 +18,7 @@ const prepare = compose(
 const formCourse = $ => ({
   info: info($),
   breakdown: breakdown($),
-  report: report.course($)
+  report: report($('table[id*="stuAssignmentSummaryGrid"]>tbody>tr').get())
 })
 
 module.exports = (arr, xml) => compose(

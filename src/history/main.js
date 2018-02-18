@@ -14,7 +14,7 @@ const prepare = compose(
 
 const formHistory = $ => ({
   school: school($),
-  report: report($)
+  report: report($('.fixedRows>table[id^="grid_gradeGrid"]>tbody>tr').get())
 })
 
 module.exports = (arr, html) => compose(

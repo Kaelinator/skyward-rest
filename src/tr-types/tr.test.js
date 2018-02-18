@@ -5,6 +5,7 @@ const { compose } = require('../data-utils/structures')
 const { raw, data } = require('./tr.data.js')
 
 const assignment = require('./assignment')
+const banner     = require('./banner')
 const cat        = require('./cat')
 const course     = require('./course')
 const lit        = require('./lit')
@@ -43,6 +44,24 @@ describe('assignment', () => {
         title: null
       }
     })
+  })
+})
+
+describe('banner', () => {
+
+  it('captures lits', () => {
+    
+    raw.banner
+      .map(prepare)
+      .map(banner)
+      .forEach(test('banner'))
+  })
+
+  it('places null values & does not throw errors', () => {
+
+    const parsed = banner(0)
+
+    expect(parsed.data).toEqual({lits: []})
   })
 })
 
