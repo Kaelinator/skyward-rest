@@ -7,10 +7,17 @@ const ensure = (parent, ...path) => {
 
     exists: () => !!target,
 
-    get: (attr) => (attr) ? target && target[attr] || null : target
+    get: attr => (!attr) 
+      ? target
+      : target && target[attr] || null,
 
+    attrsMatch: attrs => (!target || !attrs || typeof attrs !== 'object')
+      ? false
+      : Object.entries(attrs).every(matches(target.parent.attribs))
   }
 }
+
+const matches = (target) => (attr) => target[attr[0]] === attr[1]
 
 const safeTraverse = (parent, child) => 
   parent && parent.children && parent.children[child]
