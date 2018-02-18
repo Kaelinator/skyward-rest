@@ -59,8 +59,8 @@ module.exports.data = {
     {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}}
   ],
   year: [
-    "2017 - 2018, Grade 11",
-    "2016 - 2017, Grade 10",
-    "2016 - 2017, Grade 10"
+    {"grade": 11, "year": "2017 - 2018", "courses": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": []}
   ]
 }

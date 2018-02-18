@@ -110,11 +110,22 @@ describe('lit', () => {
 
 describe('year', () => {
 
-  it('captures data', () => {
+  it('captures/placeholds course, grade, and year data', () => {
 
     raw.year
       .map(prepare)
       .map(year)
       .forEach(test('year'))
+  })
+  
+  it('places null values & does not throw errors', () => {
+
+    const parsed = year(0)
+    
+    expect(parsed.data).toEqual({
+      courses: [],
+      grade: null,
+      year: null
+    })
   })
 })

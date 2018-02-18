@@ -1,5 +1,20 @@
 
-const { objectify }    = require('../lib/helpers').modifiers
-const { ensure } = require('../lib/helpers').traversers
+const mod         = require('../lib/helpers').modifiers
+const { compose } = require('../lib/helpers').structures
+const { ensure }  = require('../lib/helpers').traversers
 
-module.exports = f => objectify('year')(ensure(f, 0, 0, 0).get('data'))
+const getYear = tr => ensure(tr, 0, 0, 0).get('data')
+
+const formYear = str => ({
+  courses: [],
+  grade: mod.regX(/\d+$/)(str),
+  year: mod.regX(/\d{4}\s-\s\d{4}/)(str)
+})
+
+module.exports = compose(
+  mod.objectify('year'),
+  mod.numericValues,
+  formYear,
+  getYear
+)
+  

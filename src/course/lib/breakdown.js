@@ -1,8 +1,7 @@
 
-const { trimValues }   = require('../../lib/helpers').modifiers
-const { nums }         = require('../../lib/helpers').scrapers
-const { ensure } = require('../../lib/helpers').traversers
-const { compose }      = require('../../lib/helpers').structures
+const { trimValues, numericValues } = require('../../lib/helpers').modifiers
+const { ensure }                    = require('../../lib/helpers').traversers
+const { compose }                   = require('../../lib/helpers').structures
 
 const grabSummary = $ => $('td[class="nPtb"]').get()
 
@@ -18,7 +17,7 @@ const breakItDown = summary =>
   summary.filter(onlyParents)
     .map(formBreakdown)
     .map(trimValues(/\w+/))
-    .map(nums)
+    .map(numericValues)
 
 const nullIfEmpty = breakdown => (breakdown.length > 0) ? breakdown : null
 

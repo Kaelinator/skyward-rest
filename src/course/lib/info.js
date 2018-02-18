@@ -1,7 +1,7 @@
 
-const { nums }    = require('../../lib/helpers').scrapers
-const { ensure }    = require('../../lib/helpers').traversers
-const { compose } = require('../../lib/helpers').structures
+const { numericValues } = require('../../lib/helpers').modifiers
+const { ensure }        = require('../../lib/helpers').traversers
+const { compose }       = require('../../lib/helpers').structures
 
 const grabLit = $ => ensure($('table[id*="stuTermSummaryGrid"]>thead>tr>th')[0], 0).get('data')
 const trim = str => str.match(/\w+/)[0]
@@ -23,6 +23,6 @@ const formInfo = $ => {
   
 
 module.exports = compose(
-  nums,
+  numericValues,
   formInfo
 )
