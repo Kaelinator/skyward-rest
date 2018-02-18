@@ -12,7 +12,8 @@ const prepare = compose(
 )
 
 describe('classify', () => {
-  it('distinguishes between a lit, cat, and an assignment', () => {
+
+  it('identifies assignments', () => {
 
     raw.assignment
       .map(prepare)
@@ -20,14 +21,20 @@ describe('classify', () => {
 
         expect(classify.course(tr)).toHaveProperty('type', 'assignment')
       })
+  })
 
+  it('identifies cats', () => {
+    
     raw.lit
       .map(prepare)
       .forEach(tr => {
 
         expect(classify.course(tr)).toHaveProperty('type', 'lit')
       })
+  })
 
+  it('identifies lits', () => {
+    
     raw.cat
       .map(prepare)
       .forEach(tr => {
@@ -36,7 +43,7 @@ describe('classify', () => {
       })
   })
 
-  it('distinguishes between a year and a course', () => {
+  it('identifies years', () => {
 
     raw.year
       .map(prepare)
@@ -44,7 +51,10 @@ describe('classify', () => {
 
         expect(classify.history(tr)).toHaveProperty('type', 'year')
       })
+  })
 
+  it('identifies courses', () => {
+    
     raw.course
       .map(prepare)
       .forEach(tr => {
