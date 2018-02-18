@@ -1,7 +1,6 @@
 
 const { mapObj, arrayInsert } = require('../../lib/helpers').modifiers
 const { compose, switchcase } = require('../../lib/helpers').structures
-const { ensure, grab }        = require('../../lib/helpers').traversers
 
 const objectInsert = data => newData =>
   mapObj(data, 

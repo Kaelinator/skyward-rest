@@ -2,16 +2,16 @@
 const { mapObj, objectify } = require('../lib/helpers').modifiers
 const { getScore }          = require('../lib/helpers').scrapers
 const { compose }           = require('../lib/helpers').structures
-const { ensure, grab }      = require('../lib/helpers').traversers
+const { ensure }      = require('../lib/helpers').traversers
 
 const fixEmpties = meta => mapObj(meta, data => 
   (data === String.fromCharCode(160)) ? null : data
 )
 
 const formMeta = tr => ({
-  missing: grab(tr)(5)(0)('data'),
-  noCount: !ensure(tr)(6)(0)('data'),
-  absent: grab(tr)(7)(0)('data')
+  missing: ensure(tr, 5, 0).get('data'),
+  noCount: !ensure(tr, 6, 0).get('data'),
+  absent: ensure(tr, 7, 0).get('data')
 })
 
 const getMeta = compose(
@@ -19,19 +19,11 @@ const getMeta = compose(
   formMeta
 )
 
-const getDate = tr => ensure(tr)(0)(0)() 
-  ? grab(tr)(0)(0)('data') 
-  : null
-
-const getTitle = tr => ensure(tr)(1)(0)(0)() 
-  ? grab(tr)(1)(0)(0)('data') 
-  : null
-
 const formAssignment = tr => ({
   assignments: {
-    date: getDate(tr),
-    title: getTitle(tr),
-    score: getScore(grab(tr)(4)),
+    date: ensure(tr, 0, 0).get('data') ,
+    title: ensure(tr, 1, 0, 0).get('data'),
+    score: getScore(tr),
     meta: getMeta(tr)
   }
 })

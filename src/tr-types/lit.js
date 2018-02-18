@@ -2,10 +2,10 @@
 const { mapObj, trimValues, objectify } = require('../lib/helpers').modifiers
 const { nums, getScore }                = require('../lib/helpers').scrapers
 const { compose }                       = require('../lib/helpers').structures
-const { ensure, grab }                  = require('../lib/helpers').traversers
+const { ensure }                  = require('../lib/helpers').traversers
 
 const formLitWeight = tr => ({
-  percent: tr(1)(0)('data')
+  percent: ensure(tr, 1, 1, 0).get('data')
 })
 
 const createLitWeight = compose(
@@ -14,16 +14,16 @@ const createLitWeight = compose(
   formLitWeight
 )
 
-const getLitWeight = tr => ensure(tr)(1)(0)() ? createLitWeight(tr) : null
+const getLitWeight = tr => ensure(tr, 1, 1, 0).exists() ? createLitWeight(tr) : null
 const getLit = tr => ({ 
-  lit: grab(tr)(1)(0)(0)('data') 
+  lit: ensure(tr, 1, 0, 0).get('data') 
 })
 
 const labelLit = tr => value => Object.assign(getLit(tr), value)
 const wrapLit = ([ data, tr ]) => mapObj(data, labelLit(tr))
 const formLit = tr => [{
-  weight: getLitWeight(grab(tr)(1)),
-  score: getScore(grab(tr)(4))
+  weight: getLitWeight(tr),
+  score: getScore(tr)
 }, tr]
 
 module.exports = compose(

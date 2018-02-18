@@ -8,11 +8,11 @@ const cat        = require('../../tr-types/cat')
 const course     = require('../../tr-types/course')
 const year       = require('../../tr-types/year')
 
-const assignmentOrOther = tr => ensure(tr)(4)()
+const assignmentOrOther = tr => ensure(tr, 4).exists()
   ? assignment(tr) 
   : objectify('other')({})
 
-const litOrCat = tr => ensure(tr)(1)(0)(0)() 
+const litOrCat = tr => ensure(tr, 1, 0, 0).exists() 
   ? lit(tr) 
   : cat(tr)
 
@@ -22,9 +22,15 @@ const courseContext = tr => (tr.attribs.class === 'sf_Section cat')
 
 const historyContext = tr => (tr.attribs.class === 'even')
   ? course(tr)
-  : ensure(tr)(0)(0)(0)()
+  : ensure(tr, 0, 0, 0).exists()
   ? year(tr)
   : objectify('other')({})
+
+// const allContext = tr => (tr.attribs.class !== 'sf_Section cat')
+//   ? objectify('idk')({})
+//   : ensure(tr, 1, 0, 0).exists() 
+//   ? lit(tr)
+//   : cat(tr)
 
 module.exports = {
   course: courseContext,

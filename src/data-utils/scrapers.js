@@ -6,8 +6,8 @@ const { mapObj, trimValues } = require('./modifiers')
 const nums = obj => mapObj(obj, n => Number(n) || n)
 
 const formScore = td => ({
-  earned: td(0)('data'),
-  total: td(2)('data')
+  earned: ensure(td, 4, 0).get('data'),
+  total: ensure(td, 4, 2).get('data')
 })
 
 const createScore = compose(
@@ -16,7 +16,7 @@ const createScore = compose(
   formScore
 )
 
-const getScore = td => ensure(td)(1)() 
+const getScore = td => ensure(td, 4, 1).exists()
   ? createScore(td) 
   : []
 
