@@ -6,6 +6,7 @@ const { raw, data } = require('./tr.data.js')
 
 const assignment = require('./assignment')
 const banner     = require('./banner')
+const strip      = require('./strip')
 const cat        = require('./cat')
 const course     = require('./course')
 const lit        = require('./lit')
@@ -130,6 +131,24 @@ describe('lit', () => {
       score: { lit: null }, 
       weight: { lit: null }
     })
+  })
+})
+
+describe('strip', () => {
+
+  it('captures lits', () => {
+    
+    raw.strip
+      .map(prepare)
+      .map(strip)
+      .forEach(test('strip'))
+  })
+
+  it('places null values & does not throw errors', () => {
+
+    const parsed = strip(0)
+
+    expect(parsed.data).toEqual({scores: []})
   })
 })
 
