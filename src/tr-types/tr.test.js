@@ -71,20 +71,26 @@ describe('cat', () => {
 
 describe('course', () => {
 
-  // it('captures data', () => {
+  it('captures name, score, and term data', () => {
 
-  //   raw.course
-  //     .map(prepare)
-  //     .map(course)
-  //     .forEach(test('course'))
-  // })
+    raw.course
+      .map(prepare)
+      .map(course)
+      .forEach(test('course'))
+  })
 
-  // it('places null values & does not throw errors', () => {
+  it('places null values & does not throw errors', () => {
 
-  //   const parsed = course(0)
+    const parsed = course(0)
     
-  //   expect(parsed.data).toEqual({})
-  // })
+    expect(parsed.data).toEqual({
+      courses: {
+        name: null,
+        scores: [],
+        terms: null
+      }
+    })
+  })
 })
 
 describe('lit', () => {

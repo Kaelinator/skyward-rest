@@ -51,12 +51,17 @@ module.exports.data = {
     {"assignments": [], "category": "Homework", "score": [], "weight": []}
   ],
   course: [
-  
+    {"courses": {"name": "IND STUDY TECH APP 1", "terms": "1 - 4", "scores": []}},
+    {"courses": {"name": "CHEMISTRY 1 PreAP-GT", "scores": [], "terms": "1 - 6"}},
+    {"courses": {"name": "ENGLISH 3", "scores": [], "terms": "1 - 2"}},
+    {"courses": {"name": "ATH-CC-B 1A", "scores": [], "terms": "1 - 3"}},
+    {"courses": {"name": "ENGLISH 1 PreAP", "scores": [], "terms": "1 - 3"}},
+    {"courses": {"name": "WORLD GEOG PreA", "scores": [], "terms": "1 - 6"}}
   ],
   lit: [
     {"score": {"earned": 1000, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 10}},
     {"score": {"earned": 275, "lit": "Q2", "total": 300}, "weight": {"lit": "Q2", "percent": 70}},
-    {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}}
+    {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}},
   ],
   year: [
     {"grade": 11, "year": "2017 - 2018", "courses": []},
