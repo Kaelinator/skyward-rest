@@ -1,4 +1,4 @@
-module.exports.raw = {
+module.exports = {
   assignment: [   
     '<tr class="odd"><td scope="row" colspan="2">09/08/17</td><td class="nWp"><a id="showAssignmentInfo" name="showAssignmentInfo" data-sid="74872" data-gid="1633625" data-aid="1566435" data-pos="right" data-type="default" data-maxheight="550" data-minwidth="400" data-maxwidth="450" data-title="Assignment Details" href="javascript:void(0)">Participation</a></td><td class="nWp">100&nbsp;&nbsp;</td><td class="aRt">100.00</td><td class="aRt">100 <span style="font-size:x-small;">out of</span> 100</td><td>&nbsp;</td><td>&nbsp;</td><td class="nWp">&nbsp;</td></tr>',
     '<tr class="even"><td scope="row" colspan="2">10/12/17</td><td class="nWp"><a id="showAssignmentInfo" name="showAssignmentInfo" data-sid="74872" data-gid="1637489" data-aid="1815551" data-pos="right" data-type="default" data-maxheight="550" data-minwidth="400" data-maxwidth="450" data-title="Assignment Details" href="javascript:void(0)">Developing a Research Question</a></td><td class="nWp">100&nbsp;&nbsp;</td><td class="aRt">100.00</td><td class="aRt">100 <span style="font-size:x-small;">out of</span> 100</td><td>&nbsp;</td><td>&nbsp;</td><td class="nWp">School Activity-SCHL BOARD</td></tr>',
@@ -35,23 +35,5 @@ module.exports.raw = {
     '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>',
     '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>',
     '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>'
-  ]
-}
-module.exports.data = {
-  assignment: [
-    {"data": {"assignments": {"date": "10/12/17", "meta": {"absent": "School Activity-SCHL BOARD", "missing": null, "noCount": false}, "score": {"earned": 100, "total": 100}, "title": "Developing a Research Question"}}, "type": "assignment"},
-    {"data": {"assignments": {"date": "10/04/17", "meta": {"absent": null, "missing": null, "noCount": true}, "score": {"earned": "*", "total": 100}, "title": "General Dollar"}}, "type": "assignment"},
-    {"data": {"assignments": {"date": "09/15/17", "meta": {"absent": "School Activity-SCHL BOARD", "missing": null, "noCount": true}, "score": {"earned": 93, "total": 100}, "title": "TEST 1"}}, "type": "assignment"},
-    {"data": {"assignments": {"date": "09/08/17", "meta": {"absent": null, "missing": null, "noCount": false}, "score": {"earned": 100, "total": 100}, "title": "Participation"}}, "type": "assignment"}
-  ],
-  cat: [
-    {"data": {"assignments": [], "category": "PE", "score": {"earned": 100, "total": 100}, "weight": 100}, "type": "cat"},
-    {"data": {"assignments": [], "category": "Major", "score": [], "weight": 60}, "type": "cat"},
-    {"data": {"assignments": [], "category": "Homework", "score": [], "weight": []}, "type": "cat"}
-  ],
-  lit: [
-    {"data": {"score": {"earned": 1000, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 10}}, "type": "lit"},
-    {"data": {"score": {"earned": 275, "lit": "Q2", "total": 300}, "weight": {"lit": "Q2", "percent": 70}}, "type": "lit"},
-    {"data": {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}}, "type": "lit"}
   ]
 }

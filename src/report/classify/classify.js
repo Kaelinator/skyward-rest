@@ -11,7 +11,7 @@ const year       = require('../../tr-types/year')
 
 const yearAttrs = { 
   style: 'font-weight:bold;line-height:1.3em; background-color:#FFFFFF',
-  class: '' 
+  class: ''
 }
 
 const allContext = tr =>

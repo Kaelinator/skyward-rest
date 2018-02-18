@@ -2,8 +2,8 @@
 const { compose }   = require('../../lib/helpers').structures
 const { jQueryify } = require('../../lib/helpers').preppers
 
-const classify = require('../lib/classify')
-const { raw }  = require('./report.data.js')
+const classify = require('./classify')
+const raw      = require('./classify.data.js')
 
 const prepare = compose(
   $ => $('tr')[0],
