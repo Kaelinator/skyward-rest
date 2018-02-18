@@ -19,7 +19,7 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.course(tr)).toHaveProperty('type', 'assignment')
+        expect(classify(tr)).toHaveProperty('type', 'assignment')
       })
   })
 
@@ -29,7 +29,7 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.course(tr)).toHaveProperty('type', 'lit')
+        expect(classify(tr)).toHaveProperty('type', 'lit')
       })
   })
 
@@ -39,7 +39,7 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.course(tr)).toHaveProperty('type', 'cat')
+        expect(classify(tr)).toHaveProperty('type', 'cat')
       })
   })
 
@@ -49,7 +49,7 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.history(tr)).toHaveProperty('type', 'year')
+        expect(classify(tr)).toHaveProperty('type', 'year')
       })
   })
 
@@ -59,7 +59,7 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.history(tr)).toHaveProperty('type', 'course')
+        expect(classify(tr)).toHaveProperty('type', 'course')
       })
   })
 
@@ -69,8 +69,8 @@ describe('classify', () => {
       .map(prepare)
       .forEach(tr => {
 
-        expect(classify.history(tr)).toHaveProperty('type', 'other')
-        expect(classify.course(tr)).toHaveProperty('type', 'other')
+        expect(classify(tr)).toHaveProperty('type', 'other')
+        expect(classify(tr)).toHaveProperty('type', 'other')
       })
   })
 })

@@ -11,13 +11,13 @@ const ensure = (parent, ...path) => {
       ? target
       : target && target[attr] || null,
 
-    attrsMatch: attrs => (!target || !attrs || typeof attrs !== 'object')
+    attrsMatch: attrs => (!target || !target.attribs || !attrs || typeof attrs !== 'object')
       ? false
-      : Object.entries(attrs).every(matches(target.parent.attribs))
+      : Object.entries(attrs).every(matches(target.attribs))
   }
 }
 
-const matches = (target) => (attr) => target[attr[0]] === attr[1]
+const matches = (target) => (attr) => target[attr[0]] == attr[1]
 
 const safeTraverse = (parent, child) => 
   parent && parent.children && parent.children[child]

@@ -1,6 +1,7 @@
 
-const { objectify } = require('../../lib/helpers').modifiers
-const { ensure }    = require('../../lib/helpers').traversers
+const { objectify }  = require('../../lib/helpers').modifiers
+const { ensure }     = require('../../lib/helpers').traversers
+const { switchcase } = require('../../lib/helpers').structures
 
 const assignment = require('../../tr-types/assignment')
 const lit        = require('../../tr-types/lit')
@@ -8,31 +9,22 @@ const cat        = require('../../tr-types/cat')
 const course     = require('../../tr-types/course')
 const year       = require('../../tr-types/year')
 
-const assignmentOrOther = tr => ensure(tr, 4).exists()
-  ? assignment(tr) 
-  : objectify('other')({})
+const yearAttrs = { 
+  style: 'font-weight:bold;line-height:1.3em; background-color:#FFFFFF',
+  class: '' 
+}
 
-const litOrCat = tr => ensure(tr, 1, 0, 0).exists() 
-  ? lit(tr) 
-  : cat(tr)
-
-const courseContext = tr => (tr.attribs.class === 'sf_Section cat')
-  ? litOrCat(tr)
-  : assignmentOrOther(tr)
-
-const historyContext = tr => (tr.attribs.class === 'even')
+const allContext = tr =>
+  ensure(tr, 1, 0).attrsMatch({ id: 'showAssignmentInfo' })
+  ? assignment(tr)
+  : ensure(tr).attrsMatch({ class: 'sf_Section cat' }) && ensure(tr, 1, 0, 0).exists()
+  ? lit(tr)
+  : ensure(tr).attrsMatch({ class: 'sf_Section cat' }) && !ensure(tr, 1, 0, 0).exists()
+  ? cat(tr)
+  : ensure(tr).attrsMatch({ class: 'even' })
   ? course(tr)
-  : ensure(tr, 0, 0, 0).exists()
+  : ensure(tr).attrsMatch(yearAttrs)
   ? year(tr)
   : objectify('other')({})
 
-// const allContext = tr => (tr.attribs.class !== 'sf_Section cat')
-//   ? objectify('idk')({})
-//   : ensure(tr, 1, 0, 0).exists() 
-//   ? lit(tr)
-//   : cat(tr)
-
-module.exports = {
-  course: courseContext,
-  history: historyContext
-}
+module.exports = allContext

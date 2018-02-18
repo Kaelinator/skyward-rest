@@ -17,7 +17,6 @@ describe('ensure.exists', () => {
     expect(ensure(td, 0).exists()).toBeTruthy()
     expect(ensure(td, 0, 0).exists()).toBeTruthy()
   })
-
 })
 
 describe('ensure.get', () => {
@@ -54,14 +53,14 @@ describe('ensure.attrsMatch', () => {
 
   it('returns true passed correct attributes', () => {
 
-    expect(ensure(td, 0, 0).attrsMatch({ class: 'slide' })).toBeTruthy()
-    expect(ensure(td, 0, 0).attrsMatch({ class: 'slide', id: 'my-div' })).toBeTruthy()
+    expect(ensure(td, 0).attrsMatch({ class: 'slide' })).toBeTruthy()
+    expect(ensure(td, 0).attrsMatch({ class: 'slide', id: 'my-div' })).toBeTruthy()
   })
 
   it('returns false passed incorrect attribute', () => {
     
-    expect(ensure(td, 0, 0).attrsMatch({ class: 'not-a-slide' })).toBeFalsy()
-    expect(ensure(td, 0, 0).attrsMatch({ class: 'not-a-slide', id: 'not-my-div' })).toBeFalsy()
+    expect(ensure(td, 0).attrsMatch({ class: 'not-a-slide' })).toBeFalsy()
+    expect(ensure(td, 0).attrsMatch({ class: 'not-a-slide', id: 'not-my-div' })).toBeFalsy()
   })
 
   it('returns false for a non-existent element', () => {
