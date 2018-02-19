@@ -12,9 +12,11 @@ const prepare = compose(
   preppers.cleanupLines
 )
 
+const grabData = $ => $('table[id^="grid_gradeGrid"]>tbody>tr').get()
+
 const formHistory = $ => ({
   school: school($),
-  report: report($('.fixedRows>table[id^="grid_gradeGrid"]>tbody>tr').get())
+  report: report(grabData($))
 })
 
 module.exports = (arr, html) => compose(

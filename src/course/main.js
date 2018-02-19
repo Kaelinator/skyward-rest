@@ -15,10 +15,12 @@ const prepare = compose(
   preppers.cleanupLines
 )
 
+const grabData = $ => $('table[id*="stuAssignmentSummaryGrid"]>tbody>tr').get()
+
 const formCourse = $ => ({
   info: info($),
   breakdown: breakdown($),
-  report: report($('table[id*="stuAssignmentSummaryGrid"]>tbody>tr').get())
+  report: report(grabData($))
 })
 
 module.exports = (arr, xml) => compose(
