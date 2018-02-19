@@ -11,66 +11,66 @@ const prepare = compose(
   html => `<table>${html}</table>`
 )
 
+const test = type => tr => {
+
+  expect(classify(tr)).toHaveProperty('type', type)
+}
+
 describe('classify', () => {
 
   it('identifies assignments', () => {
 
     raw.assignment
       .map(prepare)
-      .forEach(tr => {
+      .forEach(test('assignment'))
+  })
 
-        expect(classify(tr)).toHaveProperty('type', 'assignment')
-      })
+  it('identifies banners', () => {
+
+    raw.banner
+      .map(prepare)
+      .forEach(test('banner'))
   })
 
   it('identifies cats', () => {
     
     raw.lit
       .map(prepare)
-      .forEach(tr => {
-
-        expect(classify(tr)).toHaveProperty('type', 'lit')
-      })
+      .forEach(test('lit'))
   })
 
   it('identifies lits', () => {
     
     raw.cat
       .map(prepare)
-      .forEach(tr => {
+      .forEach(test('cat'))
+  })
 
-        expect(classify(tr)).toHaveProperty('type', 'cat')
-      })
+  it('identifies strips', () => {
+
+    raw.strip
+      .map(prepare)
+      .forEach(test('strip'))
   })
 
   it('identifies years', () => {
 
     raw.year
       .map(prepare)
-      .forEach(tr => {
-
-        expect(classify(tr)).toHaveProperty('type', 'year')
-      })
+      .forEach(test('year'))
   })
 
   it('identifies courses', () => {
     
     raw.course
       .map(prepare)
-      .forEach(tr => {
-
-        expect(classify(tr)).toHaveProperty('type', 'course')
-      })
+      .forEach(test('course'))
   })
 
   it('identifies trs that match nothing', () => {
     
     raw.other
       .map(prepare)
-      .forEach(tr => {
-
-        expect(classify(tr)).toHaveProperty('type', 'other')
-        expect(classify(tr)).toHaveProperty('type', 'other')
-      })
+      .forEach(test('other'))
   })
 })
