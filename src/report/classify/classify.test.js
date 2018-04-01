@@ -12,7 +12,7 @@ const prepare = compose(
 )
 
 const test = type => tr => {
-
+  
   expect(classify(tr)).toHaveProperty('type', type)
 }
 
