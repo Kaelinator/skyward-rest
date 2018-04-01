@@ -136,7 +136,7 @@ describe('lit', () => {
 
 describe('strip', () => {
 
-  it('captures lits', () => {
+  it('captures lits, replacing "&nbsp;" with null', () => {
     
     raw.strip
       .map(prepare)

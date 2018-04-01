@@ -1,6 +1,8 @@
 
 const arrayInsert = arr => data => [ ...arr, data ]
 
+const map = predicate => arr => arr.map(predicate)
+
 /**
  * @author Rotareti
  * https://stackoverflow.com/a/38829074/5563110
@@ -22,6 +24,7 @@ const trimValues = regexp =>
 
 module.exports = {
   arrayInsert,
+  map,
   mapObj,
   numericValues,
   objectify,
