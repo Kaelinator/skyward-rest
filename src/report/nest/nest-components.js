@@ -23,20 +23,25 @@ const nestData = arr => compose(
   stripData
 )
 
-const mapObjectArray = arr => obj =>
-  arr.map((nest, i) => objectInsert(nest)(obj[i]))
-
-const arrayObjectInsert = data => newData => 
-  mapObj(data, (v, k) => newData.hasOwnProperty(k) 
-    ? mapObjectArray(v)(newData[k]) 
-    : v
-  )
-
-const nestDataArray = arr => compose(
+const nestArray = arr => compose(
   arrayInsert(arr.slice(0, -1)),
-  arrayObjectInsert(arr.slice(-1)[0]),
-  stripData
+  insertData(arr.slice(-1)[0])
 )
+
+// const mapObjectArray = arr => obj =>
+//   arr.map((nest, i) => objectInsert(nest)(obj[i]))
+
+// const arrayObjectInsert = data => newData => 
+//   mapObj(data, (v, k) => newData.hasOwnProperty(k) 
+//     ? mapObjectArray(v)(newData[k]) 
+//     : v
+//   )
+
+// const nestDataArray = arr => compose(
+//   arrayInsert(arr.slice(0, -1)),
+//   arrayObjectInsert(arr.slice(-1)[0]),
+//   stripData
+// )
 
 module.exports = {
   stripData,
@@ -44,7 +49,8 @@ module.exports = {
   objectAssign,
   objectInsert,
   nestData,
-  mapObjectArray,
-  arrayObjectInsert,
-  nestDataArray
+  nestArray
+  // mapObjectArray,
+  // arrayObjectInsert,
+  // nestDataArray
 }

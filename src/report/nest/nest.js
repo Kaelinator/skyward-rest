@@ -1,16 +1,17 @@
 
 const { switchcase } = require('../../lib/helpers').structures
 const {
-  insertData, objectAssign, nestData, nestDataArray
+  insertData, nestData, nestArray
 } = require('./nest-components')
 
 const merge = (arr, obj) => switchcase({
   'cat': insertData(arr),
   'lit': nestData(arr),
   'assignment': nestData(arr),
-  'banner': nestData(arr),
-  'strip': nestDataArray(arr),
+  'banner': insertData(arr),
+  'strip': nestArray(arr),
   'year': insertData(arr),
+  'course': nestData(arr),
   'other': arr
 })(arr)(obj.type)(obj)
 

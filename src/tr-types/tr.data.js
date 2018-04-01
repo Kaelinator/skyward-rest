@@ -57,9 +57,9 @@ module.exports.data = {
     {"assignments": {"date": "09/15/17", "meta": {"absent": "School Activity-SCHL BOARD", "missing": "&nbsp;", "noCount": true}, "score": {"earned": 93, "total": 100}, "title": "TEST 1"}}
   ],
   banner: [
-    {"lits": [{"lit": "PC1", "scores": []}, {"lit": "PR1", "scores": []}, {"lit": "PC2", "scores": []}, {"lit": "PR2", "scores": []}, {"lit": "QC1", "scores": []}, {"lit": "Q1", "scores": []}, {"lit": "PC3", "scores": []}, {"lit": "PR3", "scores": []}, {"lit": "PC4", "scores": []}, {"lit": "PR4", "scores": []}, {"lit": "QC2", "scores": []}, {"lit": "Q2", "scores": []}, {"lit": "SE1", "scores": []}, {"lit": "S1", "scores": []}, {"lit": "PC5", "scores": []}, {"lit": "PR5", "scores": []}, {"lit": "PC6", "scores": []}, {"lit": "PR6", "scores": []}, {"lit": "QC3", "scores": []}, {"lit": "Q3", "scores": []}, {"lit": "PC7", "scores": []}, {"lit": "PR7", "scores": []}, {"lit": "PC8", "scores": []}, {"lit": "PR8", "scores": []}, {"lit": "QC4", "scores": []}, {"lit": "Q4", "scores": []}, {"lit": "SE2", "scores": []}, {"lit": "S2", "scores": []}]},
-    {"lits": [{"lit": "S1", "scores": []}, {"lit": "S2", "scores": []}]},
-    {"lits": [{"lit": "PR1", "scores": []}, {"lit": "C1", "scores": []}, {"lit": "MP1", "scores": []}, {"lit": "PC2", "scores": []}, {"lit": "PR2", "scores": []}, {"lit": "C2", "scores": []}, {"lit": "MP2", "scores": []}, {"lit": "PC3", "scores": []}, {"lit": "PR3", "scores": []}, {"lit": "C3", "scores": []}, {"lit": "MP3", "scores": []}, {"lit": "SE1", "scores": []}, {"lit": "S1", "scores": []}, {"lit": "PC4", "scores": []}, {"lit": "PR4", "scores": []}, {"lit": "C4", "scores": []}, {"lit": "MP4", "scores": []}, {"lit": "PC5", "scores": []}, {"lit": "PR5", "scores": []}, {"lit": "C5", "scores": []}, {"lit": "MP5", "scores": []}, {"lit": "PC6", "scores": []}, {"lit": "PR6", "scores": []}, {"lit": "C6", "scores": []}, {"lit": "MP6", "scores": []}, {"lit": "SE2", "scores": []}, {"lit": "S2", "scores": []}, {"lit": "AV", "scores": []}]}
+    [["PC1", "PR1", "PC2", "PR2", "QC1", "Q1", "PC3", "PR3", "PC4", "PR4", "QC2", "Q2", "SE1", "S1", "PC5", "PR5", "PC6", "PR6", "QC3", "Q3", "PC7", "PR7", "PC8", "PR8", "QC4", "Q4", "SE2", "S2"]],
+    [["S1", "S2"]],
+    [["PR1", "C1", "MP1", "PC2", "PR2", "C2", "MP2", "PC3", "PR3", "C3", "MP3", "SE1", "S1", "PC4", "PR4", "C4", "MP4", "PC5", "PR5", "C5", "MP5", "PC6", "PR6", "C6", "MP6", "SE2", "S2", "AV"]]
   ],
   cat: [
     {"assignments": [], "category": "PE", "score": {"earned": 100, "total": 100}, "weight": []},
@@ -80,16 +80,13 @@ module.exports.data = {
     {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}},
   ],
   strip: [
-    {"lits": [{"scores": "99"}, {"scores": "E"}, {"scores": "98"}, {"scores": null}, {"scores": "98"}, {"scores": "E"}, {"scores": "95"}, {"scores": null}, {"scores": "100"}, {"scores": "E"}, {"scores": "100"}, {"scores": "99"}, {"scores": "98"}, {"scores": null}, {"scores": "89"}, {"scores": "E"}, {"scores": "100"}, {"scores": null}, {"scores": "100"}, {"scores": "E"}, {"scores": "100"}, {"scores": null}, {"scores": "99"}, {"scores": "E"}, {"scores": "100"}, {"scores": "X"}, {"scores": "100"}, {"scores": null}]},
-    {"lits": [{"scores": "85"}, {"scores": "94"}]},
-    {"lits": [{"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": "100"}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}]}
+    ["99", "E", "98", null, "98", "E", "95", null, "100", "E", "100", "99", "98", null, "89", "E", "100", null, "100", "E", "100", null, "99", "E", "100", "X", "100", null],
+    ["85", "94"],
+    [null, null, null, null, null, null, null, null, null, null, null, null, "100", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
   ],
   year: [
-    // {"report": {"grade": 11, "year": "2017 - 2018", "courses": []}},
-    // {"report": {"grade": 10, "year": "2016 - 2017", "courses": []}},
-    // {"report": {"grade": 10, "year": "2016 - 2017", "courses": []}}
-    {"grade": 11, "year": "2017 - 2018", "courses": [], "lits": []},
-    {"grade": 10, "year": "2016 - 2017", "courses": [], "lits": []},
-    {"grade": 10, "year": "2016 - 2017", "courses": [], "lits": []}
+    {"grade": 11, "year": "2017 - 2018", "courses": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": []}
   ]
 }

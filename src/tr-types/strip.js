@@ -16,8 +16,6 @@ const grabScores = tr => (tr && tr.children)
 
 module.exports = compose(
   objectify('strip'),
-  wrap('lits'),
-  map(wrap('scores')),
   map(handleEmpties),
   map(getValue),
   grabScores

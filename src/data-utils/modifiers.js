@@ -1,5 +1,5 @@
 
-const arrayInsert = arr => data => arr.concat(Array.isArray(data) ? data : [ data ])
+const arrayInsert = arr => data => [...arr, data]
 
 const map = predicate => arr => arr.map(predicate)
 

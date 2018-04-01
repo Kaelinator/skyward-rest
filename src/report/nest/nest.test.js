@@ -25,33 +25,33 @@ describe('nest', () => {
     expect(nest(years).length).toBe(years.length)
   })
 
-  it('merges strips into banners into years', () => {
+  // it('merges strips into banners into years', () => {
     
-    const a = [
-      { type: 'year', data: { y: 2018, lits: [] } },
-      { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
-      { type: 'strip', data: { lits: [ { a: '1:1' }, { a: '1:2' } ] } },
-      { type: 'strip', data: { lits: [ { a: '2:1' }, { a: '2:2' } ] } },
-      { type: 'strip', data: { lits: [ { a: '3:1' }, { a: '3:2' } ] } },
-      { type: 'year', data: { y: 2025, lits: [] } },
-      { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
-      { type: 'strip', data: { lits: [ { a: '10:1' }, { a: '10:2' } ] } },
-      { type: 'strip', data: { lits: [ { a: '20:1' }, { a: '20:2' } ] } },
-      { type: 'strip', data: { lits: [ { a: '30:1' }, { a: '30:2' } ] } },
-    ]
+  //   const a = [
+  //     { type: 'year', data: { y: 2018, lits: [] } },
+  //     { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '1:1' }, { a: '1:2' } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '2:1' }, { a: '2:2' } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '3:1' }, { a: '3:2' } ] } },
+  //     { type: 'year', data: { y: 2025, lits: [] } },
+  //     { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '10:1' }, { a: '10:2' } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '20:1' }, { a: '20:2' } ] } },
+  //     { type: 'strip', data: { lits: [ { a: '30:1' }, { a: '30:2' } ] } },
+  //   ]
 
-    expect(nest(a)).toEqual([
-      { y: 2018, lits: [ 
-        { a: [ '1:1', '2:1', '3:1' ] }, 
-        { a: [ '1:2', '2:2', '3:2' ] } 
-      ] },
-      { y: 2025, lits: [ 
-        { a: [ '10:1', '20:1', '30:1' ] },
-        { a: [ '10:2', '20:2', '30:2' ] }
-      ] },
-    ])
+  //   expect(nest(a)).toEqual([
+  //     { y: 2018, lits: [ 
+  //       { a: [ '1:1', '2:1', '3:1' ] }, 
+  //       { a: [ '1:2', '2:2', '3:2' ] } 
+  //     ] },
+  //     { y: 2025, lits: [ 
+  //       { a: [ '10:1', '20:1', '30:1' ] },
+  //       { a: [ '10:2', '20:2', '30:2' ] }
+  //     ] },
+  //   ])
 
-  })
+  // })
 
   it('merges contents of assignments into cats & strips into banners', () => {
 

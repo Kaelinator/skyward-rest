@@ -2,12 +2,9 @@
 const {
   stripData,
   insertData,
-  objectAssign,
   objectInsert,
   nestData,
-  mapObjectArray,
-  arrayObjectInsert,
-  nestDataArray
+  nestArray
 } = require('./nest-components')
 
 describe('stripData', () => {
@@ -52,21 +49,11 @@ describe('insertData', () => {
 
     expect(
       insertData(a)({ z: 'a', data: [ 'array' ] })
-    ).toEqual([ 'boop', 'array' ])
+    ).toEqual([ 'boop', [ 'array' ] ])
 
     expect(
       insertData(a)({ b: 0, data: { a: [ {} ], b: {} } })
     ).toEqual([ 'boop', { a: [ {} ], b: {} } ])
-  })
-})
-
-describe('objectAssign', () => {
-
-  it('curried version of `Object.assign`', () => {
-
-    expect(
-      objectAssign({ id: '#' })({ a: 1 })
-    ).toEqual({ id: '#', a: 1 })
   })
 })
 
@@ -124,73 +111,83 @@ describe('nestData', () => {
   })
 })
 
-describe('mapObjectArray', () => {
+describe('nestArray', () => {
+
+  it('inserts the current array into the previous array', () => {
+
+    expect(
+      nestArray([ { x: 1 }, [ [ 'x', 'y' ] ] ])({ data: [ '1', '2' ] })
+    ).toEqual([ { x: 1 }, [ [ 'x', 'y'], [ '1', '2' ] ] ])
+  })
+})
+
+// describe('mapObjectArray', () => {
   
-  it('given an array of objects then another array of objects,'
-  + ' uses `objectInsert` on each object in the first array to its'
-  + ' corresponding indexed object of the second array', () => {
+//   it('given an array of objects then another array of objects,'
+//   + ' uses `objectInsert` on each object in the first array to its'
+//   + ' corresponding indexed object of the second array', () => {
 
-    const parent = [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
-    const child = [ { a: '1st b' }, { a: '2nd b' } ]
+//     const parent = [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
+//     const child = [ { a: '1st b' }, { a: '2nd b' } ]
 
-    expect(
-      mapObjectArray(parent)(child)
-    ).toEqual([ { a: [ '1st a', '1st b' ] }, { a: [ '2nd a', '2nd b' ] } ])
-  })
-})
+//     expect(
+//       mapObjectArray(parent)(child)
+//     ).toEqual([ { a: [ '1st a', '1st b' ] }, { a: [ '2nd a', '2nd b' ] } ])
+//   })
+// })
 
-describe('arrayObjectInsert', () => {
+// describe('arrayObjectInsert', () => {
 
-  it('given an object then another object, uses `mapObjectArray`'
-  + ' on each property', () => {
+//   it('given an object then another object, uses `mapObjectArray`'
+//   + ' on each property', () => {
 
-    const parent = {
-      stuff: [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
-    }
+//     const parent = {
+//       stuff: [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
+//     }
 
-    const child = {
-      stuff: [ { a: '1st b' }, { a: '2nd b' } ]
-    }
+//     const child = {
+//       stuff: [ { a: '1st b' }, { a: '2nd b' } ]
+//     }
 
-    expect(
-      arrayObjectInsert(parent)(child)
-    ).toEqual({
-      stuff: [
-        { a: [ '1st a', '1st b' ] },
-        { a: [ '2nd a', '2nd b' ] }
-      ]
-    })
-  })
-})
+//     expect(
+//       arrayObjectInsert(parent)(child)
+//     ).toEqual({
+//       stuff: [
+//         { a: [ '1st a', '1st b' ] },
+//         { a: [ '2nd a', '2nd b' ] }
+//       ]
+//     })
+//   })
+// })
 
-describe('nestDataArray', () => {
+// describe('nestDataArray', () => {
 
-  it('given an array of objects then an object, uses `arrayObjectInsert`'
-  + ' on the last object of the array, returning a new array', () => {
+//   it('given an array of objects then an object, uses `arrayObjectInsert`'
+//   + ' on the last object of the array, returning a new array', () => {
 
-    const a = [
-      { x: 'untouched' },
-      {
-        stuff: [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
-      }
-    ]
+//     const a = [
+//       { x: 'untouched' },
+//       {
+//         stuff: [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
+//       }
+//     ]
 
-    const child = {
-      data: {
-        stuff: [ { a: '1st b' }, { a: '2nd b' } ]
-      }
-    }
+//     const child = {
+//       data: {
+//         stuff: [ { a: '1st b' }, { a: '2nd b' } ]
+//       }
+//     }
 
-    expect(
-      nestDataArray(a)(child)
-    ).toEqual([
-      { x: 'untouched'},
-      { 
-        stuff: [
-          { a: [ '1st a', '1st b' ] },
-          { a: [ '2nd a', '2nd b' ] }
-        ]
-      }
-    ])
-  })
-})
+//     expect(
+//       nestDataArray(a)(child)
+//     ).toEqual([
+//       { x: 'untouched'},
+//       { 
+//         stuff: [
+//           { a: [ '1st a', '1st b' ] },
+//           { a: [ '2nd a', '2nd b' ] }
+//         ]
+//       }
+//     ])
+//   })
+// })

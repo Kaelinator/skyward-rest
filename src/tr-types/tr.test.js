@@ -62,7 +62,7 @@ describe('banner', () => {
 
     const parsed = banner(0)
 
-    expect(parsed.data).toEqual({lits: []})
+    expect(parsed.data).toEqual([[]])
   })
 })
 
@@ -144,11 +144,11 @@ describe('strip', () => {
       .forEach(test('strip'))
   })
 
-  it('places null values & does not throw errors', () => {
+  it('returns an empty array & does not throw errors', () => {
 
     const parsed = strip(0)
 
-    expect(parsed.data).toEqual({ lits: [] })
+    expect(parsed.data).toEqual([])
   })
 })
 
@@ -169,7 +169,6 @@ describe('year', () => {
     expect(parsed.data).toEqual({
       courses: [],
       grade: null,
-      lits: [],
       year: null
     })
   })
