@@ -25,33 +25,35 @@ describe('nest', () => {
     expect(nest(years).length).toBe(years.length)
   })
 
-  // it('merges strips into banners into years', () => {
+  it('merges strips into banners, creating a 2D array', () => {
     
-  //   const a = [
-  //     { type: 'year', data: { y: 2018, lits: [] } },
-  //     { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '1:1' }, { a: '1:2' } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '2:1' }, { a: '2:2' } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '3:1' }, { a: '3:2' } ] } },
-  //     { type: 'year', data: { y: 2025, lits: [] } },
-  //     { type: 'banner', data: { lits: [ { a: [] }, { a: [] } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '10:1' }, { a: '10:2' } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '20:1' }, { a: '20:2' } ] } },
-  //     { type: 'strip', data: { lits: [ { a: '30:1' }, { a: '30:2' } ] } },
-  //   ]
+    const a = [
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [100, 101, 102, 103] },
+      { type: 'strip', data: [110, 111, 112, 113] },
+      { type: 'strip', data: [120, 121, 122, 123] },
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [200, 201, 202, 203] },
+      { type: 'strip', data: [210, 211, 212, 213] },
+      { type: 'strip', data: [220, 221, 222, 223] }
+    ]
 
-  //   expect(nest(a)).toEqual([
-  //     { y: 2018, lits: [ 
-  //       { a: [ '1:1', '2:1', '3:1' ] }, 
-  //       { a: [ '1:2', '2:2', '3:2' ] } 
-  //     ] },
-  //     { y: 2025, lits: [ 
-  //       { a: [ '10:1', '20:1', '30:1' ] },
-  //       { a: [ '10:2', '20:2', '30:2' ] }
-  //     ] },
-  //   ])
+    expect(nest(a)).toEqual([
+      [
+        ['PR1', 'PR2', 'PR3', 'PR4'],
+        [100, 101, 102, 103],
+        [110, 111, 112, 113],
+        [120, 121, 122, 123]
+      ],
+      [
+        ['PR1', 'PR2', 'PR3', 'PR4'],
+        [200, 201, 202, 203],
+        [210, 211, 212, 213],
+        [220, 221, 222, 223]
+      ]
+    ])
 
-  // })
+  })
 
   it('merges contents of assignments into cats & strips into banners', () => {
 

@@ -10,8 +10,6 @@ const insertData = arr => compose(
   stripData
 )
 
-const objectAssign = obj => newData => Object.assign(obj, newData)
-
 const objectInsert = data => newData =>
   mapObj(data, 
     (v, k) => newData.hasOwnProperty(k) ? arrayInsert(arrify(v))(newData[k]) : v
@@ -28,29 +26,11 @@ const nestArray = arr => compose(
   insertData(arr.slice(-1)[0])
 )
 
-// const mapObjectArray = arr => obj =>
-//   arr.map((nest, i) => objectInsert(nest)(obj[i]))
-
-// const arrayObjectInsert = data => newData => 
-//   mapObj(data, (v, k) => newData.hasOwnProperty(k) 
-//     ? mapObjectArray(v)(newData[k]) 
-//     : v
-//   )
-
-// const nestDataArray = arr => compose(
-//   arrayInsert(arr.slice(0, -1)),
-//   arrayObjectInsert(arr.slice(-1)[0]),
-//   stripData
-// )
 
 module.exports = {
   stripData,
   insertData,
-  objectAssign,
   objectInsert,
   nestData,
   nestArray
-  // mapObjectArray,
-  // arrayObjectInsert,
-  // nestDataArray
 }

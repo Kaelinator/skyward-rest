@@ -3,17 +3,19 @@ const {
   insertData, nestData, nestArray
 } = require('./nest-components')
 
-const merge = (arr, obj) => {
+const merge = (arr, data) => {
 
-  switch (obj.type) {
+  switch (data.type) {
     case 'cat':
     case 'banner':
     case 'year':
-      return insertData(arr)(obj)
+      return insertData(arr)(data)
     case 'lit':
     case 'assignment':
     case 'course':
-      return nestData(arr)(obj)
+      return nestData(arr)(data)
+    case 'strip':
+      return nestArray(arr)(data)
     default:
       return arr
   }
