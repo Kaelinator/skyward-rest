@@ -21,19 +21,8 @@ const iPromise = () => {
   return { promise, resolve, reject }
 }
 
-/**
- * @author Joel Thoms
- * https://gist.github.com/joelnet/9f0ec931e37bb3ed6d8f434ba908b715
- */
-const switchcaseHelper = cases => defaultCase => key =>
-  cases.hasOwnProperty(key) ? cases[key] : defaultCase
-
-const switchcase = cases => defaultCase => key => (...params) =>
-  executeIfFunction(switchcaseHelper(cases)(defaultCase)(key), ...params)
-
   
 module.exports = {
   compose,
-  iPromise,
-  switchcase
+  iPromise
 }
