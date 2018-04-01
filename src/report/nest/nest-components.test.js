@@ -4,7 +4,8 @@ const {
   insertData,
   objectInsert,
   nestData,
-  nestArray
+  nestArray,
+  insertAndPair
 } = require('./nest-components')
 
 describe('stripData', () => {
@@ -118,5 +119,16 @@ describe('nestArray', () => {
     expect(
       nestArray([ { x: 1 }, [ [ 'x', 'y' ] ] ])({ data: [ '1', '2' ] })
     ).toEqual([ { x: 1 }, [ [ 'x', 'y'], [ '1', '2' ] ] ])
+  })
+})
+
+describe('insertAndPair', () => {
+
+  it('given an array and key then an object, assigns the first '
+  + ' element in the array to the object with the given key', () => {
+
+    expect(
+      insertAndPair(['1', '2'], 'newVal')({ data: { name: 'object' }})
+    ).toEqual(['2', {name: 'object', newVal: '1'}])
   })
 })

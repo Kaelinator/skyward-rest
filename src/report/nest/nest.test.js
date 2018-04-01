@@ -4,7 +4,7 @@ const { data } = require('../../tr-types/tr.data.js')
 
 describe('nest', () => {
 
-  it('keeps cats & years independent', () => {
+  it('keeps cats & banners independent', () => {
     
     const cats = [
       { type: 'cat', data: '1st' },
@@ -15,14 +15,14 @@ describe('nest', () => {
 
     expect(nest(cats).length).toBe(cats.length)
 
-    const years = [
-      { type: 'year', data: { y: 2018, lits: [] } },
-      { type: 'year', data: { y: 2019, lits: [] } },
-      { type: 'year', data: { y: 2020, lits: [] } },
-      { type: 'year', data: { y: 2021, lits: [] } }
+    const banners = [
+      { type: 'banner', data: '1st' },
+      { type: 'banner', data: '2nd' },
+      { type: 'banner', data: '3rd' },
+      { type: 'banner', data: '4th' }
     ]
 
-    expect(nest(years).length).toBe(years.length)
+    expect(nest(banners).length).toBe(banners.length)
   })
 
   it('merges strips into banners, creating a 2D array', () => {
