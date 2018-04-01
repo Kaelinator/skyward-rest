@@ -1,5 +1,6 @@
 
 const nest = require('./nest')
+const { data } = require('../../tr-types/tr.data.js')
 
 describe('nest', () => {
 
@@ -20,6 +21,7 @@ describe('nest', () => {
       { type: 'banner', data: { lits: [ '3:1', '3:2' ] } },
       { type: 'banner', data: { lits: [ '4:1', '4:2' ] } }
     ]
+
     expect(nest(banners).length).toBe(banners.length)
   })
 

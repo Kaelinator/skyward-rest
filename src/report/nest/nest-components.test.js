@@ -2,6 +2,7 @@
 const {
   stripData,
   insertData,
+  objectAssign,
   objectInsert,
   nestData,
   mapObjectArray,
@@ -56,6 +57,16 @@ describe('insertData', () => {
     expect(
       insertData(a)({ b: 0, data: { a: [ {} ], b: {} } })
     ).toEqual([ 'boop', { a: [ {} ], b: {} } ])
+  })
+})
+
+describe('objectAssign', () => {
+
+  it('curried version of `Object.assign`', () => {
+
+    expect(
+      objectAssign({ id: '#' })({ a: 1 })
+    ).toEqual({ id: '#', a: 1 })
   })
 })
 

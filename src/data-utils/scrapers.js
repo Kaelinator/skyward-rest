@@ -1,6 +1,6 @@
 
-const { ensure }                            = require('./traversers')
-const { compose }                           = require('./structures')
+const { ensure } = require('./traversers')
+const { compose } = require('./structures')
 const { mapObj, numericValues, trimValues } = require('./modifiers')
 
 const formScore = td => ({

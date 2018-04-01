@@ -148,13 +148,13 @@ describe('strip', () => {
 
     const parsed = strip(0)
 
-    expect(parsed.data).toEqual({scores: []})
+    expect(parsed.data).toEqual({ lits: [] })
   })
 })
 
 describe('year', () => {
 
-  it('captures/placeholds course, grade, and year data', () => {
+  it('captures course, grade, and year data', () => {
 
     raw.year
       .map(prepare)

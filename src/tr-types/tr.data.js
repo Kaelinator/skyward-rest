@@ -79,9 +79,9 @@ module.exports.data = {
     {"score": {"earned": 995, "lit": "Q2", "total": 1000}, "weight": {"lit": "Q2", "percent": 40}},
   ],
   strip: [
-    {"scores": ["99", "E", "98", "&nbsp;", "98", "E", "95", "&nbsp;", "100", "E", "100", "99", "98", "&nbsp;", "89", "E", "100", "&nbsp;", "100", "E", "100", "&nbsp;", "99", "E", "100", "X", "100", "&nbsp;"]},
-    {"scores": ["85", "94"]},
-    {"scores": ["&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "100", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;", "&nbsp;"]}
+    {"lits": [{"scores": "99"}, {"scores": "E"}, {"scores": "98"}, {"scores": "&nbsp;"}, {"scores": "98"}, {"scores": "E"}, {"scores": "95"}, {"scores": "&nbsp;"}, {"scores": "100"}, {"scores": "E"}, {"scores": "100"}, {"scores": "99"}, {"scores": "98"}, {"scores": "&nbsp;"}, {"scores": "89"}, {"scores": "E"}, {"scores": "100"}, {"scores": "&nbsp;"}, {"scores": "100"}, {"scores": "E"}, {"scores": "100"}, {"scores": "&nbsp;"}, {"scores": "99"}, {"scores": "E"}, {"scores": "100"}, {"scores": "X"}, {"scores": "100"}, {"scores": "&nbsp;"}]},
+    {"lits": [{"scores": "85"}, {"scores": "94"}]},
+    {"lits": [{"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "100"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}, {"scores": "&nbsp;"}]}
   ],
   year: [
     {"grade": 11, "year": "2017 - 2018", "courses": []},
