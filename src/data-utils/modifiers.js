@@ -1,5 +1,5 @@
 
-const arrayInsert = arr => data => [ ...arr, data ]
+const arrayInsert = arr => data => arr.concat(Array.isArray(data) ? data : [ data ])
 
 const map = predicate => arr => arr.map(predicate)
 
@@ -22,6 +22,8 @@ const regX = r => data => (typeof data === 'string' && data.match(r))
 const trimValues = regexp =>
   obj => mapObj(obj, regX(regexp))
 
+const wrap = name => data => ({ [name]: data })
+
 module.exports = {
   arrayInsert,
   map,
@@ -29,5 +31,6 @@ module.exports = {
   numericValues,
   objectify,
   regX,
-  trimValues
+  trimValues,
+  wrap
 }

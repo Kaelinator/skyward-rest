@@ -8,9 +8,9 @@ const merge = (arr, obj) => switchcase({
   'cat': insertData(arr),
   'lit': nestData(arr),
   'assignment': nestData(arr),
-  'banner': insertData(arr),
+  'banner': nestData(arr),
   'strip': nestDataArray(arr),
-  'year': objectAssign(arr),
+  'year': insertData(arr),
   'other': arr
 })(arr)(obj.type)(obj)
 

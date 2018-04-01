@@ -44,7 +44,8 @@ module.exports.raw = {
     '<tr class="odd"><td scope="row" class="fIl nWp" colspan="9">There are no Major assignments</td></tr>',
     '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>',
     '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>',
-    '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>'
+    '<tr style="font-weight:bold;line-height:1.3em; background-color:#EAEEF4" class=""><td scope="row" style="vertical-align:bottom">Class</td><td style="vertical-align:bottom">Terms</td></tr>',
+    '<tr style="font-weight:bold;line-height:1.3em; background-color:#FFFFFF" class=""><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td><td style="border-right:none; border-top:thin solid; border-bottom:thin solid">&nbsp;</td></tr>'
   ]
 }
 
@@ -84,8 +85,11 @@ module.exports.data = {
     {"lits": [{"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": "100"}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}, {"scores": null}]}
   ],
   year: [
-    {"grade": 11, "year": "2017 - 2018", "courses": []},
-    {"grade": 10, "year": "2016 - 2017", "courses": []},
-    {"grade": 10, "year": "2016 - 2017", "courses": []}
+    // {"report": {"grade": 11, "year": "2017 - 2018", "courses": []}},
+    // {"report": {"grade": 10, "year": "2016 - 2017", "courses": []}},
+    // {"report": {"grade": 10, "year": "2016 - 2017", "courses": []}}
+    {"grade": 11, "year": "2017 - 2018", "courses": [], "lits": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": [], "lits": []},
+    {"grade": 10, "year": "2016 - 2017", "courses": [], "lits": []}
   ]
 }

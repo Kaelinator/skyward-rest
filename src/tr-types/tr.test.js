@@ -169,6 +169,7 @@ describe('year', () => {
     expect(parsed.data).toEqual({
       courses: [],
       grade: null,
+      lits: [],
       year: null
     })
   })

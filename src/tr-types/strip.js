@@ -1,5 +1,5 @@
 
-const { map, objectify } = require('../lib/helpers').modifiers
+const { map, objectify, wrap } = require('../lib/helpers').modifiers
 const { compose } = require('../lib/helpers').structures
 const { ensure }  = require('../lib/helpers').traversers
 
@@ -13,8 +13,6 @@ const handleEmpties = score => (score === '&nbsp;' || score === ' ')
 const grabScores = tr => (tr && tr.children)
   ? tr.children
   : []
-
-const wrap = name => data => ({ [name]: data })
 
 module.exports = compose(
   objectify('strip'),

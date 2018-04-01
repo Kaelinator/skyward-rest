@@ -42,7 +42,7 @@ describe('stripData', () => {
 describe('insertData', () => {
 
   it('given an array then an object, returns a new array with'
-  + 'the data from the object appended to the original array values', () => {
+  + ' the data from the object appended to the original array values', () => {
 
     const a = [ 'boop' ]
 
@@ -52,7 +52,7 @@ describe('insertData', () => {
 
     expect(
       insertData(a)({ z: 'a', data: [ 'array' ] })
-    ).toEqual([ 'boop', [ 'array' ] ])
+    ).toEqual([ 'boop', 'array' ])
 
     expect(
       insertData(a)({ b: 0, data: { a: [ {} ], b: {} } })
@@ -73,7 +73,7 @@ describe('objectAssign', () => {
 describe('objectInsert', () => {
 
   it('given an object then another object, it places the contents'
-  + 'of the second object into designated arrays in the first object', () => {
+  + ' of the second object into designated arrays in the first object', () => {
 
     expect(
       objectInsert({ a: [ '1st' ] })({ a: '2nd' })
@@ -96,7 +96,7 @@ describe('objectInsert', () => {
   })
 
   it('forces values from first object into an array if it is not'
-  + 'already an array', () => {
+  + ' already an array', () => {
 
     expect(
       objectInsert({ a: 'not an array' })({ a: 'oops' })
@@ -115,8 +115,8 @@ describe('objectInsert', () => {
 describe('nestData', () => {
 
   it('given an array then an object, uses `stripData` then'
-  + '`objectInsert` on the last element in the array, returning'
-  + 'a new array', () => {
+  + ' `objectInsert` on the last element in the array, returning'
+  + ' a new array', () => {
 
     expect(
       nestData([ { x: 0 }, { a: '1st' } ])({ data: { a: '2nd' } })
@@ -127,8 +127,8 @@ describe('nestData', () => {
 describe('mapObjectArray', () => {
   
   it('given an array of objects then another array of objects,'
-  + 'uses `objectInsert` on each object in the first array to its'
-  + 'corresponding indexed object of the second array', () => {
+  + ' uses `objectInsert` on each object in the first array to its'
+  + ' corresponding indexed object of the second array', () => {
 
     const parent = [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
     const child = [ { a: '1st b' }, { a: '2nd b' } ]
@@ -142,7 +142,7 @@ describe('mapObjectArray', () => {
 describe('arrayObjectInsert', () => {
 
   it('given an object then another object, uses `mapObjectArray`'
-  + 'on each property', () => {
+  + ' on each property', () => {
 
     const parent = {
       stuff: [ { a: [ '1st a' ] }, { a: [ '2nd a' ] } ]
@@ -166,7 +166,7 @@ describe('arrayObjectInsert', () => {
 describe('nestDataArray', () => {
 
   it('given an array of objects then an object, uses `arrayObjectInsert`'
-  + 'on the last object of the array, returning a new array', () => {
+  + ' on the last object of the array, returning a new array', () => {
 
     const a = [
       { x: 'untouched' },

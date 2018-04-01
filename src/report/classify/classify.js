@@ -36,7 +36,7 @@ const allContext = tr =>
   ? course(tr)
   : ensure(tr).attrsMatch({ class: 'even' })
   ? strip(tr)
-  : ensure(tr).attrsMatch(yearAttrs)
+  : ensure(tr).attrsMatch(yearAttrs) && ensure(tr, 0, 0, 0).exists()
   ? year(tr)
   : ensure(tr).attrsMatch(bannerAttrs) && ensure(tr, 0).attrsMatch(bannerTdAttrs)
   ? banner(tr)
