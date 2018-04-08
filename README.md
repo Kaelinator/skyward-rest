@@ -1,11 +1,13 @@
 # Skyward REST
 
-[![Build Status](https://travis-ci.org/FruitsNVeggies/skyward-rest.svg?branch=master)](https://travis-ci.org/FruitsNVeggies/skyward-rest)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SkySecureX/skyward-rest)
+[![Build Status](https://travis-ci.org/FruitsNVeggies/skyward-rest.svg?branch=master)](https://travis-ci.org/FruitsNVeggies/skyward-rest) 
+
 
 ## Installation
 
 ```sh
-npm install skyward-rest
+npm install https://github.com/FruitsNVeggies/skyward-rest
 ```
 
 ## Summary
@@ -58,7 +60,7 @@ skyward(url)(userId, password)
 
 ### Scraper factory
 
-Curried function which returns a `Promise` which resolves into a `Scraper`. It first accepts the url to the login page of the specific ISD's Skyward domain. Note that url should not redirect.
+Curried function which returns a `Promise` which resolves into a `Scraper`. It first accepts the URL to the login page of the specific ISD's Skyward domain. Note that the URL should not redirect.
 
 ```javascript
 skyward('https://skyward.coolisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(userId, password)
