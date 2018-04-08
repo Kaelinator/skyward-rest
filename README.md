@@ -58,7 +58,7 @@ skyward(url)(userId, password)
 
 ### Scraper factory
 
-Curried function which returns a `Promise` which resolves into a `Scraper`. It first accepts the url to the login page of the specific ISD's Skyward domain. Note that url should not redirect.
+Curried function which returns a `Promise` which resolves into a `Scraper`. It first accepts the URL to the login page of the specific ISD's Skyward domain. Note that the URL should not redirect.
 
 ```javascript
 skyward('https://skyward.coolisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(userId, password)
