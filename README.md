@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-npm install skyward-rest
+npm install https://github.com/FruitsNVeggies/skyward-rest
 ```
 
 ## Summary
