@@ -1,6 +1,8 @@
 # Skyward REST
 
-[![Build Status](https://travis-ci.org/FruitsNVeggies/skyward-rest.svg?branch=master)](https://travis-ci.org/FruitsNVeggies/skyward-rest)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SkySecureX/skyward-rest)
+[![Build Status](https://travis-ci.org/FruitsNVeggies/skyward-rest.svg?branch=master)](https://travis-ci.org/FruitsNVeggies/skyward-rest) 
+
 
 ## Installation
 
