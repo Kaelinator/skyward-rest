@@ -1,6 +1,9 @@
 
 const {
-  insertData, nestData, nestArray, insertAndPair
+  insertData,
+  nestData,
+  labelArray,
+  insertAndPair
 } = require('./nest-components')
 
 const merge = (arr, data) => {
@@ -12,7 +15,7 @@ const merge = (arr, data) => {
       return insertData(arr)(data)
 
     case 'year':
-      return insertAndPair(arr, '__grades__')(data)
+      return insertAndPair(arr, 'courses')(data)
 
     case 'lit':
     case 'assignment':
@@ -20,7 +23,7 @@ const merge = (arr, data) => {
       return nestData(arr)(data)
 
     case 'strip':
-      return nestArray(arr)(data)
+      return labelArray(arr)(data)
 
     default:
       return arr
@@ -28,4 +31,10 @@ const merge = (arr, data) => {
 
 }
 
-module.exports = data => data.reduce(merge, [])
+const finalize = e => {
+  // TODO: shift the 2D array from __grades__ into courses[n].scores in
+  // the correct format
+  return e
+}
+
+module.exports = data => data.reduce(merge, []).map(finalize)

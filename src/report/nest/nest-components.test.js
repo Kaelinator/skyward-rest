@@ -5,6 +5,7 @@ const {
   objectInsert,
   nestData,
   nestArray,
+  labelArray,
   insertAndPair
 } = require('./nest-components')
 
@@ -124,11 +125,51 @@ describe('nestArray', () => {
 
 describe('insertAndPair', () => {
 
-  it('given an array and key then an object, assigns the first '
+  it('given an array and key then an object, assigns the first'
   + ' element in the array to the object with the given key', () => {
 
     expect(
       insertAndPair(['1', '2'], 'newVal')({ data: { name: 'object' }})
     ).toEqual(['2', {name: 'object', newVal: '1'}])
+  })
+})
+
+describe('labelArray', () => {
+
+  const labeled = [[
+    ['a', 'b', 'c'],
+    [
+      { 'a': 1 },
+      { 'b': 2 },
+      { 'c': 3 }
+    ]
+  ]]
+
+  it('given array a, then datafied array b, returns an array of'
+  + ' objects, all with a key from a and a value from b, in respect'
+  + ' to the element\'s index', () => {
+
+    expect(
+      labelArray([[['a', 'b', 'c']]])({ data: [1, 2, 3]})
+    ).toEqual(labeled)
+  })
+
+  it('handles multiple value arrays', () => {
+    
+    expect(
+      labelArray(labeled)({ data: [4, 5, 6]})
+    ).toEqual([[
+      ['a', 'b', 'c'],
+      [
+        { 'a': 1 },
+        { 'b': 2 },
+        { 'c': 3 }
+      ],
+      [
+        { 'a': 4 },
+        { 'b': 5 },
+        { 'c': 6 }
+      ]
+    ]])
   })
 })

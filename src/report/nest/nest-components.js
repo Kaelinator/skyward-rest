@@ -26,6 +26,17 @@ const nestArray = arr => compose(
   insertData(arr.slice(-1)[0])
 )
 
+const labelValues = keys => arr => keys.map((k, i) => ({ [k]: arr[i] }))
+
+const insertLast = arr1 => arr2 =>
+  arrayInsert(arr1.slice(0, -1))(arrayInsert(arr1.slice(-1)[0])(arr2))
+
+const labelArray = (arr) => compose(
+  insertLast(arr),
+  labelValues(arr[0][0]),
+  stripData
+)
+
 const assign = child => parent => Object.assign(parent, child)
 
 const insertAndPair = (arr, key) => compose(
@@ -40,5 +51,6 @@ module.exports = {
   objectInsert,
   nestData,
   nestArray,
+  labelArray,
   insertAndPair
 }
