@@ -37,11 +37,13 @@ const labelArray = (arr) => compose(
   stripData
 )
 
-const assign = child => parent => Object.assign(parent, child)
+// const assign = child => parent => Object.assign(parent, child)
 
-const insertAndPair = (arr, key) => compose(
-  arrayInsert(arr.slice(1)),
-  assign({ [key]: arr[0] }),
+// const arrAssign = (arr, k) => data => data.slice(1).map((d, i) => assign({[k]: d})(arr[i]))
+
+const insertAndPair = (obj, key1, key2) => compose(
+  // d => assign({ [key1]: arrAssign(obj.slice(-1)[0][key1], key2)(d) })(obj.slice(-1)),
+  
   stripData
 )
 

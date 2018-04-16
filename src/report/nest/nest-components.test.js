@@ -123,16 +123,26 @@ describe('nestArray', () => {
   })
 })
 
-describe('insertAndPair', () => {
+// describe('insertAndPair', () => {
 
-  it('given an array and key then an object, assigns the first'
-  + ' element in the array to the object with the given key', () => {
+//   it('given an array and key then an object, assigns the first'
+//   + ' element in the array to the object with the given key', () => {
 
-    expect(
-      insertAndPair(['1', '2'], 'newVal')({ data: { name: 'object' }})
-    ).toEqual(['2', {name: 'object', newVal: '1'}])
-  })
-})
+//     const data = [{
+//       vals: [
+//         { x: [], y: 'hello'},
+//         { x: [], y: 'hey'}
+//       ]
+//     }]
+
+//     expect(
+//       insertAndPair([['omit', 1, 2]], 'vals', 'x')(data)
+//     ).toEqual([ { vals: [
+//       { x: 1, y: 'hello' },
+//       { x: 2, y: 'hey' }
+//     ] } ])
+//   })
+// })
 
 describe('labelArray', () => {
 

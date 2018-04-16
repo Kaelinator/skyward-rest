@@ -25,36 +25,6 @@ describe('nest', () => {
     expect(nest(banners).length).toBe(banners.length)
   })
 
-  it('merges strips into banners, creating a 2D array', () => {
-    
-    const a = [
-      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
-      { type: 'strip', data: [100, 101, 102, 103] },
-      { type: 'strip', data: [110, 111, 112, 113] },
-      { type: 'strip', data: [120, 121, 122, 123] },
-      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
-      { type: 'strip', data: [200, 201, 202, 203] },
-      { type: 'strip', data: [210, 211, 212, 213] },
-      { type: 'strip', data: [220, 221, 222, 223] }
-    ]
-
-    expect(nest(a)).toEqual([
-      [
-        ['PR1', 'PR2', 'PR3', 'PR4'],
-        [{'PR1': 100}, {'PR2': 101}, {'PR3': 102}, {'PR4': 103}],
-        [{'PR1': 110}, {'PR2': 111}, {'PR3': 112}, {'PR4': 113}],
-        [{'PR1': 120}, {'PR2': 121}, {'PR3': 122}, {'PR4': 123}]
-      ],
-      [
-        ['PR1', 'PR2', 'PR3', 'PR4'],
-        [{'PR1': 200}, {'PR2': 201}, {'PR3': 202}, {'PR4': 203}],
-        [{'PR1': 210}, {'PR2': 211}, {'PR3': 212}, {'PR4': 213}],
-        [{'PR1': 220}, {'PR2': 221}, {'PR3': 222}, {'PR4': 223}]
-      ]
-    ])
-
-  })
-
   it('merges contents of assignments into cats & strips into banners', () => {
 
     const a = [
@@ -114,5 +84,66 @@ describe('nest', () => {
     ]
 
     expect(nest(arr)).toEqual([ '1st' ])
+  })
+
+  it('merges strips into banners, creating a 2D array', () => {
+    
+    const a = [
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [100, 101, 102, 103] },
+      { type: 'strip', data: [110, 111, 112, 113] },
+      { type: 'strip', data: [120, 121, 122, 123] },
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [200, 201, 202, 203] },
+      { type: 'strip', data: [210, 211, 212, 213] },
+      { type: 'strip', data: [220, 221, 222, 223] }
+    ]
+
+    expect(nest(a)).toEqual([
+      [
+        ['PR1', 'PR2', 'PR3', 'PR4'],
+        [{'PR1': 100}, {'PR2': 101}, {'PR3': 102}, {'PR4': 103}],
+        [{'PR1': 110}, {'PR2': 111}, {'PR3': 112}, {'PR4': 113}],
+        [{'PR1': 120}, {'PR2': 121}, {'PR3': 122}, {'PR4': 123}]
+      ],
+      [
+        ['PR1', 'PR2', 'PR3', 'PR4'],
+        [{'PR1': 200}, {'PR2': 201}, {'PR3': 202}, {'PR4': 203}],
+        [{'PR1': 210}, {'PR2': 211}, {'PR3': 212}, {'PR4': 213}],
+        [{'PR1': 220}, {'PR2': 221}, {'PR3': 222}, {'PR4': 223}]
+      ]
+    ])
+
+  })
+
+  it('uses years to wrap course scores', () => {
+
+    const arr = [
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [100, 101, 102, 103]},
+      { type: 'strip', data: [110, 111, 112, 113]},
+      { type: 'banner', data: [['PR1', 'PR2', 'PR3', 'PR4']] },
+      { type: 'strip', data: [200, 201, 202, 203]},
+      { type: 'year', data: { courses: [], x: 1 } },
+      { type: 'year', data: { courses: [], x: 2 } },
+    ]
+
+    expect(nest(arr)).toEqual([
+      {
+        courses: [
+          ['PR1', 'PR2', 'PR3', 'PR4'],
+          [ { 'PR1': 100 }, { 'PR2': 101 }, { 'PR3': 102 }, { 'PR4': 103 } ],
+          [ { 'PR1': 110 }, { 'PR2': 111 }, { 'PR3': 112 }, { 'PR4': 113 } ]
+        ],
+        x: 1
+      },
+      {
+        courses: [
+          ['PR1', 'PR2', 'PR3', 'PR4'],
+          [ { 'PR1': 200 }, { 'PR2': 201 }, { 'PR3': 202 }, { 'PR4': 203 } ]
+        ],
+        x: 2
+      }
+    ])
   })
 })

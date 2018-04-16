@@ -1,8 +1,10 @@
 
+const { arrayInsert } = require('../../lib/helpers').modifiers
 const {
   insertData,
   nestData,
   labelArray,
+  nestArray,
   insertAndPair
 } = require('./nest-components')
 
@@ -15,7 +17,8 @@ const merge = (arr, data) => {
       return insertData(arr)(data)
 
     case 'year':
-      return insertAndPair(arr, 'courses')(data)
+      return nestArray(arr)(data)
+      // insertAndPair(arr, 'courses', 'scores')(data)
 
     case 'lit':
     case 'assignment':
@@ -31,10 +34,4 @@ const merge = (arr, data) => {
 
 }
 
-const finalize = e => {
-  // TODO: shift the 2D array from __grades__ into courses[n].scores in
-  // the correct format
-  return e
-}
-
-module.exports = data => data.reduce(merge, []).map(finalize)
+module.exports = data => data.reduce(merge, [])
