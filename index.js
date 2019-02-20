@@ -1,6 +1,7 @@
 const scrape  = require('./lib/scrape.js')
 const Promise = require('bluebird')
 const fs      = require('fs')
+require('dotenv').config()
 
 const save = data => {
 
@@ -10,12 +11,12 @@ const save = data => {
 	fs.writeFile(path(Date.now()), contents(data), err => { if (err) throw err })
 }
 
-// scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(process.env.SKYUSER, process.env.SKYPASS)
-// 	.then(skyward => {
+scrape(process.env.SKYURL)(process.env.SKYUSER, process.env.SKYPASS)
+	.then(skyward => {
 		
-// 		skyward.scrape('S1')
-// 			.then(save)
-// 			.then(() => skyward.close())
-// 	})
+		skyward.scrape('S1')
+			.then(save)
+			.then(() => skyward.close())
+	})
 
 module.exports = scrape
