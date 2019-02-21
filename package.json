@@ -6,12 +6,16 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.2.0",
     "puppeteer": "^0.13.0",
     "selenium-webdriver": "^3.6.0",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "jest": "^22.4.3"
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.1.0"
   },
   "scripts": {
     "test": "jest"

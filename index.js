@@ -1,6 +1,7 @@
 const scrape  = require('./src/lib/scrape')
 const Promise = require('bluebird')
 const fs      = require('fs')
+require('dotenv').config()
 
 const save = data => {
   const contents = (data) => `module.exports = ${JSON.stringify(data, null, 2)}`
