@@ -1,12 +1,11 @@
 # Skyward REST
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SkySecureX/skyward-rest)
 [![Build Status](https://travis-ci.org/Kaelinator/skyward-rest.svg?branch=master)](https://travis-ci.org/Kaelinator/skyward-rest)
 
 ## Installation
 
 ```sh
-npm install https://github.com/FruitsNVeggies/skyward-rest
+npm install https://github.com/Kaelinator/skyward-rest
 ```
 
 ## Summary
