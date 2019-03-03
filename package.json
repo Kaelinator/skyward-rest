@@ -11,10 +11,11 @@
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "jest": "^24.1.0"
+    "tape": "^4.10.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "tape src/**/*.test.js",
+    "watch": "tape-watch src/**/*.test.js --clear"
   },
   "repository": {
     "type": "git",
