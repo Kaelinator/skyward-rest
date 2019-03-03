@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "dotenv": "^6.2.0"
   },
   "devDependencies": {
