@@ -1,6 +1,6 @@
 
-const axios = require('axios');
+const login = require('./src/login');
+require('dotenv').config();
 
-axios.get('https://kaelkirk.com/')
-  .then(res => res.data)
+login(process.env.SKY_USER, process.env.SKY_PASS)
   .then(console.log);

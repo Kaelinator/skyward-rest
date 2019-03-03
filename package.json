@@ -4,7 +4,8 @@
   "description": "Unofficial Rest API for Skyward",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
