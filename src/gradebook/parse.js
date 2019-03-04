@@ -8,6 +8,9 @@ module.exports = ({ data }) => {
   const script = $('script[data-rel="sff"]').html();
 
   const results = target.exec(script)
-  
-  return results.length > 1 ? results[1] : {};
+
+  if (results.length < 2) return {};
+
+  const finalStr = results[1].replace(/\'/g, '"')
+  return JSON.parse(finalStr);
 };

@@ -11,7 +11,7 @@ test('gradebook parser', (t) => {
   fs.readFileAsync('./src/gradebook/data/slim.html')
     .then(res => res.toString())
     .then((data) => {
-      t.equals(parse({ data }), '{ x: \'marks the spot\' }');
+      t.deepEqual(parse({ data }), { x: 'marks the spot' });
     })
     .catch(t.fail)
 });
