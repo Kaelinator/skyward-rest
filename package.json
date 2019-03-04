@@ -10,7 +10,6 @@
     "dotenv": "^6.2.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "tape": "^4.10.1"

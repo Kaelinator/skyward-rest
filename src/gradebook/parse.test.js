@@ -15,7 +15,7 @@ test('gradebook parser', (t) => {
     })
     .catch(t.fail)
 
-  fs.readFileAsync('./src/gradebook/data/test.html')
+  fs.readFileAsync('./src/gradebook/data/full.html')
     .then(res => res.toString())
     .then((data) => {
       t.doesNotThrow(() => parse({ data }));
