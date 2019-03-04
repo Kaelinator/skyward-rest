@@ -6,12 +6,19 @@ const parse = require('./parse');
 Promise.promisifyAll(fs);
 
 test('gradebook parser', (t) => {
-  t.plan(1);
+  t.plan(2);
 
   fs.readFileAsync('./src/gradebook/data/slim.html')
     .then(res => res.toString())
     .then((data) => {
       t.deepEqual(parse({ data }), { x: 'marks the spot' });
+    })
+    .catch(t.fail)
+
+  fs.readFileAsync('./src/gradebook/data/test.html')
+    .then(res => res.toString())
+    .then((data) => {
+      t.doesNotThrow(() => parse({ data }));
     })
     .catch(t.fail)
 });
