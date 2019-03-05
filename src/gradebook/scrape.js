@@ -5,9 +5,8 @@ const body = ({ dwd, wfaacl, encses }) => {
   return `dwd=${dwd}&wfaacl=${wfaacl}&encses=${encses}`;
 };
 
-module.exports = (axios, parse) => (skywardURL, auth) => {
-  if (!axios || !parse) throw new TypeError('axios & parse are required');
-  if (!skywardURL || !auth) throw new TypeError('skywardURL & auth are required');
+module.exports = (axios, parse, skywardURL) => (auth) => {
+  if (!axios || !parse || !skywardURL) throw new TypeError('axios, parse, & skywardURL are required');
 
   return axios({
     url: '/sfgradebook001.w',

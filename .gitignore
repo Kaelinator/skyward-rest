@@ -1,5 +1,6 @@
 # tmp data
 tests/tmp
+tmp/
 
 # Logs
 logs
