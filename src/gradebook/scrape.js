@@ -1,3 +1,4 @@
+
 const body = ({ dwd, wfaacl, encses }) => {
   if (!dwd || !wfaacl || !encses) throw new TypeError('dwd, wfaacl, & encses are required');
 
@@ -5,6 +6,7 @@ const body = ({ dwd, wfaacl, encses }) => {
 };
 
 module.exports = (axios, parse) => (skywardURL, auth) => {
+  if (!axios || !parse) throw new TypeError('axios & parse are required');
   if (!skywardURL || !auth) throw new TypeError('skywardURL & auth are required');
 
   return axios({

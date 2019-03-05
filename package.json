@@ -13,11 +13,12 @@
   "devDependencies": {
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
   },
   "scripts": {
     "test": "tape src/**/*.test.js",
-    "watch": "tape-watch src/**/*.test.js --clear"
+    "watch": "tape-watch src/**/*.test.js --clear | tap-spec"
   },
   "repository": {
     "type": "git",
