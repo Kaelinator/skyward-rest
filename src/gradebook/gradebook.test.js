@@ -26,14 +26,14 @@ test('gradebook scrape', (t) => {
 test('gradebook parse', (t) => {
   t.plan(2);
 
-  fs.readFileAsync('./src/gradebook/data/slim.html')
+  fs.readFileAsync('./src/gradebook/data/slim.data.html')
     .then(res => res.toString())
     .then((data) => {
       t.deepEqual(parse({ data }), { x: 'marks the spot' });
     })
     .catch(t.fail);
 
-  fs.readFileAsync('./src/gradebook/data/full.html')
+  fs.readFileAsync('./src/gradebook/data/full.data.html')
     .then(res => res.toString())
     .then((data) => {
       t.doesNotThrow(() => parse({ data }));
@@ -42,9 +42,10 @@ test('gradebook parse', (t) => {
 });
 
 const condense = require('./condense');
+const payload = require('./data/payload.data');
 
 test('gradebook condense', (t) => {
-  t.plan(3);
+  t.plan(5);
 
   t.throws(() => condense({}), /stuGradesGrid not found/, 'no \'stuGradesGrid\' key exists');
 
@@ -53,4 +54,8 @@ test('gradebook condense', (t) => {
 
   const noR = { stuGradesGrid_74477_004: { tb: {} } };
   t.deepEqual(condense(noR), [], 'no \'r\' key exists');
+
+  const payloadTest = ({ input, output }, message) => t.deepEqual(condense(input), output, message);
+  payloadTest(payload.slimExample, 'matches with minimal data');
+  payloadTest(payload.fullCourseExample, 'matches with full course data');
 });
