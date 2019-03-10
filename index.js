@@ -12,6 +12,8 @@ const authenticate = require('./src/authenticate');
 const scrape = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
   .then(gradebook(skywardURL));
 
-console.time('scraped');
 scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
-  .then(() => console.timeEnd('scraped'));
+  .then(data => JSON.stringify(data, null, 2))
+  .then(json => fs.writeFileAsync('./tmp/output2.json', json))
+  .then(() => console.log('done'))
+  .catch(console.err);
