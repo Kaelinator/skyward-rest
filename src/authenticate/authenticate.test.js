@@ -10,7 +10,10 @@ test('decode', (t) => {
   t.throws(() => decode({ data: '<li>Invalid login or password.</li>' }), /Invalid Skyward credentials/, 'given invalid credentials');
 
   const data = '<li>319238^279419^23009402^27834052^58192^s219261^2^sfhome01.w^false^no ^no^no^^zdkNjlfkjbwanfcX^jDWadubjdaCOdEjY</li>';
-  t.deepEqual(decode({ data }), { dwd: '319238', wfaacl: '27834052', encses: 'jDWadubjdaCOdEjY' }, 'identifies tokens');
+  const expected = {
+    dwd: '319238', wfaacl: '27834052', encses: 'jDWadubjdaCOdEjY', sessionId: '279419%1523009402',
+  };
+  t.deepEqual(decode({ data }), expected, 'identifies tokens');
 
   t.throws(() => decode({ data: data.slice(30) }), /Malformed auth data/, 'given malformed data');
 });

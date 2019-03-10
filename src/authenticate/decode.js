@@ -8,5 +8,7 @@ module.exports = ({ data } = {}) => {
 
   if (tokens.length < 15) throw new Error('Malformed auth data');
 
-  return { dwd: tokens[0], wfaacl: tokens[3], encses: tokens[14] };
+  return {
+    dwd: tokens[0], wfaacl: tokens[3], encses: tokens[14], sessionId: `${tokens[1]}%15${tokens[2]}`,
+  };
 };
