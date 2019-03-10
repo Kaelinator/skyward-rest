@@ -45,7 +45,7 @@ const condense = require('./condense');
 const payload = require('./data/payload.data');
 
 test('gradebook condense', (t) => {
-  t.plan(5);
+  t.plan(7);
 
   t.throws(() => condense({}), /stuGradesGrid not found/, 'no \'stuGradesGrid\' key exists');
 
@@ -56,6 +56,8 @@ test('gradebook condense', (t) => {
   t.deepEqual(condense(noR), [], 'no \'r\' key exists');
 
   const payloadTest = ({ input, output }, message) => t.deepEqual(condense(input), output, message);
-  payloadTest(payload.slimExample, 'matches with minimal data');
-  payloadTest(payload.fullCourseExample, 'matches with full course data');
+  payloadTest(payload.slimSingleCourse, 'matches with minimal single course data');
+  payloadTest(payload.fullSingleCourse, 'matches with full single course data');
+  payloadTest(payload.slimMultiCourse, 'matches with slim multi course data');
+  payloadTest(payload.fullMultiCourse, 'matches with full multi course data');
 });
