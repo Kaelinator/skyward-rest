@@ -7,7 +7,7 @@ Promise.promisifyAll(fs);
 
 const scrape = require('./scrape');
 
-test('gradebook scrape', (t) => {
+test('reportcard scrape', (t) => {
   t.plan(3);
   t.throws(() => scrape()(), /TypeError/, 'given no arguments');
 
@@ -23,17 +23,17 @@ test('gradebook scrape', (t) => {
 });
 
 
-test('gradebook parse', (t) => {
+test('reportcard parse', (t) => {
   t.plan(2);
 
-  fs.readFileAsync('./src/gradebook/data/slim.data.html')
+  fs.readFileAsync('./src/reportcard/data/slim.data.html')
     .then(res => res.toString())
     .then((data) => {
       t.deepEqual(parse({ data }), { x: 'marks the spot' });
     })
     .catch(t.fail);
 
-  fs.readFileAsync('./src/gradebook/data/full.data.html')
+  fs.readFileAsync('./src/reportcard/data/full.data.html')
     .then(res => res.toString())
     .then((data) => {
       t.doesNotThrow(() => parse({ data }));
@@ -44,7 +44,7 @@ test('gradebook parse', (t) => {
 const condense = require('./condense');
 const payload = require('./data/payload.data');
 
-test('gradebook condense', (t) => {
+test('reportcard condense', (t) => {
   t.plan(7);
 
   t.throws(() => condense({}), /stuGradesGrid not found/, 'no \'stuGradesGrid\' key exists');

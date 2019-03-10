@@ -6,11 +6,11 @@ Promise.promisifyAll(fs);
 
 require('dotenv').config();
 
-const gradebook = require('./src/gradebook');
+const reportcard = require('./src/reportcard');
 const authenticate = require('./src/authenticate');
 
 const scrape = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
-  .then(gradebook(skywardURL));
+  .then(reportcard(skywardURL));
 
 scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
   .then(data => JSON.stringify(data, null, 2))
