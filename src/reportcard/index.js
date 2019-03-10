@@ -6,4 +6,5 @@ const condense = require('./condense');
 
 /* expose a more friendly api */
 module.exports = skywardURL => (
-  auth => scrape(axios, parse, skywardURL)(auth).then(condense));
+  auth => scrape(axios, parse, skywardURL)(auth).then(condense)
+);
