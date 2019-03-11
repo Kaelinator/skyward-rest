@@ -5,13 +5,13 @@ const body = ({ dwd, wfaacl, encses }) => {
   return `dwd=${dwd}&wfaacl=${wfaacl}&encses=${encses}`;
 };
 
-module.exports = (axios, parse, skywardURL) => (auth) => {
-  if (!axios || !parse || !skywardURL) throw new TypeError('axios, parse, & skywardURL are required');
+module.exports = (axios, skywardURL) => (auth) => {
+  if (!axios || !skywardURL) throw new TypeError('axios & skywardURL are required');
 
   return axios({
     url: '/sfgradebook001.w',
     baseURL: skywardURL,
     method: 'post',
     data: body(auth),
-  }).then(parse);
+  });
 };

@@ -11,13 +11,12 @@ test('reportcard scrape', (t) => {
   t.throws(() => scrape()(), /TypeError/, 'given no arguments');
 
   const mockAxios = ({ data }) => Promise.resolve(data);
-  const mockParser = x => x;
 
-  t.throws(() => scrape(mockAxios, mockParser, 'fakeUrl')({}), /TypeError/, 'given no auth data');
+  t.throws(() => scrape(mockAxios, 'fakeUrl')({}), /TypeError/, 'given no auth data');
 
   const auth = { dwd: 1, wfaacl: 2, encses: 3 };
 
-  scrape(mockAxios, mockParser, 'fakeUrl')(auth)
+  scrape(mockAxios, 'fakeUrl')(auth)
     .then(result => t.equal(result, 'dwd=1&wfaacl=2&encses=3', 'auth data placed correctly'));
 });
 
