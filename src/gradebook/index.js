@@ -4,6 +4,6 @@ const parse = require('./parse');
 
 module.exports = skywardURL => (
   auth => (
-    (course, bucket) => scrape(axios, parse, skywardURL)(auth, course, bucket)
+    (course, bucket) => scrape(axios, skywardURL)(auth, course, bucket).then(parse)
   )
 );

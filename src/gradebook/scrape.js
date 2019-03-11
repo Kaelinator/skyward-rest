@@ -7,13 +7,13 @@ const body = ({ encses, sessionId }, course, bucket) => {
   + `&sessionid=${sessionId}&encses=${encses}`;
 };
 
-module.exports = (axios, parse, skywardURL) => (auth, course, bucket) => {
-  if (!axios || !parse || !skywardURL) throw new TypeError('axios, parse, & skywardURL are required');
+module.exports = (axios, skywardURL) => (auth, course, bucket) => {
+  if (!axios || !skywardURL) throw new TypeError('axios & skywardURL are required');
 
   return axios({
     url: '/httploader.p?file=sfgradebook001.w',
     baseURL: skywardURL,
     method: 'post',
     data: body(auth, course, bucket),
-  }).then(parse);
+  });
 };
