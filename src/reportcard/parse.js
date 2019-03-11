@@ -7,5 +7,5 @@ module.exports = ({ data }) => {
 
   const results = /\$\.extend\(\(sff\.getValue\('sf_gridObjects'\) \|\| {}\), ([\s\S]*)\)\);/g.exec(script);
 
-  return (results === null) ? {} : eval(`0 || ${results[1]}`); // yikes
+  return (results === null) ? {} : eval(`0 || ${results[1]}`); // eslint doesn't like `eval`, and neither do I
 };

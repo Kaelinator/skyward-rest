@@ -5,13 +5,13 @@ const body = ({ user, pass }) => {
   return `requestAction=eel&codeType=tryLogin&login=${user}&password=${pass}`;
 };
 
-module.exports = (axios, decode, skywardURL) => (credentials) => {
-  if (!axios || !decode || !skywardURL) throw new TypeError('axios, decode, & skywardURL are required');
+module.exports = (axios, skywardURL) => (credentials) => {
+  if (!axios || !skywardURL) throw new TypeError('axios & skywardURL are required');
 
   return axios({
     url: '/skyporthttp.w',
     baseURL: skywardURL,
     method: 'post',
     data: body(credentials),
-  }).then(decode);
+  });
 };
