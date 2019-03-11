@@ -1,7 +1,6 @@
 const test = require('tape');
 const Promise = require('bluebird');
 const fs = require('fs');
-const parse = require('./parse');
 
 Promise.promisifyAll(fs);
 
@@ -22,6 +21,7 @@ test('reportcard scrape', (t) => {
     .then(result => t.equal(result, 'dwd=1&wfaacl=2&encses=3', 'auth data placed correctly'));
 });
 
+const parse = require('./parse');
 
 test('reportcard parse', (t) => {
   t.plan(2);
