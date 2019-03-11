@@ -17,30 +17,18 @@ test('gradebook scrape', (t) => {
 
   const auth = { encses: 1, sessionId: 2 };
 
-  const params = 'action=viewGradeInfoDialog&fromHttp=yes&ishttp=true'
+  const expectedBody = 'action=viewGradeInfoDialog&fromHttp=yes&ishttp=true'
     + '&corNumId=98112&bucket=TERM 1&sessionid=2&encses=1';
 
   scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1')
-    .then(result => t.equal(result, params, 'auth & request data placed correctly'));
+    .then(result => t.equal(result, expectedBody, 'auth & request data placed correctly'));
 });
 
-// const parse = require('./parse');
+const parse = require('./parse');
+const payload = require('./data/slim.data');
 
 test('gradebook parse', (t) => {
   t.plan(1);
-  t.equal(1, 1);
 
-  // fs.readFileAsync('./src/gradebook/data/slim.data.xml')
-  //   .then(res => res.toString())
-  //   .then((data) => {
-  //     t.deepEqual(parse({ data }), { x: 'marks the spot' });
-  //   })
-  //   .catch(t.fail);
-
-  // fs.readFileAsync('./src/gradebook/data/full.data.html')
-  //   .then(res => res.toString())
-  //   .then((data) => {
-  //     t.doesNotThrow(() => parse({ data }));
-  //   })
-  //   .catch(t.fail);
+  t.deepEqual(parse({ data: payload.PR1.input }), payload.PR1.output);
 });
