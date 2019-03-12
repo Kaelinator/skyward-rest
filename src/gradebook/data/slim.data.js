@@ -8,6 +8,7 @@ module.exports = {
       period: 2,
       grade: 48,
       score: 98.00,
+      breakdown: null,
     },
   },
   S1: {
@@ -19,6 +20,17 @@ module.exports = {
       period: 2,
       grade: 95,
       score: 95.40,
+      breakdown: [
+        {
+          lit: 'SE1', grade: 90, score: 90.00, percent: 10,
+        },
+        {
+          lit: 'Q2', grade: 95, score: 95.00, percent: 45,
+        },
+        {
+          lit: 'Q1', grade: 97, score: 96.50, percent: 45,
+        },
+      ],
     },
   },
 };

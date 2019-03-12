@@ -16,12 +16,12 @@ const parseHeader = ($) => {
 };
 
 const parseSummary = ($) => {
-  const resultRow = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr');
+  const resultRow = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr').first();
 
-  const gradeText = $(resultRow.first().html(), 'tr').first().text();
+  const gradeText = resultRow.find('td').first().text();
   const grade = extractNumber(/(\d+)/, gradeText);
 
-  const scoreText = $(resultRow.first().html(), 'tr').last().text();
+  const scoreText = resultRow.find('td').last().text();
   const score = extractNumber(/(\d+\.\d+)/, scoreText);
 
   const litText = $('table[id*="grid_stuTermSummaryGrid"]>thead>tr>th').first().text();
@@ -33,11 +33,43 @@ const parseSummary = ($) => {
   return { grade, score, lit: { name, begin, end } };
 };
 
+const parseBreakdown = ($) => {
+  const breakdown = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr.even');
+
+  if (breakdown.first().text() === '') return null; // no header
+
+  return breakdown
+    .filter(i => i !== 0) // first is the header
+    .map((i, tr) => {
+      const scoreText = $(tr).find('td').last().text();
+      const score = extractNumber(/(\d+\.\d+)/, scoreText);
+
+      const rest = $(tr).find('td').first();
+
+      const litText = rest.find('div').first().text();
+      const lit = /(\w*)/.exec(litText)[1];
+
+      const gradeText = rest.find('div').first().next().text();
+      const grade = extractNumber(/(\d+)/, gradeText);
+
+      const percentText = rest.find('div').last().text();
+      const percent = extractNumber(/\((\d+)%\s\w+\s\w+\s\d\s\w+\)/, percentText);
+
+      return {
+        lit,
+        grade,
+        score,
+        percent,
+      };
+    }).toArray();
+};
+
 module.exports = ({ data }) => {
   const $ = cheerio.load(data);
 
   const { course, instructor, period } = parseHeader($);
   const { lit, grade, score } = parseSummary($);
+  const breakdown = parseBreakdown($);
 
   return {
     course,
@@ -46,5 +78,6 @@ module.exports = ({ data }) => {
     lit,
     grade,
     score,
+    breakdown,
   };
 };
