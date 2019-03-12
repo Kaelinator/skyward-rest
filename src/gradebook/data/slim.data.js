@@ -9,6 +9,35 @@ module.exports = {
       grade: 48,
       score: 98.00,
       breakdown: null,
+      gradebook: [
+        {
+          category: 'Major',
+          weight: 70.00,
+          grade: 100,
+          score: 100.00,
+          earned: { points: 100, total: 100 },
+          assignments: [
+            {
+              title: 'TEST I Dimensional Analysis', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '09/06/18', meta: [],
+            },
+          ],
+        },
+        {
+          category: 'Minor',
+          weight: 30.00,
+          grade: 92,
+          score: 92.00,
+          earned: { points: 184, total: 200 },
+          assignments: [
+            {
+              title: 'Dimensional Analysis 2.1 RED', grade: 89, score: 89.00, earned: { points: 89, total: 100 }, date: '08/31/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
+            },
+            {
+              title: 'Dimensional Analysis 2', grade: 95, score: 95.00, earned: { points: 95, total: 100 }, date: '08/28/18', meta: [],
+            },
+          ],
+        },
+      ],
     },
   },
   S1: {
@@ -22,13 +51,13 @@ module.exports = {
       score: 95.40,
       breakdown: [
         {
-          lit: 'SE1', grade: 90, score: 90.00, percent: 10,
+          lit: 'SE1', grade: 90, score: 90.00, weight: 10,
         },
         {
-          lit: 'Q2', grade: 95, score: 95.00, percent: 45,
+          lit: 'Q2', grade: 95, score: 95.00, weight: 45,
         },
         {
-          lit: 'Q1', grade: 97, score: 96.50, percent: 45,
+          lit: 'Q1', grade: 97, score: 96.50, weight: 45,
         },
       ],
     },

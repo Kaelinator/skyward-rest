@@ -38,30 +38,106 @@ const parseBreakdown = ($) => {
 
   if (breakdown.first().text() === '') return null; // no header
 
+  const extractData = (i, tr) => {
+    const scoreText = $(tr).find('td').last().text();
+    const score = extractNumber(/(\d+\.\d+)/, scoreText);
+
+    const rest = $(tr).find('td').first();
+
+    const litText = rest.find('div').first().text();
+    const lit = /(\w*)/.exec(litText)[1];
+
+    const gradeText = rest.find('div').slice(1, 2).text();
+    const grade = extractNumber(/(\d+)/, gradeText);
+
+    const weightText = rest.find('div').last().text();
+    const weight = extractNumber(/\((\d+)%\s\w+\s\w+\s\d\s\w+\)/, weightText);
+
+    return {
+      lit,
+      grade,
+      score,
+      weight,
+    };
+  };
+
   return breakdown
-    .filter(i => i !== 0) // first is the header
-    .map((i, tr) => {
-      const scoreText = $(tr).find('td').last().text();
-      const score = extractNumber(/(\d+\.\d+)/, scoreText);
+    .filter(i => i !== 0) // skip the header
+    .map(extractData)
+    .toArray();
+};
 
-      const rest = $(tr).find('td').first();
+const parseGradebook = ($) => {
+  const extractData = (i, tr) => {
+    const gradeText = $(tr).find('td').slice(2, 3).text();
+    const grade = extractNumber(/(\d+)/, gradeText);
 
-      const litText = rest.find('div').first().text();
-      const lit = /(\w*)/.exec(litText)[1];
+    const scoreText = $(tr).find('td').slice(3, 4).text();
+    const score = extractNumber(/(\d+.\d+)/, scoreText);
 
-      const gradeText = rest.find('div').first().next().text();
-      const grade = extractNumber(/(\d+)/, gradeText);
+    const earnedText = $(tr).find('td').slice(4, 5).text();
+    const earnedResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(earnedText);
+    const earned = {
+      points: earnedResults ? Number(earnedResults[1]) : null,
+      total: earnedResults ? Number(earnedResults[2]) : null,
+    };
 
-      const percentText = rest.find('div').last().text();
-      const percent = extractNumber(/\((\d+)%\s\w+\s\w+\s\d\s\w+\)/, percentText);
+    /* if it's a category */
+    if ($(tr).hasClass('sf_Section cat')) {
+      const label = $(tr).find('td').slice(1, 2);
 
+      const category = label.clone().children().remove().end()
+        .text()
+        .trim();
+
+      const weightText = label.find('span').text();
+      const weight = extractNumber(/\w+\s\w+\s(\d+.\d+)%/, weightText);
       return {
-        lit,
+        category,
+        weight,
         grade,
         score,
-        percent,
+        earned,
+        assignments: [],
       };
-    }).toArray();
+    }
+
+    const date = $(tr).find('td').first().text();
+    const title = $(tr).find('td').slice(1, 2).text();
+
+    const missingText = $(tr).find('td').slice(5, 6).text();
+    const noCountText = $(tr).find('td').slice(6, 7).text();
+    const absentText = $(tr).find('td').slice(7, 8).text();
+    const meta = [
+      { type: 'missing', note: missingText },
+      { type: 'noCount', note: noCountText },
+      { type: 'absent', note: absentText },
+    ].filter(({ note }) => !note.match(/^\s+$/));
+
+    return {
+      title,
+      grade,
+      score,
+      earned,
+      date,
+      meta,
+    };
+  };
+
+  const nest = (gradebook, data) => {
+    if (data.category) return gradebook.concat(data);
+    const previousCategory = gradebook.slice(-1)[0];
+    const assignments = previousCategory.assignments.concat(data);
+    return [
+      ...gradebook.slice(0, -1),
+      Object.assign(previousCategory, { assignments }),
+    ];
+  };
+
+  return $('table[id*="grid_stuAssignmentSummaryGrid"]>tbody>tr')
+    .map(extractData)
+    .toArray()
+    .reduce(nest, []);
 };
 
 module.exports = ({ data }) => {
@@ -70,14 +146,16 @@ module.exports = ({ data }) => {
   const { course, instructor, period } = parseHeader($);
   const { lit, grade, score } = parseSummary($);
   const breakdown = parseBreakdown($);
+  const gradebook = parseGradebook($);
 
   return {
     course,
     instructor,
-    period,
     lit,
+    period,
     grade,
     score,
     breakdown,
+    gradebook,
   };
 };
