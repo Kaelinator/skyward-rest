@@ -1,4 +1,4 @@
-const test = require('tape');
+const test = require('ava');
 const Promise = require('bluebird');
 const fs = require('fs');
 
@@ -7,35 +7,44 @@ Promise.promisifyAll(fs);
 const scrape = require('./scrape');
 
 test('reportcard scrape', (t) => {
-  t.plan(3);
-  t.throws(() => scrape()(), /TypeError/, 'given no arguments');
+  t.plan(2);
+  t.throws(() => scrape()(), /axios & skywardURL/, 'given no arguments');
 
   const mockAxios = ({ data }) => Promise.resolve(data);
 
-  t.throws(() => scrape(mockAxios, 'fakeUrl')({}), /TypeError/, 'given no auth data');
+  t.throws(() => scrape(mockAxios, 'fakeUrl')({}), /dwd, wfaacl, & encses/, 'given no auth data');
+});
+
+test('data placed correctly', (t) => {
+  t.plan(1);
 
   const auth = { dwd: 1, wfaacl: 2, encses: 3 };
+  const mockAxios = ({ data }) => Promise.resolve(data);
 
-  scrape(mockAxios, 'fakeUrl')(auth)
-    .then(result => t.equal(result, 'dwd=1&wfaacl=2&encses=3', 'auth data placed correctly'));
+  return scrape(mockAxios, 'fakeUrl')(auth)
+    .then(result => t.is(result, 'dwd=1&wfaacl=2&encses=3', 'auth data placed correctly'));
 });
 
 const parse = require('./parse');
 
 test('reportcard parse', (t) => {
-  t.plan(2);
+  t.plan(1);
 
-  fs.readFileAsync('./src/reportcard/data/slim.data.html')
+  return fs.readFileAsync('./src/reportcard/data/full.data.html')
+    .then(res => res.toString())
+    .then((data) => {
+      t.notThrows(() => parse({ data }));
+    })
+    .catch(t.fail);
+});
+
+test('reportcard parse2', (t) => {
+  t.plan(1);
+
+  return fs.readFileAsync('./src/reportcard/data/slim.data.html')
     .then(res => res.toString())
     .then((data) => {
       t.deepEqual(parse({ data }), { x: 'marks the spot' });
-    })
-    .catch(t.fail);
-
-  fs.readFileAsync('./src/reportcard/data/full.data.html')
-    .then(res => res.toString())
-    .then((data) => {
-      t.doesNotThrow(() => parse({ data }));
     })
     .catch(t.fail);
 });

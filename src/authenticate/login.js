@@ -1,6 +1,6 @@
 
 const body = ({ user, pass }) => {
-  if (!user || !pass) throw new TypeError('user and pass are required');
+  if (!user || !pass) throw new TypeError('user & pass are required');
 
   return `requestAction=eel&codeType=tryLogin&login=${user}&password=${pass}`;
 };
