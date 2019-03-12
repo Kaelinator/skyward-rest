@@ -6,18 +6,16 @@ Promise.promisifyAll(fs);
 
 const scrape = require('./scrape');
 
-test('gradebook scrape', (t) => {
+test('throws when given malformed arguments', (t) => {
   t.plan(2);
 
   t.throws(() => scrape()(), /axios & skywardURL/, 'given no arguments');
-
-  const mockAxios = ({ data }) => Promise.resolve(data);
-
-  t.throws(() => scrape(mockAxios, 'fakeUrl')({}), /encses & sessionId/, 'given no auth data');
+  t.throws(() => scrape(x => x, 'fakeUrl')({}), /encses & sessionId/, 'given no auth data');
 });
 
-test('data placed correctly', (t) => {
+test('auth & request data placed correctly', (t) => {
   t.plan(1);
+
   const auth = { encses: 1, sessionId: 2 };
   const mockAxios = ({ data }) => Promise.resolve(data);
 
@@ -25,7 +23,7 @@ test('data placed correctly', (t) => {
     + '&corNumId=98112&bucket=TERM 1&sessionid=2&encses=1';
 
   return scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1')
-    .then(result => t.is(result, expectedBody, 'auth & request data placed correctly'));
+    .then(result => t.is(result, expectedBody));
 });
 
 const parse = require('./parse');
@@ -43,10 +41,10 @@ const testParsePlan = t => ({ input, output }) => {
   t.deepEqual(result.breakdown, output.breakdown, 'breakdown value matches');
 };
 
-test('gradebook parse', (t) => {
-  // const testParse = testParsePlan(t);
-  t.pass();
-  // testParse(payload.PR1);
-  // testParse(payload.S1);
-  // t.end();
+test.cb('parse matches example data', (t) => {
+  const testParse = testParsePlan(t);
+
+  testParse(payload.PR1);
+  testParse(payload.S1);
+  t.end();
 });
