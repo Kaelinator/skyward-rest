@@ -14,9 +14,9 @@ const scrape = skywardURL => (user, pass, course, bucket) => authenticate(skywar
   .then(gradebook(skywardURL))
   .then(sc => sc(course, bucket));
 
-scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS, 97678, 'TERM 1')
-  .then(data => JSON.stringify(data, null, 2))
-  .then(json => fs.writeFileAsync('./tmp/output2.json', json))
+scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS, 97678, 'SEM 1')
+  // .then(data => JSON.stringify(data, null, 2))
+  .then(xml => fs.writeFileAsync('./tmp/output3.xml', xml))
   .then(() => console.log('done'))
   .catch(console.err);
 

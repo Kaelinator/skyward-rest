@@ -16,13 +16,13 @@ const parseHeader = ($) => {
 };
 
 const parseSummary = ($) => {
-  const resultRow = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr>td');
+  const resultRow = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr');
 
-  const gradeText = resultRow.first().text();
+  const gradeText = $(resultRow.first().html(), 'tr').first().text();
   const grade = extractNumber(/(\d+)/, gradeText);
 
-  const scoreText = resultRow.last().text();
-  const score = extractNumber(/(\d+)/, scoreText);
+  const scoreText = $(resultRow.first().html(), 'tr').last().text();
+  const score = extractNumber(/(\d+\.\d+)/, scoreText);
 
   const litText = $('table[id*="grid_stuTermSummaryGrid"]>thead>tr>th').first().text();
   const litResults = /(\w+)\s\w+\((\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}\/\d{2}\/\d{4})\)/.exec(litText);
