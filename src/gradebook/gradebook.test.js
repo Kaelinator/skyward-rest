@@ -39,6 +39,7 @@ const testParsePlan = t => ({ input, output }) => {
   t.deepEqual(result.grade, output.grade, 'grade value matches');
   t.deepEqual(result.score, output.score, 'score value matches');
   t.deepEqual(result.breakdown, output.breakdown, 'breakdown value matches');
+  t.deepEqual(result.gradebook, output.gradebook, 'breakdown value matches');
 };
 
 test.cb('parse matches example data', (t) => {

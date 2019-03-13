@@ -68,7 +68,57 @@ const parseBreakdown = ($) => {
 };
 
 const parseGradebook = ($) => {
-  const extractData = (i, tr) => {
+  const parseCategoryHeader = (parentTr) => {
+    const category = $(parentTr).text().trim();
+    const breakdown = [
+      $(parentTr).next(),
+      $(parentTr).next().next(),
+    ].map((tr) => {
+      const label = $(tr).find('td').slice(1, 2);
+      const lit = label.find('span').first().text();
+
+      const datesText = label.find('span').first().attr('tooltip');
+      const datesResults = /(\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}\/\d{2}\/\d{4})/.exec(datesText);
+      const begin = datesResults ? datesResults[1] : '';
+      const end = datesResults ? datesResults[2] : '';
+      const dates = { begin, end };
+
+      const weightText = label.find('span').last().text();
+      const weight = extractNumber(/\(\w+\s\w+\s(\d+\.\d+)%\)/, weightText);
+
+      const gradeText = $(tr).find('td').slice(2, 3).text();
+      const grade = extractNumber(/(\d+)/, gradeText);
+
+      const scoreText = $(tr).find('td').slice(3, 4).text();
+      const score = extractNumber(/(\d+.\d+)/, scoreText);
+
+      const earnedText = $(tr).find('td').slice(4, 5).text();
+      const points = extractNumber(/(\d+)\s\w+\s\w+\s\d+/, earnedText);
+      const total = extractNumber(/\d+\s\w+\s\w+\s(\d+)/, earnedText);
+      const earned = { points, total };
+
+      return {
+        lit,
+        weight,
+        dates,
+        grade,
+        score,
+        earned,
+      };
+    });
+
+    return {
+      category,
+      breakdown,
+      assignments: [],
+    };
+  };
+
+  const extractData = (_, tr) => {
+    const isCategory = $(tr).hasClass('sf_Section cat');
+    if (isCategory && $(tr).prev().hasClass('sf_Section cat')) return null;
+    if (isCategory && $(tr).next().hasClass('sf_Section cat')) return parseCategoryHeader(tr);
+
     const gradeText = $(tr).find('td').slice(2, 3).text();
     const grade = extractNumber(/(\d+)/, gradeText);
 
@@ -77,13 +127,12 @@ const parseGradebook = ($) => {
 
     const earnedText = $(tr).find('td').slice(4, 5).text();
     const earnedResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(earnedText);
-    const earned = {
-      points: earnedResults ? Number(earnedResults[1]) : null,
-      total: earnedResults ? Number(earnedResults[2]) : null,
-    };
+    const points = Number(earnedResults[1]) || earnedResults[1];
+    const total = Number(earnedResults[2]) || earnedResults[2];
+    const earned = { points, total };
 
     /* if it's a category */
-    if ($(tr).hasClass('sf_Section cat')) {
+    if (isCategory) {
       const label = $(tr).find('td').slice(1, 2);
 
       const category = label.clone().children().remove().end()
@@ -125,9 +174,12 @@ const parseGradebook = ($) => {
   };
 
   const nest = (gradebook, data) => {
+    if (data === null) return gradebook;
     if (data.category) return gradebook.concat(data);
+
     const previousCategory = gradebook.slice(-1)[0];
     const assignments = previousCategory.assignments.concat(data);
+
     return [
       ...gradebook.slice(0, -1),
       Object.assign(previousCategory, { assignments }),
