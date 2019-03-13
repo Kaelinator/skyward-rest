@@ -17,13 +17,12 @@ test('auth & request data placed correctly', (t) => {
   t.plan(1);
 
   const auth = { encses: 1, sessionId: 2 };
-  const mockAxios = ({ data }) => Promise.resolve(data);
+  const mockAxios = ({ data }) => data;
 
   const expectedBody = 'action=viewGradeInfoDialog&fromHttp=yes&ishttp=true'
     + '&corNumId=98112&bucket=TERM 1&sessionid=2&encses=1';
 
-  return scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1')
-    .then(result => t.is(result, expectedBody));
+  t.is(scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1'), expectedBody);
 });
 
 const parse = require('./parse');

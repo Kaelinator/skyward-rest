@@ -17,10 +17,9 @@ test('auth data placed correctly', (t) => {
   t.plan(1);
 
   const auth = { dwd: 1, wfaacl: 2, encses: 3 };
-  const mockAxios = ({ data }) => Promise.resolve(data);
+  const mockAxios = ({ data }) => data;
 
-  return scrape(mockAxios, 'fakeUrl')(auth)
-    .then(result => t.is(result, 'dwd=1&wfaacl=2&encses=3'));
+  t.is(scrape(mockAxios, 'fakeUrl')(auth), 'dwd=1&wfaacl=2&encses=3');
 });
 
 const parse = require('./parse');

@@ -1,5 +1,4 @@
 const test = require('ava');
-const Promise = require('bluebird');
 
 const login = require('./login');
 
@@ -14,12 +13,9 @@ test('credentials placed correctly', (t) => {
   t.plan(1);
 
   const mockCredentials = { user: 1, pass: 2 };
-  const mockAxios = ({ data }) => Promise.resolve(data);
+  const mockAxios = ({ data }) => data;
 
-  return login(mockAxios, 'fakeUrl')(mockCredentials)
-    .then((res) => {
-      t.is(res, 'requestAction=eel&codeType=tryLogin&login=1&password=2');
-    });
+  t.is(login(mockAxios, 'fakeUrl')(mockCredentials), 'requestAction=eel&codeType=tryLogin&login=1&password=2');
 });
 
 const decode = require('./decode');
