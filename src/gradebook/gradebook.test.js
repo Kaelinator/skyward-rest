@@ -29,23 +29,24 @@ test('auth & request data placed correctly', (t) => {
 const parse = require('./parse');
 const payload = require('./data/slim.data');
 
-const testParsePlan = t => ({ input, output }) => {
+const testParsePlan = t => ({ input, output }, message) => {
   const result = parse({ data: input });
 
-  t.deepEqual(result.course, output.course, 'course value matches');
-  t.deepEqual(result.instructor, output.instructor, 'instructor value matches');
-  t.deepEqual(result.lit, output.lit, 'lit value matches');
-  t.deepEqual(result.period, output.period, 'period value matches');
-  t.deepEqual(result.grade, output.grade, 'grade value matches');
-  t.deepEqual(result.score, output.score, 'score value matches');
-  t.deepEqual(result.breakdown, output.breakdown, 'breakdown value matches');
-  t.deepEqual(result.gradebook, output.gradebook, 'breakdown value matches');
+  t.deepEqual(result.course, output.course, `course value matches ${message}`);
+  t.deepEqual(result.instructor, output.instructor, `instructor value matches ${message}`);
+  t.deepEqual(result.lit, output.lit, `lit value matches ${message}`);
+  t.deepEqual(result.period, output.period, `period value matches ${message}`);
+  t.deepEqual(result.grade, output.grade, `grade value matches ${message}`);
+  t.deepEqual(result.score, output.score, `score value matches ${message}`);
+  t.deepEqual(result.breakdown, output.breakdown, `breakdown value matches ${message}`);
+  t.deepEqual(result.gradebook, output.gradebook, `breakdown value matches ${message}`);
 };
 
 test.cb('parse matches example data', (t) => {
   const testParse = testParsePlan(t);
 
-  testParse(payload.PR1);
-  testParse(payload.S1);
+  testParse(payload.simplePR, 'with a simple Progress Report');
+  testParse(payload.simpleSem, 'with a simple Semester');
+  testParse(payload.emptyMajorPR, 'with a Progress Report missing major grades');
   t.end();
 });

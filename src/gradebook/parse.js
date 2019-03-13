@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 
 const extractNumber = (regexp, text) => {
   const result = regexp.exec(text);
-  return (result === null) ? -1 : Number(result[1]);
+  return result ? Number(result[1]) : result;
 };
 
 const parseHeader = ($) => {
@@ -68,7 +68,7 @@ const parseBreakdown = ($) => {
 };
 
 const parseGradebook = ($) => {
-  const parseCategoryHeader = (parentTr) => {
+  const parseSemesterCategory = (parentTr) => {
     const category = $(parentTr).text().trim();
     const breakdown = [
       $(parentTr).next(),
@@ -115,9 +115,11 @@ const parseGradebook = ($) => {
   };
 
   const extractData = (_, tr) => {
+    if ($(tr).find('td').length <= 1) return null;
+
     const isCategory = $(tr).hasClass('sf_Section cat');
     if (isCategory && $(tr).prev().hasClass('sf_Section cat')) return null;
-    if (isCategory && $(tr).next().hasClass('sf_Section cat')) return parseCategoryHeader(tr);
+    if (isCategory && $(tr).next().hasClass('sf_Section cat')) return parseSemesterCategory(tr);
 
     const gradeText = $(tr).find('td').slice(2, 3).text();
     const grade = extractNumber(/(\d+)/, gradeText);
@@ -127,8 +129,8 @@ const parseGradebook = ($) => {
 
     const pointsText = $(tr).find('td').slice(4, 5).text();
     const pointsResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(pointsText);
-    const earned = Number(pointsResults[1]) || pointsResults[1];
-    const total = Number(pointsResults[2]) || pointsResults[2];
+    const earned = pointsResults ? Number(pointsResults[1]) || pointsResults[1] : null;
+    const total = pointsResults ? Number(pointsResults[2]) || pointsResults[2] : null;
     const points = { earned, total };
 
     /* if it's a category */
@@ -140,10 +142,13 @@ const parseGradebook = ($) => {
         .trim();
 
       const weightText = label.find('span').text();
-      const weight = extractNumber(/\w+\s\w+\s(\d+.\d+)%/, weightText);
+      const weight = extractNumber(/\D+(\d+.\d+)%/, weightText);
+      const adjustedWeight = extractNumber(/\D+\d+.\d+\D+(\d+.\d+)%/, weightText);
+
       return {
         category,
         weight,
+        adjustedWeight,
         grade,
         score,
         points,
