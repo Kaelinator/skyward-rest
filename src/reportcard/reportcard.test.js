@@ -24,31 +24,16 @@ test('auth data placed correctly', (t) => {
 });
 
 const parse = require('./parse');
+const payload = require('./data/payload.data');
 
-test('parse finds x', (t) => {
-  t.plan(1);
+test('parse extracts javascript', (t) => {
+  t.plan(2);
 
-  return fs.readFileAsync('./src/reportcard/data/slim.data.html')
-    .then(res => res.toString())
-    .then((data) => {
-      t.deepEqual(parse({ data }), { x: 'marks the spot' });
-    })
-    .catch(t.fail);
-});
-
-test('parse executes without throwing', (t) => {
-  t.plan(1);
-
-  return fs.readFileAsync('./src/reportcard/data/full.data.html')
-    .then(res => res.toString())
-    .then((data) => {
-      t.notThrows(() => parse({ data }));
-    })
-    .catch(t.fail);
+  t.deepEqual(parse({ data: payload.slimHtml }), { x: 'marks the spot' });
+  t.notThrows(() => parse({ data: payload.fullHtml }), 'parse executes without throwing');
 });
 
 const condense = require('./condense');
-const payload = require('./data/payload.data');
 
 test('condense handles malformed input', (t) => {
   t.plan(3);
