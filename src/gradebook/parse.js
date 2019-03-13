@@ -10,7 +10,7 @@ const parseHeader = ($) => {
   const instructor = $('h2.gb_heading>span>a').last().text(); // e.g. 'Jay'
 
   const periodText = $('h2.gb_heading>span>span').text(); // e.g. '(Period #)'
-  const period = extractNumber(/\(\w+\s(\d+)\)/, periodText);
+  const period = extractNumber(/\(\D+(\d+)\)/, periodText);
 
   return { course, instructor, period };
 };
@@ -29,10 +29,10 @@ const parseSummary = ($) => {
   const gradeAdjustment = extractNumber(/(\d+\.\d+)/, gradeAdjustmentText);
 
   const litText = $('table[id*="grid_stuTermSummaryGrid"]>thead>tr>th').first().text();
-  const litResults = /(\w+)\s\w+\((\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}\/\d{2}\/\d{4})\)/.exec(litText);
-  const name = litResults ? litResults[1] : '';
-  const begin = litResults ? litResults[2] : '';
-  const end = litResults ? litResults[3] : '';
+  const litResults = /(\w+)\D+\((\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}\/\d{2}\/\d{4})\)/.exec(litText);
+  const name = litResults && litResults[1];
+  const begin = litResults && litResults[2];
+  const end = litResults && litResults[3];
   const lit = { name, begin, end };
 
   return {
@@ -58,7 +58,7 @@ const parseBreakdown = ($) => {
     const grade = extractNumber(/(\d+)/, gradeText);
 
     const weightText = rest.find('div').last().text();
-    const weight = extractNumber(/\((\d+)%\s\w+\s\w+\s\d\s\w+\)/, weightText);
+    const weight = extractNumber(/\((\d+)%\D+\d\D+\)/, weightText);
 
     return {
       lit,
@@ -91,7 +91,7 @@ const parseGradebook = ($) => {
       const dates = { begin, end };
 
       const weightText = label.find('span').last().text();
-      const weight = extractNumber(/\(\w+\s\w+\s(\d+\.\d+)%\)/, weightText);
+      const weight = extractNumber(/\(\D+(\d+\.\d+)%\)/, weightText);
 
       const gradeText = $(tr).find('td').slice(2, 3).text();
       const grade = extractNumber(/(\d+)/, gradeText);
@@ -100,8 +100,8 @@ const parseGradebook = ($) => {
       const score = extractNumber(/(\d+.\d+)/, scoreText);
 
       const pointsText = $(tr).find('td').slice(4, 5).text();
-      const earned = extractNumber(/(\d+)\s\w+\s\w+\s\d+/, pointsText);
-      const total = extractNumber(/\d+\s\w+\s\w+\s(\d+)/, pointsText);
+      const earned = extractNumber(/(\d+)\D+\d+/, pointsText);
+      const total = extractNumber(/\d+\D+(\d+)/, pointsText);
       const points = { earned, total };
 
       return {
@@ -135,7 +135,7 @@ const parseGradebook = ($) => {
     const score = extractNumber(/(\d+.\d+)/, scoreText);
 
     const pointsText = $(tr).find('td').slice(4, 5).text();
-    const pointsResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(pointsText);
+    const pointsResults = /(\d+|\*)\D+(\d+|\*)/.exec(pointsText);
     const earned = pointsResults ? Number(pointsResults[1]) || pointsResults[1] : null;
     const total = pointsResults ? Number(pointsResults[2]) || pointsResults[2] : null;
     const points = { earned, total };
