@@ -37,6 +37,7 @@ const testParsePlan = t => ({ input, output }, message) => {
   t.deepEqual(result.lit, output.lit, `lit value matches ${message}`);
   t.deepEqual(result.period, output.period, `period value matches ${message}`);
   t.deepEqual(result.grade, output.grade, `grade value matches ${message}`);
+  t.deepEqual(result.gradeAdjustment, output.gradeAdjustment, `gradeAdjustment value matches ${message}`);
   t.deepEqual(result.score, output.score, `score value matches ${message}`);
   t.deepEqual(result.breakdown, output.breakdown, `breakdown value matches ${message}`);
   t.deepEqual(result.gradebook, output.gradebook, `breakdown value matches ${message}`);
@@ -46,7 +47,10 @@ test.cb('parse matches example data', (t) => {
   const testParse = testParsePlan(t);
 
   testParse(payload.simplePR, 'with a simple Progress Report');
+  testParse(payload.simpleQ, 'with a simple Quarter');
   testParse(payload.simpleSem, 'with a simple Semester');
+
   testParse(payload.emptyMajorPR, 'with a Progress Report missing major grades');
+  testParse(payload.gradeAdjustedQ, 'with a Quarter that has grade adjustment');
   t.end();
 });

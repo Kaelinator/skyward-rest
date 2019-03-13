@@ -24,13 +24,20 @@ const parseSummary = ($) => {
   const scoreText = resultRow.find('td').last().text();
   const score = extractNumber(/(\d+\.\d+)/, scoreText);
 
+  const gradeAdjustmentText = $('table[id*="grid_stuTermSummaryGrid"]>tbody>tr').slice(1, 2).find('td').last()
+    .text();
+  const gradeAdjustment = extractNumber(/(\d+\.\d+)/, gradeAdjustmentText);
+
   const litText = $('table[id*="grid_stuTermSummaryGrid"]>thead>tr>th').first().text();
   const litResults = /(\w+)\s\w+\((\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}\/\d{2}\/\d{4})\)/.exec(litText);
   const name = litResults ? litResults[1] : '';
   const begin = litResults ? litResults[2] : '';
   const end = litResults ? litResults[3] : '';
+  const lit = { name, begin, end };
 
-  return { grade, score, lit: { name, begin, end } };
+  return {
+    grade, score, lit, gradeAdjustment,
+  };
 };
 
 const parseBreakdown = ($) => {
@@ -201,7 +208,9 @@ module.exports = ({ data }) => {
   const $ = cheerio.load(data);
 
   const { course, instructor, period } = parseHeader($);
-  const { lit, grade, score } = parseSummary($);
+  const {
+    lit, grade, score, gradeAdjustment,
+  } = parseSummary($);
   const breakdown = parseBreakdown($);
   const gradebook = parseGradebook($);
 
@@ -211,6 +220,7 @@ module.exports = ({ data }) => {
     lit,
     period,
     grade,
+    gradeAdjustment,
     score,
     breakdown,
     gradebook,
