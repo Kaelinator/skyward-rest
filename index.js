@@ -1,21 +1,23 @@
-const scrape  = require('./src/lib/scrape')
-const Promise = require('bluebird')
-const fs      = require('fs')
-require('dotenv').config()
 
-const save = data => {
-  const contents = (data) => `module.exports = ${JSON.stringify(data, null, 2)}`
-	const path = (f) => `tmp/scrape_${f}.data.js`
+const fs = require('fs');
+const Promise = require('bluebird');
 
-	fs.writeFile(path(Date.now()), contents(data), err => { if (err) throw err })
-}
+Promise.promisifyAll(fs);
 
-scrape('https://skyward.kleinisd.net/scripts/wsisa.dll/WService=wsEAplus/seplog01.w')(process.env.SKYUSER, process.env.SKYPASS)
-	.then(skyward => {
-		
-		skyward.scrapeLegacy()
-			.then(save)
-			.then(() => skyward.close())
-	})
+require('dotenv').config();
 
-module.exports = scrape
+const reportcard = require('./src/reportcard');
+const authenticate = require('./src/authenticate');
+const gradebook = require('./src/gradebook');
+
+const scrape = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
+  .then(auth => Promise.resolve(reportcard(skywardURL)(auth))
+    .map(({ course, scores }) => (
+      Promise.resolve(scores)
+        .map(({ bucket }) => gradebook(skywardURL)(auth)(course, bucket)))));
+
+scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
+  .then(data => JSON.stringify(data, null, 2))
+  .then(xml => fs.writeFileAsync('./tmp/output.json', xml))
+  .then(() => console.log('done'))
+  .catch(console.err);

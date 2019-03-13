@@ -1,18 +1,16 @@
 # Skyward REST
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/SkySecureX/skyward-rest)
 [![Build Status](https://travis-ci.org/Kaelinator/skyward-rest.svg?branch=master)](https://travis-ci.org/Kaelinator/skyward-rest)
 
 ## Installation
 
 ```sh
-npm install https://github.com/FruitsNVeggies/skyward-rest
+npm install https://github.com/Kaelinator/skyward-rest
 ```
 
 ## Summary
 
 ### Unofficial Rest API for Skyward
- - Uses Puppeteer
  - Queries data for the fastest output
  - Breaks down and parses complex responses
  - Handles edge cases with ease
@@ -28,13 +26,9 @@ const skyward = require('skyward-rest')
 const url = 'https://skyward.coolisd.net/...'
 
 skyward(url)(userId, password)
-  .then(student => {
-    student.scrape('S1')
-      .then(console.log) // => [Object Array]
-      .then(() => student.close())
-  })
+  .then(console.log) // => [Array of Sizeable Objects]
 ```
-
+<!-- 
 **`.scrape()` multiple times within the same session**
 
 ```javascript
@@ -83,4 +77,4 @@ student.scrape('PR4')
 
 #### .close()
 
-Closes the scraper and exits Puppeteer. This function is imperative in order to save computer resources.
+Closes the scraper and exits Puppeteer. This function is imperative in order to save computer resources. -->

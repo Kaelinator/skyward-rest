@@ -4,25 +4,24 @@
   "description": "Unofficial Rest API for Skyward",
   "main": "index.js",
   "dependencies": {
-    "bluebird": "^3.5.1",
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.2.0",
-    "puppeteer": "^0.13.0",
-    "selenium-webdriver": "^3.6.0",
-    "xmlhttprequest": "^1.8.0"
+    "eslint": "^5.15.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
+    "ava": "^1.3.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "jest": "^24.1.0"
+    "eslint-plugin-import": "^2.16.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "ava",
+    "watch": "npx ava --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FruitsNVeggies/skyward-rest.git"
+    "url": "git+https://github.com/Kaelinator/skyward-rest.git"
   },
   "keywords": [
     "Skyward",
@@ -36,7 +35,7 @@
   "author": "Kael Kirk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FruitsNVeggies/skyward-rest/issues"
+    "url": "https://github.com/Kaelinator/skyward-rest/issues"
   },
-  "homepage": "https://github.com/FruitsNVeggies/skyward-rest#readme"
+  "homepage": "https://github.com/Kaelinator/skyward-rest#readme"
 }
