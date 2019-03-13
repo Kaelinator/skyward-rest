@@ -92,10 +92,10 @@ const parseGradebook = ($) => {
       const scoreText = $(tr).find('td').slice(3, 4).text();
       const score = extractNumber(/(\d+.\d+)/, scoreText);
 
-      const earnedText = $(tr).find('td').slice(4, 5).text();
-      const points = extractNumber(/(\d+)\s\w+\s\w+\s\d+/, earnedText);
-      const total = extractNumber(/\d+\s\w+\s\w+\s(\d+)/, earnedText);
-      const earned = { points, total };
+      const pointsText = $(tr).find('td').slice(4, 5).text();
+      const earned = extractNumber(/(\d+)\s\w+\s\w+\s\d+/, pointsText);
+      const total = extractNumber(/\d+\s\w+\s\w+\s(\d+)/, pointsText);
+      const points = { earned, total };
 
       return {
         lit,
@@ -103,7 +103,7 @@ const parseGradebook = ($) => {
         dates,
         grade,
         score,
-        earned,
+        points,
       };
     });
 
@@ -125,11 +125,11 @@ const parseGradebook = ($) => {
     const scoreText = $(tr).find('td').slice(3, 4).text();
     const score = extractNumber(/(\d+.\d+)/, scoreText);
 
-    const earnedText = $(tr).find('td').slice(4, 5).text();
-    const earnedResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(earnedText);
-    const points = Number(earnedResults[1]) || earnedResults[1];
-    const total = Number(earnedResults[2]) || earnedResults[2];
-    const earned = { points, total };
+    const pointsText = $(tr).find('td').slice(4, 5).text();
+    const pointsResults = /(\d+|\*)\s\w+\s\w+\s(\d+|\*)/.exec(pointsText);
+    const earned = Number(pointsResults[1]) || pointsResults[1];
+    const total = Number(pointsResults[2]) || pointsResults[2];
+    const points = { earned, total };
 
     /* if it's a category */
     if (isCategory) {
@@ -146,7 +146,7 @@ const parseGradebook = ($) => {
         weight,
         grade,
         score,
-        earned,
+        points,
         assignments: [],
       };
     }
@@ -167,7 +167,7 @@ const parseGradebook = ($) => {
       title,
       grade,
       score,
-      earned,
+      points,
       date,
       meta,
     };

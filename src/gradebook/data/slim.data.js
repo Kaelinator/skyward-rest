@@ -14,10 +14,10 @@ module.exports = {
           weight: 70.00,
           grade: 100,
           score: 100.00,
-          earned: { points: 100, total: 100 },
+          points: { earned: 100, total: 100 },
           assignments: [
             {
-              title: 'TEST I Dimensional Analysis', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '09/06/18', meta: [],
+              title: 'TEST I Dimensional Analysis', grade: 100, score: 100.00, points: { earned: 100, total: 100 }, date: '09/06/18', meta: [],
             },
           ],
         },
@@ -26,13 +26,13 @@ module.exports = {
           weight: 30.00,
           grade: 92,
           score: 92.00,
-          earned: { points: 184, total: 200 },
+          points: { earned: 184, total: 200 },
           assignments: [
             {
-              title: 'Dimensional Analysis 2.1 RED', grade: 89, score: 89.00, earned: { points: 89, total: 100 }, date: '08/31/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
+              title: 'Dimensional Analysis 2.1 RED', grade: 89, score: 89.00, points: { earned: 89, total: 100 }, date: '08/31/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
             },
             {
-              title: 'Dimensional Analysis 2', grade: 95, score: 95.00, earned: { points: 95, total: 100 }, date: '08/28/18', meta: [],
+              title: 'Dimensional Analysis 2', grade: 95, score: 95.00, points: { earned: 95, total: 100 }, date: '08/28/18', meta: [],
             },
           ],
         },
@@ -64,30 +64,30 @@ module.exports = {
           category: 'Major',
           breakdown: [
             {
-              lit: 'Q2', weight: 70.00, grade: 75, score: 74.67, earned: { points: 224, total: 300 }, dates: { begin: '10/22/2018', end: '12/20/2018' },
+              lit: 'Q2', weight: 70.00, grade: 75, score: 74.67, points: { earned: 224, total: 300 }, dates: { begin: '10/22/2018', end: '12/20/2018' },
             },
             {
-              lit: 'Q1', weight: 70.00, grade: 87, score: 87.33, earned: { points: 262, total: 300 }, dates: { begin: '08/20/2018', end: '10/19/2018' },
+              lit: 'Q1', weight: 70.00, grade: 87, score: 87.33, points: { earned: 262, total: 300 }, dates: { begin: '08/20/2018', end: '10/19/2018' },
             },
           ],
           assignments: [
             {
-              title: 'Judiciary TEST', grade: 91, score: 91.00, earned: { points: 91, total: 100 }, date: '12/12/18', meta: [],
+              title: 'Judiciary TEST', grade: 91, score: 91.00, points: { earned: 91, total: 100 }, date: '12/12/18', meta: [],
             },
             {
-              title: 'PREZ TEST', grade: 71, score: 71.00, earned: { points: 71, total: 100 }, date: '11/27/18', meta: [],
+              title: 'PREZ TEST', grade: 71, score: 71.00, points: { earned: 71, total: 100 }, date: '11/27/18', meta: [],
             },
             {
-              title: 'CONGRESS TEST', grade: 62, score: 62.00, earned: { points: 62, total: 100 }, date: '11/14/18', meta: [],
+              title: 'CONGRESS TEST', grade: 62, score: 62.00, points: { earned: 62, total: 100 }, date: '11/14/18', meta: [],
             },
             {
-              title: 'Opinion Poll', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '10/12/18', meta: [],
+              title: 'Opinion Poll', grade: 100, score: 100.00, points: { earned: 100, total: 100 }, date: '10/12/18', meta: [],
             },
             {
-              title: 'Federalism TEST', grade: 84, score: 84.00, earned: { points: 84, total: 100 }, date: '09/18/18', meta: [],
+              title: 'Federalism TEST', grade: 84, score: 84.00, points: { earned: 84, total: 100 }, date: '09/18/18', meta: [],
             },
             {
-              title: 'Unit 1 Test', grade: 78, score: 78.00, earned: { points: 78, total: 100 }, date: '09/06/18', meta: [{ type: 'absent', note: 'Teacher-recorded tardy ' }],
+              title: 'Unit 1 Test', grade: 78, score: 78.00, points: { earned: 78, total: 100 }, date: '09/06/18', meta: [{ type: 'absent', note: 'Teacher-recorded tardy ' }],
             },
           ],
         },
@@ -95,39 +95,39 @@ module.exports = {
           category: 'Minor',
           breakdown: [
             {
-              lit: 'Q2', weight: 30.00, grade: 92, score: 92.00, earned: { points: 1012, total: 1100 }, dates: { begin: '10/22/2018', end: '12/20/2018' },
+              lit: 'Q2', weight: 30.00, grade: 92, score: 92.00, points: { earned: 1012, total: 1100 }, dates: { begin: '10/22/2018', end: '12/20/2018' },
             },
             {
-              lit: 'Q1', weight: 30.00, grade: 96, score: 95.67, earned: { points: 287, total: 300 }, dates: { begin: '08/20/2018', end: '10/19/2018' },
+              lit: 'Q1', weight: 30.00, grade: 96, score: 95.67, points: { earned: 287, total: 300 }, dates: { begin: '08/20/2018', end: '10/19/2018' },
             },
           ],
           assignments: [
             {
-              title: 'Case Notecards', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '12/04/18', meta: [],
+              title: 'Case Notecards', grade: 100, score: 100.00, points: { earned: 100, total: 100 }, date: '12/04/18', meta: [],
             },
             {
-              title: 'Standard Deviants Judicial Qui', grade: 87, score: 87.00, earned: { points: 87, total: 100 }, date: '11/30/18', meta: [],
+              title: 'Standard Deviants Judicial Qui', grade: 87, score: 87.00, points: { earned: 87, total: 100 }, date: '11/30/18', meta: [],
             },
             {
-              title: 'Letter to your Congressman', grade: 100, score: 100.00, earned: { points: 200, total: 200 }, date: '11/13/18', meta: [],
+              title: 'Letter to your Congressman', grade: 100, score: 100.00, points: { earned: 200, total: 200 }, date: '11/13/18', meta: [],
             },
             {
-              title: 'Congress FRQ', grade: 75, score: 75.00, earned: { points: 225, total: 300 }, date: '11/07/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
+              title: 'Congress FRQ', grade: 75, score: 75.00, points: { earned: 225, total: 300 }, date: '11/07/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
             },
             {
-              title: 'Write a Bill', grade: 100, score: 100.00, earned: { points: 200, total: 200 }, date: '11/02/18', meta: [],
+              title: 'Write a Bill', grade: 100, score: 100.00, points: { earned: 200, total: 200 }, date: '11/02/18', meta: [],
             },
             {
-              title: 'Hamilton Group', grade: 100, score: 100.00, earned: { points: 200, total: 200 }, date: '11/01/18', meta: [],
+              title: 'Hamilton Group', grade: 100, score: 100.00, points: { earned: 200, total: 200 }, date: '11/01/18', meta: [],
             },
             {
-              title: 'Political Ideology online test', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '10/10/18', meta: [],
+              title: 'Political Ideology online test', grade: 100, score: 100.00, points: { earned: 100, total: 100 }, date: '10/10/18', meta: [],
             },
             {
-              title: 'B of R Quiz', grade: 87, score: 87.00, earned: { points: 87, total: 100 }, date: '08/31/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
+              title: 'B of R Quiz', grade: 87, score: 87.00, points: { earned: 87, total: 100 }, date: '08/31/18', meta: [{ type: 'absent', note: 'Parent Note received within 5d' }],
             },
             {
-              title: 'Bill of Rights Sign Language', grade: 100, score: 100.00, earned: { points: 100, total: 100 }, date: '08/20/18', meta: [],
+              title: 'Bill of Rights Sign Language', grade: 100, score: 100.00, points: { earned: 100, total: 100 }, date: '08/20/18', meta: [],
             },
           ],
         },
