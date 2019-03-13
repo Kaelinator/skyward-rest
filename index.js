@@ -1,21 +1,23 @@
-const scrape  = require('./lib/scrape.js')
-const fs      = require('fs')
-require('dotenv').config()
 
-const save = data => {
+const fs = require('fs');
+const Promise = require('bluebird');
 
-	const contents = (data) => `module.exports = ${JSON.stringify(data)}`
-	const path = (f) => `tests/tmp/scrape_${f}.data.js`
+Promise.promisifyAll(fs);
 
-	fs.writeFile(path(Date.now()), contents(data), err => { if (err) throw err })
-}
+require('dotenv').config();
 
-scrape(process.env.SKYURL)(process.env.SKYUSER, process.env.SKYPASS)
-	.then(skyward => {
-		
-		skyward.scrape('S1')
-			.then(save)
-			.then(() => skyward.close())
-	})
+const reportcard = require('./src/reportcard');
+const authenticate = require('./src/authenticate');
+const gradebook = require('./src/gradebook');
 
-module.exports = scrape
+const scrape = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
+  .then(auth => Promise.resolve(reportcard(skywardURL)(auth))
+    .map(({ course, scores }) => (
+      Promise.resolve(scores)
+        .map(({ bucket }) => gradebook(skywardURL)(auth)(course, bucket)))));
+
+scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
+  .then(data => JSON.stringify(data, null, 2))
+  .then(xml => fs.writeFileAsync('./tmp/output.json', xml))
+  .then(() => console.log('done'))
+  .catch(console.err);
