@@ -1,11 +1,11 @@
 const $ = require('cheerio');
 
-// const extractNumber = (regexp, text) => {
-//   const result = regexp.exec(text);
-//   return result ? Number(result[1]) : result;
-// };
+const extractNumber = (regexp, text) => {
+  const result = regexp.exec(text);
+  return result ? Number(result[1]) || result[1] : result;
+};
 
-const parseHeader = ({ h }) => {
+const parseHeader = ({ c: [{ h }] }) => {
   const headerText = $(h).text();
   const headerResults = /(\d+)\D+(\d+)\D+(\d+)/.exec(headerText);
 
@@ -15,7 +15,30 @@ const parseHeader = ({ h }) => {
 
   const grade = headerResults ? Number(headerResults[3]) : null;
 
-  return { dates, grade };
+  return { dates, grade, courses: [] };
+};
+
+const parseLits = ({ c }) => c.slice(2, -1)
+  .map(({ h }) => $(h).text())
+  .map(lit => ({ lit }));
+
+const parseCourses = ({ c }) => {
+  const course = $(c[0].h).text();
+  const scores = c.slice(2, -1).map(({ h }) => ({ grade: extractNumber(/(.*)/, $(h).text()) }));
+  return { course, scores };
+};
+
+const merge = (obj, rowData) => {
+  if (rowData.courses) return rowData; // set base object
+  if (rowData.scores) return Object.assign(obj, { courses: obj.courses.concat(rowData) }); // append score
+
+  const courses = obj.courses
+    .map(({ scores, ...rest }) => ({
+      ...rest,
+      scores: scores.map(({ grade }, i) => ({ grade, ...rowData[i] })),
+    }));
+
+  return Object.assign(obj, { courses });
 };
 
 module.exports = (data) => {
@@ -32,6 +55,10 @@ module.exports = (data) => {
 
   return targetPairs
     .map(pair => pair[1])
-    .map(({ tb: { r } }) => r[0].c[0])
-    .map(parseHeader);
+    .map(({ tb: { r } }) => r)
+    .map(([header, lits, ...courses]) => [
+      parseHeader(header),
+      ...courses.map(parseCourses),
+      parseLits(lits),
+    ].reduce(merge));
 };
