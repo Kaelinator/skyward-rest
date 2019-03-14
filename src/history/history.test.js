@@ -26,4 +26,7 @@ test('reportcard condense extracts meaningful data', (t) => {
   const payloadTest = ({ input, output }, message) => t.deepEqual(condense(input), output, message);
 
   payloadTest(payload.slimSingle, 'matches with minimal single year, single course data');
+  payloadTest(payload.slimMultiCourse, 'matches with minimal single year, multi course data');
+  payloadTest(payload.slimMultiYear, 'matches with minimal multi year, single course data');
+  payloadTest(payload.fullConjoinedYear, 'matches with full multi conjoined years with multi course data');
 });
