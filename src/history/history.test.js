@@ -19,3 +19,11 @@ const payload = require('./data/payload.data');
 test('reportcard parse extracts javascript', (t) => {
   t.deepEqual(parse({ data: payload.slimHtml }), { x: 'marks the spot' });
 });
+
+const condense = require('./condense');
+
+test('reportcard condense extracts meaningful data', (t) => {
+  const payloadTest = ({ input, output }, message) => t.deepEqual(condense(input), output, message);
+
+  payloadTest(payload.slimSingle, 'matches with minimal single year, single course data');
+});
