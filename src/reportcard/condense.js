@@ -1,6 +1,5 @@
 const $ = require('cheerio');
 
-const keyMatch = /stuGradesGrid_\d{5}_\d{3}/;
 const isClassHeader = ({ c }) => c !== undefined && c.length > 0 && c[0].cId !== undefined;
 
 const isScoreElement = ({ h }) => h !== undefined && $(h).find('a').length;
@@ -21,7 +20,7 @@ const merge = (parent, child) => ({
 
 module.exports = (data) => {
   const values = Object.entries(data);
-  const targetPair = values.find(([key]) => keyMatch.test(key));
+  const targetPair = values.find(([key]) => /stuGradesGrid_\d{5}_\d{3}/.test(key));
 
   if (targetPair === undefined) throw new Error('stuGradesGrid not found');
 

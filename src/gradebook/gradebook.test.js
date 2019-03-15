@@ -7,27 +7,22 @@ Promise.promisifyAll(fs);
 const scrape = require('./scrape');
 
 test('throws when given malformed arguments', (t) => {
-  t.plan(2);
-
   t.throws(() => scrape()(), /axios & skywardURL/, 'given no arguments');
   t.throws(() => scrape(x => x, 'fakeUrl')({}), /encses & sessionId/, 'given no auth data');
 });
 
 test('auth & request data placed correctly', (t) => {
-  t.plan(1);
-
   const auth = { encses: 1, sessionId: 2 };
-  const mockAxios = ({ data }) => Promise.resolve(data);
+  const mockAxios = ({ data }) => data;
 
   const expectedBody = 'action=viewGradeInfoDialog&fromHttp=yes&ishttp=true'
     + '&corNumId=98112&bucket=TERM 1&sessionid=2&encses=1';
 
-  return scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1')
-    .then(result => t.is(result, expectedBody));
+  t.is(scrape(mockAxios, 'fakeUrl')(auth, 98112, 'TERM 1'), expectedBody);
 });
 
 const parse = require('./parse');
-const payload = require('./data/slim.data');
+const payload = require('./data/payload.data');
 
 const testParsePlan = t => ({ input, output }, message) => {
   const result = parse({ data: input });
@@ -43,7 +38,7 @@ const testParsePlan = t => ({ input, output }, message) => {
   t.deepEqual(result.gradebook, output.gradebook, `breakdown value matches ${message}`);
 };
 
-test.cb('parse matches example data', (t) => {
+test('parse matches example data', (t) => {
   const testParse = testParsePlan(t);
 
   testParse(payload.simplePR, 'with a simple Progress Report');
@@ -52,5 +47,4 @@ test.cb('parse matches example data', (t) => {
 
   testParse(payload.emptyMajorPR, 'with a Progress Report missing major grades');
   testParse(payload.gradeAdjustedQ, 'with a Quarter that has grade adjustment');
-  t.end();
 });
