@@ -1,7 +1,8 @@
 const $ = require('cheerio');
+const chunk = require('./chunk');
 
-const parseHeader = ({ c: [{ h }] }) => {
-  const headerText = $(h).text();
+const parseHeader = ({ c }) => {
+  const headerText = $(c[0].h).text();
   const headerResults = /(\d+)\D+(\d+)\D+(\d+)/.exec(headerText);
 
   const begin = headerResults && headerResults[1];
@@ -53,9 +54,12 @@ module.exports = (data) => {
   // const { r } = targetData.tb;
   // if (r === undefined) return [];
 
+  const isHeader = row => /(\d+)\D+(\d+)\D+(\d+)/.test($(row.c[0].h).find('div').first().text());
+
   return targetPairs
     .map(pair => pair[1])
     .map(({ tb: { r } }) => r)
+    .reduce(chunk(isHeader), [])
     .map(([header, lits, ...courses]) => [
       parseHeader(header),
       ...courses.map(parseCourses),

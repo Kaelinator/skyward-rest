@@ -286,6 +286,90 @@ module.exports = {
       }, // end 2016 - 2017 school year
     },
   },
+  chunkConjoinedYear: {
+    output: [
+      [
+        {
+          c: [
+            { h: '<td><div>2016 - 2017, Grade 10</div></td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+        {
+          c: [
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+      ],
+      [ // new year, new array
+        {
+          c: [
+            { h: '<td><div>2015 - 2016, Grade 10</div></td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+        {
+          c: [
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+      ],
+    ],
+    input: [
+      [
+        {
+          c: [
+            { h: '<td><div>2016 - 2017, Grade 10</div></td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+        {
+          c: [
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+        {
+          c: [
+            { h: '<td><div>2015 - 2016, Grade 10</div></td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+        {
+          c: [
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+            { h: '<td>&nbsp;</td>' },
+          ],
+        },
+      ],
+    ],
+  },
   fullConjoinedYear: {
     output: [
       {
