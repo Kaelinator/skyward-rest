@@ -32,7 +32,7 @@ const merge = (obj, row) => {
 
   /* place 'lit' information into every score */
   const courses = obj.courses
-    .map(course => Object.assign(course.rest, {
+    .map(course => Object.assign(course, {
       scores: course.scores
         .map(({ grade }, i) => Object.assign({ grade }, row[i]))
         .filter(({ grade }) => !!grade), // get rid of null elements
