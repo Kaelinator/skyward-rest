@@ -28,18 +28,17 @@ const parseCourses = ({ c }) => {
 
 const merge = (obj, row) => {
   if (row.courses) return row; // set base object
-  if (row.scores) return { ...obj, courses: obj.courses.concat(row) }; // append score
+  if (row.scores) return Object.assign(obj, { courses: obj.courses.concat(row) }); // append score
 
   /* place 'lit' information into every score */
   const courses = obj.courses
-    .map(({ scores, ...rest }) => ({
-      ...rest,
+    .map(({ scores, ...rest }) => Object.assign(rest, {
       scores: scores
-        .map(({ grade }, i) => ({ grade, ...row[i] }))
+        .map(({ grade }, i) => Object.assign({ grade }, row[i]))
         .filter(({ grade }) => !!grade), // get rid of null elements
     }));
 
-  return { ...obj, courses };
+  return Object.assign(obj, { courses });
 };
 
 module.exports = (data) => {
