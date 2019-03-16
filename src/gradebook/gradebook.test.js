@@ -47,4 +47,5 @@ test('parse matches example data', (t) => {
 
   testParse(payload.emptyMajorPR, 'with a Progress Report missing major grades');
   testParse(payload.gradeAdjustedQ, 'with a Quarter that has grade adjustment');
+  testParse(payload.emptyScores, 'with a Quarter that has empty scores');
 });
