@@ -2,8 +2,14 @@ const cheerio = require('cheerio');
 
 const extractNumber = (regexp, text) => {
   const result = regexp.exec(text);
-  const n = result ? Number(result[1]) : result;
+  const n = result && Number(result[1]);
   return (n === 0) ? 0 : n || null;
+};
+
+const extractPoints = (pointsText) => {
+  const earned = extractNumber(/([\d*.]+)\D+[\d*.]+/, pointsText);
+  const total = extractNumber(/[\d*.]+\D+([\d*.]+)/, pointsText);
+  return { earned, total };
 };
 
 const parseHeader = ($) => {
@@ -101,9 +107,7 @@ const parseGradebook = ($) => {
       const score = extractNumber(/(\d+.\d+)/, scoreText);
 
       const pointsText = $(tr).find('td').slice(4, 5).text();
-      const earned = extractNumber(/(\d+)\D+\d+/, pointsText);
-      const total = extractNumber(/\d+\D+(\d+)/, pointsText);
-      const points = { earned, total };
+      const points = extractPoints(pointsText);
 
       return {
         lit,
@@ -136,9 +140,7 @@ const parseGradebook = ($) => {
     const score = extractNumber(/(\d+.\d+)/, scoreText);
 
     const pointsText = $(tr).find('td').slice(4, 5).text();
-    const earned = extractNumber(/(\d+|\*)\D+/, pointsText);
-    const total = extractNumber(/\D+(\d+|\*)/, pointsText);
-    const points = { earned, total };
+    const points = extractPoints(pointsText);
 
     /* if it's a category */
     if (isCategory) {
@@ -149,8 +151,8 @@ const parseGradebook = ($) => {
         .trim();
 
       const weightText = label.find('span').text();
-      const weight = extractNumber(/\D+(\d+.\d+)%/, weightText);
-      const adjustedWeight = extractNumber(/\D+\d+.\d+\D+(\d+.\d+)%/, weightText);
+      const weight = extractNumber(/\D+([\d*.]+)%/, weightText);
+      const adjustedWeight = extractNumber(/\D+[\d*.]+\D+(\d+\.\d+)%/, weightText);
 
       return {
         category,
