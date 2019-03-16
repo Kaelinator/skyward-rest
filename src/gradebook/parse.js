@@ -2,7 +2,8 @@ const cheerio = require('cheerio');
 
 const extractNumber = (regexp, text) => {
   const result = regexp.exec(text);
-  return result ? Number(result[1]) : result;
+  const n = result ? Number(result[1]) : result;
+  return (n === 0) ? 0 : n || null;
 };
 
 const parseHeader = ($) => {
@@ -135,9 +136,8 @@ const parseGradebook = ($) => {
     const score = extractNumber(/(\d+.\d+)/, scoreText);
 
     const pointsText = $(tr).find('td').slice(4, 5).text();
-    const pointsResults = /(\d+|\*)\D+(\d+|\*)/.exec(pointsText);
-    const earned = pointsResults ? Number(pointsResults[1]) || pointsResults[1] : null;
-    const total = pointsResults ? Number(pointsResults[2]) || pointsResults[2] : null;
+    const earned = extractNumber(/(\d+|\*)\D+/, pointsText);
+    const total = extractNumber(/\D+(\d+|\*)/, pointsText);
     const points = { earned, total };
 
     /* if it's a category */
