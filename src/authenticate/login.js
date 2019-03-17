@@ -9,7 +9,7 @@ module.exports = (axios, skywardURL) => (credentials) => {
   if (!axios || !skywardURL) throw new TypeError('axios & skywardURL are required');
 
   return axios({
-    url: '/skyporthttp.w',
+    url: '../skyporthttp.w',
     baseURL: skywardURL,
     method: 'post',
     data: body(credentials),

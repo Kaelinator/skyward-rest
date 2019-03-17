@@ -25,3 +25,7 @@ scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
   .then(xml => fs.writeFileAsync('./tmp/output.json', xml))
   .then(() => console.log('done'))
   .catch(console.err);
+
+// module.exports = {
+
+// }

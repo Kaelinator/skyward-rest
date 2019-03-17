@@ -11,7 +11,7 @@ module.exports = (axios, skywardURL) => (auth, course, bucket) => {
   if (!axios || !skywardURL) throw new TypeError('axios & skywardURL are required');
 
   return axios({
-    url: '/httploader.p?file=sfgradebook001.w',
+    url: '../httploader.p?file=sfgradebook001.w',
     baseURL: skywardURL,
     method: 'post',
     data: body(auth, course, bucket),
