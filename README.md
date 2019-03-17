@@ -2,12 +2,6 @@
 
 [![Build Status](https://travis-ci.org/Kaelinator/skyward-rest.svg?branch=master)](https://travis-ci.org/Kaelinator/skyward-rest)
 
-## Installation
-
-```sh
-npm install https://github.com/Kaelinator/skyward-rest
-```
-
 ## Summary
 
 **Unofficial Rest API for Skyward**
