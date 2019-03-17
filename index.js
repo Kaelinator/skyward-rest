@@ -1,31 +1,35 @@
-const fs = require('fs');
-const Promise = require('bluebird');
-
-Promise.promisifyAll(fs);
-
-require('dotenv').config();
 
 const reportcard = require('./src/reportcard');
 const gradebook = require('./src/gradebook');
 const authenticate = require('./src/authenticate');
 const history = require('./src/history');
 
-const scrape = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
-  .then(auth => Promise.resolve(reportcard(skywardURL)(auth))
-    .map(({ course, scores }) => (
-      Promise.resolve(scores)
-        .filter(({ bucket }) => bucket === 'TERM 9')
-        .map(({ bucket }) => gradebook(skywardURL)(auth)(course, bucket)))));
+module.exports = skywardURL => ({
 
-// const scrapeHistory = skywardURL => (user, pass) => authenticate(skywardURL)(user, pass)
-//   .then(history(skywardURL));
+  scrapeReport: (user, pass) => (
+    authenticate(skywardURL)(user, pass)
+      .then(auth => reportcard.fetch(skywardURL)(auth))
+      .then((response) => ({
+        raw: response.data,
+        data: reportcard.getData(response)
+      }))
+  ),
 
-scrape(process.env.SKY_URL)(process.env.SKY_USER, process.env.SKY_PASS)
-  .then(data => JSON.stringify(data, null, 2))
-  .then(xml => fs.writeFileAsync('./tmp/output.json', xml))
-  .then(() => console.log('done'))
-  .catch(console.err);
+  scrapeGradebook: (user, pass, { course, bucket }) => (
+    authenticate(skywardURL)(user, pass)
+      .then(auth => gradebook.fetch(skywardURL)(auth)(course, bucket))
+      .then((response) => ({
+        raw: response.data,
+        data: gradebook.getData(response)
+      }))
+  ),
 
-// module.exports = {
-
-// }
+  scrapeHistory: (user, pass) => (
+    authenticate(skywardURL)(user, pass)
+      .then(history.fetch(skywardURL))
+      .then((response) => ({
+        raw: response.data,
+        data: history.getData(response)
+      }))
+  )
+})

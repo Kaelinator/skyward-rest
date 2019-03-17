@@ -25,8 +25,16 @@ const skyward = require('skyward-rest')
 
 const url = 'https://skyward.coolisd.net/...'
 
-skyward(url)(userId, password)
-  .then(console.log) // => [Array of Sizeable Objects]
+const coolisd = skyward(url)
+
+coolisd.scrapeReport(user, pass)
+  .then(console.log) // => [Arrays of Objects]
+
+coolisd.scrapeGradebook(user, pass, { course, bucket })
+  .then(console.log) // => Huge Object
+
+coolisd.scrapeHistory(user, pass)
+  .then(console.log) // => [Sizeable Objects]
 ```
 <!-- 
 **`.scrape()` multiple times within the same session**
