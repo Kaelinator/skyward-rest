@@ -31,7 +31,7 @@ const scraper = skyward(url) // the scraper!
 **Scrape a user's course gradebook**
 
 ```javascript
-scraper.scrapeGradebook(user, pass, { course, bucket })
+scraper.scrapeGradebook(user, pass, options)
   .then(console.log) // => Large Object
 ```
 
@@ -172,7 +172,7 @@ An object that contains information and assignments about a course at a specific
       ],
       assignments: [ // assignments which make up this category
         {
-          title: 'Strength and Conditioning',
+          title: 'TEST IV',
           score: 100, // score recieved (null if no score)
           grade: 100, // score after rounding (null if no grade)
           points: {
