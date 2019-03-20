@@ -39,7 +39,7 @@ scraper.scrapeHistory(user, pass)
 ## API
 
 - [skyward( loginURL )](#skyward-loginurl-)
-- [.scrapeReportcard( user, pass )](#scrapereportcard-user-pass-)
+- [.scrapeReport( user, pass )](#scrapereport-user-pass-)
   - [Report](#report)
 - [.scrapeGradebook( user, pass, options )](#scrapegradebook-user-pass-options-)
   - [Gradebook](#gradebook)
@@ -59,7 +59,7 @@ skyward('https://skyward.cooldistrict.net/scripts/wsisa.dll/WService=wsEAplus/se
 // => { usable functions }
 ```
 
-### .scrapeReportcard( user, pass )
+### .scrapeReport( user, pass )
 
 Fetches and parses a student's report card, returning a promise which results in an object that's `data` property is an array of [`Report`](#report)s. Note that this differs from `.scrapeGradebook` in that individual assignments in a course are not scraped, only the bucket's score.
 
@@ -67,7 +67,7 @@ Fetches and parses a student's report card, returning a promise which results in
 * **pass** _string_ - the password of the student
 
 ```javascript
-scraper.scrapeReportcard(user, pass)
+scraper.scrapeReport(user, pass)
   .then(({ data, raw }) => {
     console.log(data) // array of reports
     console.log(raw) // fetched html before parsing
