@@ -44,5 +44,6 @@ test('condense matches example data', (t) => {
   payloadTest(payload.slimSingleCourse, 'matches with minimal single course data');
   payloadTest(payload.fullSingleCourse, 'matches with full single course data');
   payloadTest(payload.slimMultiCourse, 'matches with slim multi course data');
+  payloadTest(payload.emptyMultiCourse, 'removes null with empty multi course data');
   payloadTest(payload.fullMultiCourse, 'matches with full multi course data');
 });

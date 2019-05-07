@@ -3,6 +3,9 @@ const $ = require('cheerio');
 const isClassHeader = ({ c }) => c !== undefined && c.length > 0 && c[0].cId !== undefined;
 
 const isScoreElement = ({ h }) => h !== undefined && $(h).find('a').length;
+
+const isEmpty = data => data.course !== undefined;
+
 const getData = ({ h }) => {
   const element = $(h).find('a')[0];
 
@@ -34,5 +37,6 @@ module.exports = (data) => {
     .filter(isClassHeader)
     .map(({ c }) => c.filter(isScoreElement)
       .map(getData)
-      .reduce(merge, { scores: [] }));
+      .reduce(merge, { scores: [] }))
+    .filter(isEmpty);
 };

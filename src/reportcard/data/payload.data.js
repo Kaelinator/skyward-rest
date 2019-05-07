@@ -70,6 +70,16 @@ module.exports = {
       }, // end row 3
     ]),
   },
+  emptyMultiCourse: {
+    output: [
+      // used to return { scores: [] }, which is bad!
+    ],
+    input: wrap([
+      {
+        c: [{ cId: 'iNjanvAdwlldkbiy', h: '<td scope="row" class="cCl cMwS">iNjanvAdwlldkbiy</td>' }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td  class='pB gW_96865_004_all'></td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }, { h: "<td class='uB gW_96865_004_all' tooltip='This grade was not used for this class'>&nbsp;</td>" }],
+      },
+    ]),
+  },
   fullMultiCourse: {
     output: [
       { course: 97791, scores: [{ bucket: 'TERM 1', score: 100 }, { bucket: 'TERM 2', score: 100 }, { bucket: 'TERM 3', score: 100 }, { bucket: 'TERM 6', score: 100 }, { bucket: 'SEM 1', score: 100 }, { bucket: 'TERM 7', score: 100 }, { bucket: 'TERM 8', score: 100 }, { bucket: 'TERM 9', score: 100 }] },
